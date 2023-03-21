@@ -8,11 +8,10 @@
 </head>
 <body>
 <div id="Container">
-    <center><h1>Cuadro "K"  GRADO "1°"</h1><center>
+    <center><h1>Cuadro "K"  GRADO "2°"</h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
-  <a href="cuadro1A(2).php"><input class="save " type="button" value="Actualizar" ></a><br>
-  <input class="save " type="submit" value="Guardar" name="submit"><br>
+  <input class="save " type="button" value="Actualizar" >
   <input class="save " type="submit" value="Imprimir" name="submit"><br>
  
 </div>
@@ -20,15 +19,16 @@
     <div id="table_principal">
     <table class="table_one" >
         <tr class="celda_encabezado">
-            <td rowspan="2" class="n"><b>N°</b></td>
-            <td rowspan="2" class="col3"><b>NIE</b></td>
+            <td rowspan="2" ><b>N°</b></td>
+            <td rowspan="2" class="n"><b>NIE</b></td>
             <td rowspan="2" class="col1"><b>Nombre del estudiante</b></td>
             <td class="periodo"><b>Periodo 1</b></td>
             <td class="periodo"><b>Periodo 2</b></td>
             <td class="periodo"><b>Periodo 3</b></td>
             <td class="periodo"><b>Periodo 4</b></td>
-            <td rowspan="2" class="col2" ><b>PMF</b></td>
+            <td rowspan="2" class="col2" ><b>PI</b></td>
             <td rowspan="2" class="col2"><b>R,E1</b></td>
+            <td rowspan="2" class="col2"><b>Avanzo</b></td>
             <td rowspan="2" class="col2"><b>R,E2</b></td>
             <td rowspan="2" class="col2"><b>P,T</b></td>
             <td rowspan="2" class="col3"><b>Resultado</b></td>    
@@ -73,15 +73,12 @@
       <?php
       $c=0;
        //variable c definida en 0
-        for($i=1;$i<=10;$i++){
+        for($i=1;$i<=30;$i++){
            
        //for para repetir las columnas hasta 30
       $c=$c+1;
       //contador
-      $A1p1="a".$c;
-      //contador con identificador para primera fila
-      $A2p1="b".$c;
-      //contador con identificador para segunda fila
+
       
             
             //inicio de definicion de columna     
@@ -139,6 +136,7 @@
             echo "<td>0</td>";
             echo "<td></td>";
             echo "<td></td>";
+            echo "<td></td>";
             echo "<td>0</td>";
             echo "<td>REPROBADO</td>";
             
@@ -157,7 +155,7 @@
 <div class="box_big">
   <div class="box_info">
    
-        <form action="" method="post">
+        <form action="info_C2.php" method="post">
         <center><h2>Ingreso de notas por periodo</h2></center>
            <center> <label>NIE: </label>
             <input type="text"  name="nie" class="nie"><br>
@@ -171,7 +169,7 @@
                 <label>Prueba Objetiva:<label>
                 <input type="text" name="PO"  class="act">
                 <label>Seleccionar Periodo:<label>
-                <select>
+                <select name="seleccion">
                     <option>Periodo 1</option>
                     <option>Periodo 2</option>
                     <option>Periodo 3</option>
@@ -185,7 +183,7 @@
     </form>
         </div> 
     <div class="box_info2">
-        <form>
+        <form action="info_C2.php" method ="post" >
         <center><h2>Ingreso Recuperacion Extaordinaria</h2></center>
        <label>Recuperacion Extaordinaria 1:</label>
        <input type="text" name="R_E1"  class="act">
