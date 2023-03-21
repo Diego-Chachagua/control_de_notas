@@ -439,3 +439,12 @@ table{
     color: white;
     margin-left: 20px;
 }
+
+.grid-layuot5{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}    
+
+.opanio{
+    margin-left: 450px;
+}
