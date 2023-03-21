@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS tbl_boletas;
 DROP TABLE IF EXISTS tbl_estu_mate;
 DROP TABLE IF EXISTS tbl_notas;
 DROP TABLE IF EXISTS tbl_pro_notas;
+DROP TABLE IF EXISTS tbl_usuario;
 
 CREATE TABLE tbl_estudiantes(
 nie VARCHAR(10) PRIMARY KEY,
@@ -27,8 +28,6 @@ CREATE TABLE tbl_profesor(
 cod_profe SMALLSERIAL PRIMARY KEY,
 nombre_profesor VARCHAR(30) NOT NULL,
 apellido_profesor VARCHAR(30) NOT NULL,
-usuario_profe VARCHAR(30) NOT NULL,
-contrasena_profe VARCHAR(15) NOT NULL,
 genero CHARACTER(1) NOT NULL
 );
 
@@ -45,15 +44,13 @@ grado CHAR(1) NOT NULL
 CREATE TABLE tbl_padres(
 dui CHARACTER(9) PRIMARY KEY,
 nombre_padre VARCHAR(30) NOT NULL,
-apellido_padre VARCHAR(30) NOT NULL,
-usuario_padres VARCHAR(30) NOT NULL,
-contrasena_padres VARCHAR(15) NOT NULL
+apellido_padre VARCHAR(30) NOT NULL
 );
 
 
 CREATE TABLE tbl_materias(
 cod_materia SMALLSERIAL PRIMARY KEY,
-nombre_materia VARCHAR(25) NOT NULL
+nombre_materia VARCHAR(90) NOT NULL
 );
 
 CREATE TABLE tbl_promedio(
@@ -121,6 +118,18 @@ nie VARCHAR(10) NOT NULL,
 cod_materia SMALLINT NOT NULL
 );
 
+CREATE TABLE tbl_usuario(
+cod_usuario SMALLSERIAL PRIMARY KEY,
+dui CHAR(9) NOT NULL,
+cod_profe SMALLINT NOT NULL,
+usuario_profe VARCHAR(30) NOT NULL,
+contrasena_profe VARCHAR(15) NOT NULL,
+usuario_padres VARCHAR(30) NOT NULL,
+contrasena_padres VARCHAR(15) NOT NULL,
+usuario_admin VARCHAR(30) NOT NULL,
+contrasena_admin VARCHAR(15) NOT NULL
+);
+
 
 ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codestudiante FOREIGN KEY(dui) REFERENCES tbl_padres(dui);
 
@@ -163,3 +172,7 @@ ALTER TABLE tbl_estu_mate ADD CONSTRAINT fk_cod_m_a FOREIGN KEY(cod_materia) REF
 ALTER TABLE tbl_boletas ADD CONSTRAINT fk_cod_boleta FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
 
 ALTER TABLE tbl_boletas ADD CONSTRAINT fk_boletas FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+
+ALTER TABLE tbl_usuario ADD CONSTRAINT fk_dui_padre FOREIGN KEY(dui) REFERENCES tbl_padres(dui);
+
+ALTER TABLE tbl_usuario ADD CONSTRAINT fk_cod_profe FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_grado);
