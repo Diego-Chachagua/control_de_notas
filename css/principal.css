@@ -422,3 +422,20 @@ table{
     color: rgb(116, 124, 124);
     transition: .5s;
 }
+
+.check1{
+    margin-left: 30px;
+}
+
+.materias1{
+    background-color: rgb(190, 190, 190);
+    height: 20px;
+    border-radius: 50px;
+    width: 1300px;
+    margin-left: 20px;
+}
+
+.materia2{
+    color: white;
+    margin-left: 20px;
+}
