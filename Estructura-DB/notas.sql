@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS tbl_estu_mate;
 DROP TABLE IF EXISTS tbl_notas;
 DROP TABLE IF EXISTS tbl_pro_notas;
 DROP TABLE IF EXISTS tbl_usuario;
+DROP TABLE IF EXISTS tbl_profe_grado;
 
 CREATE TABLE tbl_estudiantes(
 nie VARCHAR(10) PRIMARY KEY,
@@ -122,12 +123,18 @@ CREATE TABLE tbl_usuario(
 cod_usuario SMALLSERIAL PRIMARY KEY,
 dui CHAR(9) NOT NULL,
 cod_profe SMALLINT NOT NULL,
-usuario_profe VARCHAR(30) NOT NULL,
-contrasena_profe VARCHAR(15) NOT NULL,
-usuario_padres VARCHAR(30) NOT NULL,
-contrasena_padres VARCHAR(15) NOT NULL,
-usuario_admin VARCHAR(30) NOT NULL,
-contrasena_admin VARCHAR(15) NOT NULL
+usuario_profe VARCHAR(30),
+contrasena_profe VARCHAR(15),
+usuario_padres VARCHAR(30),
+contrasena_padres VARCHAR(15),
+usuario_admin VARCHAR(30),
+contrasena_admin VARCHAR(15)
+);
+
+CREATE TABLE tbl_profe_grado(
+    cod_p_grado SMALLSERIAL PRIMARY KEY,
+    cod_profe SMALLINT NOT NULL,
+    cod_grado SMALLINT NOT NULL
 );
 
 
@@ -175,4 +182,8 @@ ALTER TABLE tbl_boletas ADD CONSTRAINT fk_boletas FOREIGN KEY(cod_grado) REFEREN
 
 ALTER TABLE tbl_usuario ADD CONSTRAINT fk_dui_padre FOREIGN KEY(dui) REFERENCES tbl_padres(dui);
 
-ALTER TABLE tbl_usuario ADD CONSTRAINT fk_cod_profe FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_grado);
+ALTER TABLE tbl_usuario ADD CONSTRAINT fk_cod_profe FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_profe);
+
+ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_g FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+
+ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_p FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_profe);
