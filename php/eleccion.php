@@ -19,11 +19,11 @@
        <!--Formulario-->
        <div class="formulario">
             <h1 id="inicio">Elija la secci&oacute;n y grado deciado</h1>
-            <form method="post">
+            <form method="post" onsubmit="return confirmacion()">
                 <div class="username">
                     
                 </div>
-                <select class="seccion">
+                <select class="seccion" id="seccion">
                     <option disabled selected="">Selecciona una secci&oacute;n</option>
                     <option>K</option>
                     <option>O</option>
@@ -36,7 +36,7 @@
                     <option>E</option>
                     <option>B</option>
                 </select>
-                <select>
+                <select id="anio">
                     <option disabled selected="">Selecciona un a&ntilde;o</option>
                     <option>1</option>
                     <option>2</option>
@@ -50,6 +50,16 @@
                 <input type="submit" value="Cancelar">
                 <div class="Registrar"></div>
             </form>
+           
+           <script>
+  function confirmacion() {
+    var seccion = document.getElementById("seccion").value;
+    var anio = document.getElementById("anio").value;
+    
+    var mensaje = "¿Son correctos los valores seleccionados?\n\nSección: " + seccion + "\nAño: " + anio;
+    return confirm(mensaje);
+  }
+</script>
        </div>
     </body>
 </html>
