@@ -170,6 +170,7 @@
                 <input type="text" name="PO"  class="act">
                 <label>Seleccionar Periodo:<label>
                 <select name="seleccion">
+                <option></option>
                     <option>Periodo 1</option>
                     <option>Periodo 2</option>
                     <option>Periodo 3</option>
@@ -180,14 +181,17 @@
                 <input type="submit" value="Guardar" class="send">
                 <input type="reset"  value="Reiniciar" class="send">
     </center> 
-    </form>
+   
         </div> 
     <div class="box_info2">
-        <form action="info_C2.php" method ="post" >
+        
         <center><h2>Ingreso Recuperacion Extaordinaria</h2></center>
        <label>Recuperacion Extaordinaria 1:</label>
        <input type="text" name="R_E1"  class="act">
-       <br><br>
+       <br>
+       <label >Prueba Avanzo:</label>
+       <input type="text" name="avanzo"  class="act" >
+       <br>
        <label>Recuperacion Extaordinaria 2:</label>
        <input type="text" name="R_E2"  class="act">
        <center>
