@@ -182,10 +182,6 @@ ALTER TABLE tbl_estu_mate ADD CONSTRAINT fk_cod_e_t FOREIGN KEY(nie) REFERENCES 
 
 ALTER TABLE tbl_estu_mate ADD CONSTRAINT fk_cod_m_a FOREIGN KEY(cod_materia) REFERENCES tbl_materias(cod_materia);
 
-ALTER TABLE tbl_boletas ADD CONSTRAINT fk_cod_boleta FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
-
-ALTER TABLE tbl_boletas ADD CONSTRAINT fk_boletas FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
-
 ALTER TABLE tbl_usuario ADD CONSTRAINT fk_dui_padre FOREIGN KEY(dui) REFERENCES tbl_padres(dui);
 
 ALTER TABLE tbl_usuario ADD CONSTRAINT fk_cod_profe FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_profe);
