@@ -77,9 +77,7 @@ periodo CHAR(1) NOT NULL
 
 CREATE TABLE tbl_boletas(
 cod_boleta SMALLSERIAL PRIMARY KEY,
-anio CHAR(4) NOT NULL,
-cod_seccion SMALLINT NOT NULL,
-cod_grado SMALLINT NOT NULL
+anio CHAR(4) NOT NULL
 );
 
 CREATE TABLE tbl_profe_seccion(
