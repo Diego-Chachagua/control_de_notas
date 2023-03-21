@@ -392,3 +392,33 @@ table{
     font-size: 40px;
     color: white;
 }
+
+
+.tablae{
+    margin: 10%;
+    margin-left: 250px;
+}
+
+.usuario{
+    width: 250px;
+}
+
+.contra{
+    width: 300px;
+}
+
+.encargado{
+    width: 300px;
+}
+
+.botonU{
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: indigo;
+}
+
+.botonU:hover{
+    color: rgb(116, 124, 124);
+    transition: .5s;
+}
