@@ -19,6 +19,10 @@ if($select=="Periodo 1"){
 }
 
 //extraer datos de la prueba extraordinaria
+if($_POST['R_E1']){
+    $P_E1=$_POST['R_E1'];
+}
+if($_POST['R_E2']){
+    $P_E1=$_POST['R_E2'];
+}
 
-$P_E1=$_POST['R_E1'];
-$P_E1=$_POST['R_E2'];

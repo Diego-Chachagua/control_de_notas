@@ -17,9 +17,10 @@ if ($db){
 }else{
     echo "Error".pg_last_error();
 }
+return $db;
 
 }
 
-echo conexion();
+
 
 ?>

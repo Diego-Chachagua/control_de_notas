@@ -188,10 +188,10 @@
         <form>
         <center><h2>Ingreso Recuperacion Extaordinaria</h2></center>
        <label>Recuperacion Extaordinaria 1:</label>
-       <input type="text" name="R.E1"  class="act">
+       <input type="text" name="R_E1"  class="act">
        <br><br>
        <label>Recuperacion Extaordinaria 2:</label>
-       <input type="text" name="R,E2"  class="act">
+       <input type="text" name="R_E2"  class="act">
        <center>
                 <input type="submit" value="Guardar" class="send">
                 <input type="reset"  value="Reiniciar" class="send">
