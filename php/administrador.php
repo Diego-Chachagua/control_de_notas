@@ -12,7 +12,28 @@
     <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
     </head>
     <body>
-        <h2 class="inst">Escriba los datos del alumno a registrar</h2>
+        <h2 class="inst">Escriba los datos del alumno a registrar</h2><br>
+        <h3 class="materia2">Elija las materias que llevara el alumno</h3><br>
+        <div class="materias1">
+    <input type="checkbox" name="materias" id="materias" class="check1"> Lenguaje
+    <input type="checkbox" name="materias" id="materias" class="check1"> Sociales
+    <input type="checkbox" name="materias" id="materias" class="check1"> Ciencia
+    <input type="checkbox" name="materias" id="materias" class="check1"> Muci
+    <input type="checkbox" name="materias" id="materias" class="check1"> Ingles
+    <input type="checkbox" name="materias" id="materias" class="check1"> Matem&aacute;tica
+    <input type="checkbox" name="materias" id="materias" class="check1"> Inform&aacute;tica
+    <input type="checkbox" name="materias" id="materias" class="check1"> Oplv
+    <input type="checkbox" name="materias" id="materias" class="check1"> Seminario
+    <input type="checkbox" name="materias" id="materias" class="check1"> Curso de habilitaci&oacute;n para la vida
+    </div><br>
+    <div class="materias1">
+    <input type="checkbox" name="materias" id="materias" class="check1"> Evidencia actitudes favorables para la convivencia
+    <input type="checkbox" name="materias" id="materias" class="check1"> Toma desiciones de forma a&uacute;tonoma y responsable
+    <input type="checkbox" name="materias" id="materias" class="check1"> Se expresa y participa con respeto
+    </div><br>
+    <div class="materias1">
+    <center><input type="checkbox" name="materias" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
+    </div><br>
     <div class="grid-layout">
         <form>
                 <input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="Nombre del estudiante" >
