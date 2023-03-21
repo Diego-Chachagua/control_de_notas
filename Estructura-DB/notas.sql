@@ -60,7 +60,6 @@ cod_promedio SMALLSERIAL PRIMARY KEY,
 nie VARCHAR(10) NOT NULL,
 cod_materia SMALLINT NOT NULL,
 cod_boleta SMALLINT NOT NULL,
-cod_periodo SMALLINT,
 promedio_p1 VARCHAR(5),
 promedio_p2 VARCHAR(5),
 promedio_p3 VARCHAR(5),
@@ -120,8 +119,8 @@ cod_materia SMALLINT NOT NULL
 
 CREATE TABLE tbl_usuario(
 cod_usuario SMALLSERIAL PRIMARY KEY,
-dui CHAR(9) NOT NULL,
-cod_profe SMALLINT NOT NULL,
+dui CHAR(9),
+cod_profe SMALLINT,
 usuario_profe VARCHAR(30),
 contrasena_profe VARCHAR(15),
 usuario_padres VARCHAR(30),
@@ -161,8 +160,6 @@ ALTER TABLE tbl_profe_materia ADD CONSTRAINT fk_codigo_profe FOREIGN KEY(cod_pro
 ALTER TABLE tbl_promedio ADD CONSTRAINT fk_estudiante FOREIGN KEY(nie) REFERENCES tbl_estudiantes(nie);
 
 ALTER TABLE tbl_promedio ADD CONSTRAINT fk_cod_boleta FOREIGN KEY(cod_boleta) REFERENCES tbl_boletas(cod_boleta);
-
-ALTER TABLE tbl_promedio ADD CONSTRAINT fk_cod_periodo FOREIGN KEY(cod_periodo) REFERENCES tbl_periodo(cod_periodo);
 
 ALTER TABLE tbl_promedio ADD CONSTRAINT fk_codigo_mate FOREIGN KEY(cod_materia) REFERENCES tbl_materias(cod_materia);
 

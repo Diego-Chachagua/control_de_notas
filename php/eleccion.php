@@ -52,10 +52,11 @@
             </form>
            
            <script>
+            //creamos la funcion, capturamos el valor selecionado en variables con el DOM
   function confirmacion() {
     var seccion = document.getElementById("seccion").value;
     var anio = document.getElementById("anio").value;
-    
+    //creamos otra variable para capturar el mensaje que contenga las otras 2 valriables y luego lo retornamos
     var mensaje = "¿Son correctos los valores seleccionados?\n\nSección: " + seccion + "\nAño: " + anio;
     return confirm(mensaje);
   }
