@@ -119,8 +119,8 @@ cod_materia SMALLINT NOT NULL
 
 CREATE TABLE tbl_usuario(
 cod_usuario SMALLSERIAL PRIMARY KEY,
-dui CHAR(9) NOT NULL,
-cod_profe SMALLINT NOT NULL,
+dui CHAR(9),
+cod_profe SMALLINT,
 usuario_profe VARCHAR(30),
 contrasena_profe VARCHAR(15),
 usuario_padres VARCHAR(30),
