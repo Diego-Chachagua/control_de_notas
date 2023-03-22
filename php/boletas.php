@@ -114,119 +114,116 @@ table{
             <th class="colarriba2">NF</th>
             <th class="colarriba3">Resultado</th>
         </tr>
-        <tr> <?php require '../php/pdf consulta.php';
-
-            while($mostrar=pg_fetch_array($consulta)){
-             ?>
+        <tr> 
             <th class="barras1">LENGUAJE Y LITERATURA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">MATEM&Aacute;TICA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">CIENCIAS NATURALES</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">ESTUDIOS SOCIALES Y C&Iacute;VICA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">MORAL URBANIDAD Y C&Iacute;VICA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">IDIOMA EXTRANJERO</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">INFORM&Aacute;TICA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
             <th class="barras1">ORIENTACI&Oacute;N PARA LA VIDA</th>
-            <th class="barras2"><?php echo $mostrar['prom1']?></th>
-            <th class="barras2"><?php echo $mostrar['prom2']?></th>
-            <th class="barras2"><?php echo $mostrar['prom3']?></th>
-            <th class="barras2"><?php echo $mostrar['prom4']?></th>
-            <th class="barras2"><?php echo $mostrar['notainstituto']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
-            <th class="barras2"><?php echo $mostrar['notafinal']?></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
+            <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
         <tr>
@@ -314,9 +311,7 @@ table{
             <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
-        <?php
-            }
-        ?>
+       
     </table>
 
 <?php
