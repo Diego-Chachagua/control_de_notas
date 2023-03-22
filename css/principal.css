@@ -481,8 +481,8 @@ table{
     height: 100%;
     mix-blend-mode: multiply;
     background: linear-gradient(114.5793141156962deg,
-    rgb(6, 112, 150) 4.927083333333334%,
-    rgb(255, 0, 64) 97.84374999999999%);
+    rgb(21, 222, 248),
+    rgb(7, 7, 7));
 }
 
 .txt_dodge{
