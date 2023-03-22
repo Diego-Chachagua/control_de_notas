@@ -11,7 +11,7 @@ $consulta8="SELECT re1, re2 , avanzo FROM tbl_notas  WHERE cod_materia = '$Cmate
 
 
 
-
+//Inicio de extración 
 //extraer datos desde el cuadro del segundo año
 $nie=$_POST['nie'];
 $act1=$_POST['act1'];
