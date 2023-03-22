@@ -184,6 +184,6 @@
             <option>B</option>
         </select>
        </form>
-       </div><br><br><br>
+       </div><br><br>
         <a href="/control_de_notas/php/alumnos.php"><h1 class="botonU">Click para ver los usuarios asignados</h1></a><br><br>
     </body>
