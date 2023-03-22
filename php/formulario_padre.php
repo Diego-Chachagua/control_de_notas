@@ -52,25 +52,24 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         $dui = trim($_POST['dui']);//Llama los datos de dui
         $password = trim($_POST['contrasena']);//Llama los datos de contraseña
         //Validad los datos y 
-        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario'";
-        $query2="SELECT * FROM tbl_usuario WHERE dui='$dui'";
-        $query3="SELECT * FROM tbl_usuario WHERE contrasena_padres='$_password'";
-        $consulta=pg_query($conexion,$query,$query2,$query3);
+        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario' AND contrasena_padres='$dui' AND contrasena_padres='$password'";
+        $consulta=pg_query($conexion,$query);
         $cantidad=pg_num_rows($consulta);
-        fi($query2=>2){
-            $_SESSION['nombre_p']=$usuario;
-            header("location: ./hijos.php");
+        if($cantidad>0){
+            $query ="SELECT * FROM tbl_estudiantes WHERE dui='$dui'"
+            if($query > 1){
+                header("location: ./hijos.php");
+            }else{
+                header("location: ./boletas.php");
+            }
         }else{
-            $_SESSION['nombre_p']=$usuario;
-            header("location: ./boleta_notas.php");
+            echo "Datos incorrectos!";
         }
-
+    }
 
     }
 
     $usuario = 0;
     $dui = 0;
     $password = 0;
-}
-
 ?>
