@@ -45,8 +45,6 @@
 </html>
 
 <?php
-include("conexion_padre.php");//Conecta con la conexion entre php y la base de datos
-
 if(isset($_POST['registro'])) {//Evaluea si hay datos
     if (strlen($_POST['usuario']) >= 1 or strlen($_POST['dui']) >= 1 or strlen($_POST['contrasena']) >= 1 ) {
         session_start();
@@ -54,18 +52,24 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         $dui = trim($_POST['dui']);//Llama los datos de dui
         $password = trim($_POST['contrasena']);//Llama los datos de contraseña
         //Validad los datos y 
-        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario' AND dui='$dui' AND contrasena_padres='$password'";
-        $consulta=pg_query($conexion,$query);
+        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario'";
+        $query2="SELECT * FROM tbl_usuario WHERE dui='$dui'";
+        $query3="SELECT * FROM tbl_usuario WHERE contrasena_padres='$_password'";
+        $consulta=pg_query($conexion,$query,$query2,$query3);
         $cantidad=pg_num_rows($consulta);
-        if($cantidad>0){
+        fi($query2=>2){
             $_SESSION['nombre_p']=$usuario;
-            header("location: ./materia.php");
+            header("location: ./hijos.php");
         }else{
-            echo "Datos incorrectos!";
+            $_SESSION['nombre_p']=$usuario;
+            header("location: ./boleta_notas.php");
         }
+
+
     }
 
     $usuario = 0;
+    $dui = 0;
     $password = 0;
 }
 
