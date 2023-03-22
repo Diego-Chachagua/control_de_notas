@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="/control_de_notas/js/materia.js" media="screen"/>
 </head>
 <body>
-<?php
-session_start();
-$usuario=$_SESSION['nombre_p'];
-?>
     <h1 class="eleccion">ELIGA UNA MATERIA</h1>
     <h1  class="eleccion">¿QUE MATERIA DESEA ESCOGER?</h1>
         <div class="materia">   
