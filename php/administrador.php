@@ -84,6 +84,8 @@
     <form>
         <input type="text" id="nie" name="nie" placeholder="NIE estudiante">
     </form><br>
+    <input type="submit" id="guardar"  value="Guardar">
+        <input type="submit" id="cancelar"  value="Cancelar"><br><br>
     <h2 class="inst">Escriba los datos del profesor a registrar</h2><br>
     <h3 class="materia2">Elija las materias que llevara el Profesor</h3><br>
         <div class="materias1">
