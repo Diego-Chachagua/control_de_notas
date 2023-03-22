@@ -1,3 +1,6 @@
+<?php
+include 'info_C2.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
