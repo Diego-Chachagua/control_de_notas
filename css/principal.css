@@ -285,15 +285,15 @@ option{
 
 .grip-layout3{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 40% 30%;
 }
 
 .imgpadre{
-    margin-left: 300px;
+    margin-left: 100px;
 }
 
 .imgdocente{
-    margin-left: 140px;
+    margin-left: 170px;
 }
 
 .escudo{
@@ -447,4 +447,92 @@ table{
 
 .opanio{
     margin-left: 450px;
+}
+
+.container{
+    top: 50%;
+    left: 50%;
+    
+    display: inline-flex;
+    filter: brightness(300%);
+    overflow: hidden;
+}
+
+.txt{
+    color: #fff;
+    background: #000000;
+    font-size: 150px;
+    width: 1366px;
+    text-align: center;
+}
+
+.txt:before{
+    content: 'Bienvenidos';
+    position: absolute;
+    mix-blend-mode: difference;
+    filter: blur(2px);
+}
+
+.txt_gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background: linear-gradient(114.5793141156962deg,
+    rgb(6, 112, 150) 4.927083333333334%,
+    rgb(255, 0, 64) 97.84374999999999%);
+}
+
+.txt_dodge{
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: color-dodge;
+    background: radial-gradient(
+        circle, white, black 35%
+    ) center / 25% 25%;
+    animation: neon 3s linear infinite;
+}
+
+@keyframes neon{
+    to{
+        transform: translate(50%, 50%);
+    }
+}
+
+.neon{
+    background: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate();
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    color: #000000;
+    text-shadow: 0 0 20px #6f00ff;
+}
+
+.neon:after{
+    content: attr(data_text);
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    z-index: -1;
+    color: #6f00ff;
+    filter: blur(15px);
+}
+
+.neon:before{
+    content: '';
+    top: 0;
+    left: 0;
+    background: #00b6d6;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
 }
