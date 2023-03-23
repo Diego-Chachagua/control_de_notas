@@ -4,15 +4,18 @@ ob_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta name="description" content="Sitio web sobre control de notas INCAS">
-        <meta name="Keywords" content="Control de notas incas,CONTROL DE NOTAS INCAS,Control De Notas Incas,control de notas incas,incas,Incas,INCAS,&iacute;nstituto nacional cornelio azen&oacute;n Sierra, &Iacute;NSTITUTO NACIONAL CORNELIO AZEN&Oacute;N SIERRA,&Iacute;nstituto Nacional Cornelio Azen&oacute;n Sierra">
-        <meta name="author" content="Promoci&oacute;n de bachillerato tecnico vocacional en software año 2023">
-        <meta name="copyright" content="Sitio web sobre control de notas INCAS,Promoci&oacute;n de bachillerato tecnico vocacional en software año 2023">
-        
-        <!--Vinculaación de ficheros externos-->
-    <title>Boleta de notas</title>
+<style>
+    *{
+    margin: 0%;
+    padding: 0%;
+}
 
-    <style>
+.tablag{
+    width: 30px;
+    height: 10px;
+}
+
+
 .info{
     width: 1100px;
 }
@@ -21,6 +24,7 @@ table{
     background-color: white;
     border-color: #000000;
 }
+
 
 .info1{
     width: 600px;
@@ -66,11 +70,24 @@ table{
     width: 70px;
     height: 25px;
 }
+.avanzo1{
+    width: 450px;
+    background-color: #7c7e7c;
+}
 
-    </style>
+.resultadoa{
+    width: 900px;
+    background-color: #7c7e7c;
+}
+
+.avanzo3{
+    width: 900px;
+}
+
+</style>  
 </head>
 <body>
-<div class="grid-layout4">
+    <div class="grid-layout4">
     <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
     </div><br>
     <table border="3">
@@ -310,7 +327,34 @@ table{
             <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
-    </table><br>
+    </table><br><br>
+    <table border="3">
+        <tr>
+            <th class="avanzo1">Componente plan estudio</th>
+            <th class="colarriba2">NF</th>
+            <th class="resultadoa">Resultado</th>
+        </tr>
+        <tr>
+            <th class="avanzo2">LENGUAJE Y LITERATURA PRUEBA AVANZO</th>
+            <th class="barras2"></th>
+            <th class="avanzo3"></th>
+        </tr>
+        <tr>
+            <th class="avanzo2">CIENCIAS NATURALES PRUEBA AVANZO</th>
+            <th class="barras2"></th>
+            <th class="avanzo3"></th>
+        </tr>
+        <tr>
+            <th class="avanzo2">ESTUDIOS SOCIALES Y C&Iacute;VICA PRUEBA AVANZO</th>
+            <th class="barras2"></th>
+            <th class="avanzo3"></th>
+        </tr>
+        <tr>
+            <th class="avanzo2">MATEM&Aacute;TICA PRUEBA AVANZO</th>
+            <th class="barras2"></th>
+            <th class="avanzo3"></th>
+        </tr>
+    </table>
 </body>
 </html>
 <?php
