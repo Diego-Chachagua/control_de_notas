@@ -74,46 +74,26 @@ include 'info_C2.php';
             </td>
 
       <?php
+
       $c=0;
        //variable c definida en 0
+       while($col=pg_fetch_array($query)){
       
-        
-            
-            while($col2=pg_fetch_Array($query1)  ){
-              
-                while($col3=pg_fetch_Array($query2)  ){
-                    
-                    while($col1=pg_fetch_Array($query3)  ){
-                        while($col4=pg_fetch_Array($query)  ){
-                            
-                        
-                       
-                         
-           
-
-                     
-       
-      $c=$c+1;
-      $name=$c;
-      //contador
-      
-
-      
-            
+      $c=$c+1;    
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>".$col4['cod_nota']."</td>";
-        echo "<td>".$col4['nombre_estudiante']."</td>";
+         echo "<td>".$col['cod_nota']."</td>";
+        echo "<td>".$col['nombre_estudiante']."</td>";
         
             
           //periodo 1
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col4['act1']."</td>"; 
-                echo "<td>".$col4['act2']."</td>";
-                echo "<td>".$col4['po']."</td>";
+              
+               echo " <td>".$col['act1_p1']."</td>"; 
+                echo "<td>".$col['act2_p1']."</td>";
+                echo "<td>".$col['po_p1']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -121,10 +101,10 @@ include 'info_C2.php';
            //periodo 2
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col2['act1']."</td>"; 
-                echo "<td>".$col2['act2']."</td>";
-                echo "<td>".$col2['po']."</td>";
+               
+               echo " <td>".$col['act1_p2']."</td>"; 
+                echo "<td>".$col['act2_p2']."</td>";
+                echo "<td>".$col['po_p2']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -132,10 +112,10 @@ include 'info_C2.php';
            //periodo 3
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col3['act1']."</td>"; 
-                echo "<td>".$col3['act2']."</td>";
-                echo "<td>".$col3['po']."</td>";
+              
+               echo " <td>".$col['act1_p3']."</td>"; 
+                echo "<td>".$col['act2_p3']."</td>";
+                echo "<td>".$col['po_p3']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -143,36 +123,25 @@ include 'info_C2.php';
            //periodo 4
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col1['act1']."</td>"; 
-                echo "<td>".$col1['act2']."</td>";
-                echo "<td>".$col1['po']."</td>";
+              
+               echo " <td>".$col['act1_p4']."</td>"; 
+                echo "<td>".$col['act2_p4']."</td>";
+                echo "<td>".$col['po_p4']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
         
             //ultimas filas
             echo "<td>0</td>";
-            echo "<td></td>";
-            echo "<td></td>";
-            echo "<td></td>";
+            echo "<td>".$col['re1']."</td>";
+            echo "<td>".$col['avanzo']."</td>";
+            echo "<td>".$col['re2']."</td>";
             echo "<td>0</td>";
             echo "<td>REPROBADO</td>";
             
             
         echo "</tr>";
-        
-                    }
-
-           
-       
-    }
-    }
-}
-    
-
-    
-
+       }
     ?> 
     </table>
 </div>

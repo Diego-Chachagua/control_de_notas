@@ -2,14 +2,5 @@
 include 'conexion.php';
 $con= conexion();
 //extraer datos desde la base para mostrar en pantalla
-
-$consulta="SELECT cod_nota, nombre_estudiante, act1 , act2 , po FROM tbl_notas  INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_periodo='1' ORDER BY cod_nota ASC";
+$consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie ORDER BY cod_nota ASC";
 $query=pg_query($con,$consulta);
-$consulta1="SELECT cod_nota, nombre_estudiante, act1 , act2 , po FROM tbl_notas  INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_periodo='2' ORDER BY cod_nota ASC ";
-$query1=pg_query($con,$consulta1);
-
-$consulta2="SELECT  cod_nota, nombre_estudiante, act1 , act2 , po FROM tbl_notas  INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_periodo='3' ORDER BY cod_nota ASC";
-$query2=pg_query($con,$consulta2);
-
-$consulta3="SELECT cod_nota, nombre_estudiante, act1 , act2 , po FROM tbl_notas  INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_periodo='4' ORDER BY cod_nota ASC";
-$query3=pg_query($con,$consulta3);
