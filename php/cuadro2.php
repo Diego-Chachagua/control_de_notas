@@ -76,9 +76,19 @@ include 'info_C2.php';
       <?php
       $c=0;
        //variable c definida en 0
-        for($i=1;$i<=30;$i++){
+      
+        while($col4=pg_fetch_Array($query)  ){
+            
+            while($col2=pg_fetch_Array($query1)  ){
+              
+                while($col3=pg_fetch_Array($query2)  ){
+                    
+                    while($col4=pg_fetch_Array($query3)  ){
+                        while($col=pg_fetch_Array($query0)  ){
+                       
+
            
-       //for para repetir las columnas hasta 30
+       
       $c=$c+1;
       //contador
 
@@ -87,17 +97,17 @@ include 'info_C2.php';
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>1234567</td>";
-        echo "<td>NAME AND LAST NAME</td>";
+         echo "<td>".$col['cod_nota']."</td>";
+        echo "<td>".$col['nombre_estudiante']."</td>";
         
             
           //periodo 1
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col4['act1']."</td>"; 
+                echo "<td>".$col4['act2']."</td>";
+                echo "<td>".$col4['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -106,9 +116,9 @@ include 'info_C2.php';
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col2['act1']."</td>"; 
+                echo "<td>".$col2['act2']."</td>";
+                echo "<td>".$col2['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -117,9 +127,9 @@ include 'info_C2.php';
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col3['act1']."</td>"; 
+                echo "<td>".$col3['act2']."</td>";
+                echo "<td>".$col3['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -128,9 +138,9 @@ include 'info_C2.php';
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col4['act1']."</td>"; 
+                echo "<td>".$col4['act2']."</td>";
+                echo "<td>".$col4['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -145,7 +155,13 @@ include 'info_C2.php';
             
             
         echo "</tr>";
+            
         }
+    }
+}
+    }
+        }
+    
 
     ?> 
     </table>
