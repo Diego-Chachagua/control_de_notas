@@ -61,7 +61,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
             if($num_filas > 0){
                 header("location: ./hijos.php");
             }else{
-                header("location: ./boletas.php");
+                header("location: ./boleta_notas.php");
             }    
         }else{
             echo "Datos incorrectos";
