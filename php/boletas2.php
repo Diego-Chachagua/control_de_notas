@@ -5,11 +5,6 @@ ob_start();
 <html lang="en">
 <head>
 <style>
-    *{
-    margin: 0%;
-    padding: 0%;
-}
-
 .tablag{
     width: 30px;
     height: 10px;
@@ -80,10 +75,14 @@ table{
     background-color: #7c7e7c;
 }
 
+.resultadob{
+    width: 100px;
+    background-color: #7c7e7c;
+}
+
 .avanzo3{
     width: 900px;
 }
-
 </style>  
 </head>
 <body>
@@ -332,7 +331,7 @@ table{
         <tr>
             <th class="avanzo1">Componente plan estudio</th>
             <th class="colarriba2">NF</th>
-            <th class="resultadoa">Resultado</th>
+            <th class="resultadob">Resultado</th>
         </tr>
         <tr>
             <th class="avanzo2">LENGUAJE Y LITERATURA PRUEBA AVANZO</th>
