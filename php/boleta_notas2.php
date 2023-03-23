@@ -281,6 +281,6 @@
             <th class="avanzo3"></th>
         </tr>
     </table><br><br>
-    <input id="Imprimir" type="submit" name="Imprimir" value="Imprimir">
+    <a download="Boleta de notas" href="/control_de_notas/php/boletas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
