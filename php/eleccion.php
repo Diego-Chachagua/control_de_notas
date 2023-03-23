@@ -23,6 +23,11 @@
                 <div class="username">
                     
                 </div>
+                <select id="anio">
+                    <option disabled selected="">Selecciona un a&ntilde;o</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
                 <select class="seccion" id="seccion">
                     <option disabled selected="">Selecciona una secci&oacute;n</option>
                     <option>A</option>
@@ -32,18 +37,12 @@
                     <option>G</option>
                     <option>D</option>
                 </select>
-                <select id="anio">
-                    <option disabled selected="">Selecciona un a&ntilde;o</option>
-                    <option>1</option>
-                    <option>2</option>
-                </select>
                 <div class="username">
 
                 </div>
 
                 <input type="submit" value="Aceptar">
                 <div class="Registrar"></div><br>
-                <href="/
                 <input type="submit" value="Cancelar">
                 <div class="Registrar"></div>
             </form>
