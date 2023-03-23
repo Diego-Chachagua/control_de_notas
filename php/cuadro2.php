@@ -83,22 +83,26 @@ include 'info_C2.php';
               
                 while($col3=pg_fetch_Array($query2)  ){
                     
-                    while($col4=pg_fetch_Array($query3)  ){
-                        while($col=pg_fetch_Array($query0)  ){
+                    while($col1=pg_fetch_Array($query3)  ){
+                        
                        
-
+                         
            
+
+                     
        
       $c=$c+1;
+      $name=$c;
       //contador
+      
 
       
             
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>".$col['cod_nota']."</td>";
-        echo "<td>".$col['nombre_estudiante']."</td>";
+         echo "<td>".$col4['cod_nota']."</td>";
+        echo "<td>".$col4['nombre_estudiante']."</td>";
         
             
           //periodo 1
@@ -138,9 +142,9 @@ include 'info_C2.php';
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td>".$col4['act1']."</td>"; 
-                echo "<td>".$col4['act2']."</td>";
-                echo "<td>".$col4['po']."</td>";
+               echo " <td>".$col1['act1']."</td>"; 
+                echo "<td>".$col1['act2']."</td>";
+                echo "<td>".$col1['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -155,12 +159,16 @@ include 'info_C2.php';
             
             
         echo "</tr>";
-            
-        }
+        
+                    }
+
+           
+       
+    }
     }
 }
-    }
-        }
+    
+
     
 
     ?> 
