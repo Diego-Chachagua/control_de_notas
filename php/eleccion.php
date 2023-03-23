@@ -25,16 +25,12 @@
                 </div>
                 <select class="seccion" id="seccion">
                     <option disabled selected="">Selecciona una secci&oacute;n</option>
-                    <option>K</option>
-                    <option>O</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>N</option>
-                    <option>D</option>
+                    <option>A</option>
+                    <option>F</option>
+                    <option>E</option>
                     <option>H</option>
                     <option>G</option>
-                    <option>E</option>
-                    <option>B</option>
+                    <option>D</option>
                 </select>
                 <select id="anio">
                     <option disabled selected="">Selecciona un a&ntilde;o</option>
