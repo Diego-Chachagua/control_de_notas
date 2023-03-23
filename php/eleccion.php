@@ -18,7 +18,7 @@
 
        <!--Formulario-->
        <div class="formulario">
-            <h1 id="inicio">Elija la secci&oacute;n y grado deciado</h1>
+            <h1 id="inicio">Elija la secci&oacute;n y grado deseado</h1>
             <form method="post" onsubmit="return confirmacion()">
                 <div class="username">
                     
