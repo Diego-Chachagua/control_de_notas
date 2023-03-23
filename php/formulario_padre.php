@@ -58,10 +58,11 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
             $query2="SELECT dui FROM tbl_estudiantes WHERE dui='$dui'";
             $resultado = pg_query($conexion, $query2);
             $num_filas = pg_num_rows($resultado);
+            //Elije la pagina segun la cantidad de hijos que tenga
             if($num_filas > 0){
                 header("location: ./hijos.php");
             }else{
-                header("location: ./boletas.php");
+                header("location: ./boleta_notas.php");
             }    
         }else{
             echo "Datos incorrectos";
