@@ -254,6 +254,6 @@
             <th class="barras1"></th>
         </tr>
     </table><br>
-    <input id="Imprimir" type="submit" name="Imprimir" value="Imprimir">
+    <a download="Boleta de notas" href="/control_de_notas/php/boletas.php"><input download="Boleta de notas" id="Imprimir" type="submit" name="Imprimir" value="Descargar"></a>
 </body>
 </html>
