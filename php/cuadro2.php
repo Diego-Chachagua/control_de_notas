@@ -1,3 +1,6 @@
+<?php
+include 'info_C2.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,28 +76,44 @@
       <?php
       $c=0;
        //variable c definida en 0
-        for($i=1;$i<=30;$i++){
+      
+        
+            
+            while($col2=pg_fetch_Array($query1)  ){
+              
+                while($col3=pg_fetch_Array($query2)  ){
+                    
+                    while($col1=pg_fetch_Array($query3)  ){
+                        while($col4=pg_fetch_Array($query)  ){
+                            
+                        
+                       
+                         
            
-       //for para repetir las columnas hasta 30
+
+                     
+       
       $c=$c+1;
+      $name=$c;
       //contador
+      
 
       
             
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>1234567</td>";
-        echo "<td>NAME AND LAST NAME</td>";
+         echo "<td>".$col4['cod_nota']."</td>";
+        echo "<td>".$col4['nombre_estudiante']."</td>";
         
             
           //periodo 1
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col4['act1']."</td>"; 
+                echo "<td>".$col4['act2']."</td>";
+                echo "<td>".$col4['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -103,9 +122,9 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col2['act1']."</td>"; 
+                echo "<td>".$col2['act2']."</td>";
+                echo "<td>".$col2['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -114,9 +133,9 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col3['act1']."</td>"; 
+                echo "<td>".$col3['act2']."</td>";
+                echo "<td>".$col3['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -125,9 +144,9 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col1['act1']."</td>"; 
+                echo "<td>".$col1['act2']."</td>";
+                echo "<td>".$col1['po']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -142,7 +161,17 @@
             
             
         echo "</tr>";
-        }
+        
+                    }
+
+           
+       
+    }
+    }
+}
+    
+
+    
 
     ?> 
     </table>

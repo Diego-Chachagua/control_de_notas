@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-/*Conexión entre php y la base de datos "notas" de postgresql */
-    $conexion=pg_connect("host=localhost dbname=notas user=notasadmin password=incasnotas");
-
-?>
 <html lang="es">
     <head>
         <meta name="description" content="Sitio web sobre control de notas INCAS">
@@ -43,34 +38,39 @@
         </div>
     </body>
 </html>
+<?php
+/*Conexión entre php y la base de datos "notas" de postgresql */
+    $conexion=pg_connect("host=localhost dbname=notas user=notasadmin password=incasnotas");
 
+?>
 <?php
 if(isset($_POST['registro'])) {//Evaluea si hay datos
-    if (strlen($_POST['usuario']) >= 1 or strlen($_POST['dui']) >= 1 or strlen($_POST['contrasena']) >= 1 ) {
+    if (strlen($_POST['usuario']) > 0 or strlen($_POST['dui']) > 0 or strlen($_POST['contrasena']) > 0 ) {
         session_start();
         $usuario = trim($_POST['usuario']);//Llama los datos de usuario
         $dui = trim($_POST['dui']);//Llama los datos de dui
         $password = trim($_POST['contrasena']);//Llama los datos de contraseña
         //Validad los datos y 
-        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario'";
-        $query2="SELECT * FROM tbl_usuario WHERE dui='$dui'";
-        $query3="SELECT * FROM tbl_usuario WHERE contrasena_padres='$_password'";
-        $consulta=pg_query($conexion,$query,$query2,$query3);
+        $query="SELECT * FROM tbl_usuario WHERE usuario_padres='$usuario' AND dui='$dui' AND contrasena_padres='$password'";
+        $consulta=pg_query($conexion,$query);
         $cantidad=pg_num_rows($consulta);
-        fi($query2=>2){
-            $_SESSION['nombre_p']=$usuario;
-            header("location: ./hijos.php");
+        if($cantidad>0){
+            $query2="SELECT dui FROM tbl_estudiantes WHERE dui='$dui'";
+            $resultado = pg_query($conexion, $query2);
+            $num_filas = pg_num_rows($resultado);
+            //Elije la pagina segun la cantidad de hijos que tenga
+            if($num_filas > 0){
+                header("location: ./hijos.php");
+            }else{
+                header("location: ./boleta_notas.php");
+            }    
         }else{
-            $_SESSION['nombre_p']=$usuario;
-            header("location: ./boleta_notas.php");
+            echo "Datos incorrectos";
         }
-
-
     }
+}
 
     $usuario = 0;
     $dui = 0;
     $password = 0;
-}
-
 ?>
