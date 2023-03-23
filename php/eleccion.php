@@ -43,6 +43,7 @@
 
                 <input type="submit" value="Aceptar">
                 <div class="Registrar"></div><br>
+                <href="/
                 <input type="submit" value="Cancelar">
                 <div class="Registrar"></div>
             </form>
