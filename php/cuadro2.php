@@ -77,13 +77,15 @@ include 'info_C2.php';
       $c=0;
        //variable c definida en 0
       
-        while($col4=pg_fetch_Array($query)  ){
+        
             
             while($col2=pg_fetch_Array($query1)  ){
               
                 while($col3=pg_fetch_Array($query2)  ){
                     
                     while($col1=pg_fetch_Array($query3)  ){
+                        while($col4=pg_fetch_Array($query)  ){
+                            
                         
                        
                          

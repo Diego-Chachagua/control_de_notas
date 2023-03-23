@@ -18,11 +18,16 @@
 
        <!--Formulario-->
        <div class="formulario">
-            <h1 id="inicio">Elija la secci&oacute;n y grado deciado</h1>
+            <h1 id="inicio">Elija la secci&oacute;n y grado deseado</h1>
             <form method="post" onsubmit="return confirmacion()">
                 <div class="username">
                     
                 </div>
+                <select id="anio">
+                    <option disabled selected="">Selecciona un a&ntilde;o</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
                 <select class="seccion" id="seccion">
                     <option disabled selected="">Selecciona una secci&oacute;n</option>
                     <option>A</option>
@@ -31,11 +36,6 @@
                     <option>H</option>
                     <option>G</option>
                     <option>D</option>
-                </select>
-                <select id="anio">
-                    <option disabled selected="">Selecciona un a&ntilde;o</option>
-                    <option>1</option>
-                    <option>2</option>
                 </select>
                 <div class="username">
 
