@@ -9,14 +9,22 @@
     <link rel="stylesheet" href="/control_de_notas/js/materia.js" media="screen"/>
 </head>
 <body>
-    <h1 class="eleccion">ELIGA UNA MATERIA</h1>
-    <h1  class="eleccion">¿QUE MATERIA DESEA ESCOGER?</h1>
+    <div></div>
+    <h1  class="eleccion">SELECCIONE UNA MATERIA<br>¿QUE MATERIA DESEA ESCOGER?</h1>
         <button class="materia">   
             <div class="foto">
                 <img class="ciencias" src="../images/quimica1.png" alt="">
             </div>
             <div class="pie">
                 <P class="letras">CIENCIAS</P>
+            </div>
+        </button>
+        <button class="materia">   
+            <div class="foto">
+                <img class="ciencias" src="../images/muci.png" alt="">
+            </div>
+            <div class="pie">
+                <P class="letras">MUCI</P>
             </div>
         </button>
    <button class="materia">
@@ -75,7 +83,7 @@
           <P class="letras">SEMINARIO</P>
       </div>
 </button>
- <button class="materia">
+<button class="materia">
     <div class="foto">
       <img src="../images/hpp1.png" alt="">
       </div>
