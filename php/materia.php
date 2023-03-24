@@ -19,6 +19,14 @@
                 <P class="letras">CIENCIAS</P>
             </div>
         </button>
+        <button class="materia">   
+            <div class="foto">
+                <img class="ciencias" src="../images/muci.png" alt="">
+            </div>
+            <div class="pie">
+                <P class="letras">MUCI</P>
+            </div>
+        </button>
    <button class="materia">
     <div class="foto">
       <img src="../images/sociales1.png" alt="">
@@ -75,7 +83,7 @@
           <P class="letras">SEMINARIO</P>
       </div>
 </button>
- <button class="materia">
+<button class="materia">
     <div class="foto">
       <img src="../images/hpp1.png" alt="">
       </div>
