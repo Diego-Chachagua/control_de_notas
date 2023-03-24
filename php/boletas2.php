@@ -75,11 +75,6 @@ table{
     background-color: #7c7e7c;
 }
 
-.resultadob{
-    width: 100px;
-    background-color: #7c7e7c;
-}
-
 .avanzo3{
     width: 900px;
 }
@@ -331,7 +326,7 @@ table{
         <tr>
             <th class="avanzo1">Componente plan estudio</th>
             <th class="colarriba2">NF</th>
-            <th class="resultadob">Resultado</th>
+            <th class="resultadoa">Resultado</th>
         </tr>
         <tr>
             <th class="avanzo2">LENGUAJE Y LITERATURA PRUEBA AVANZO</th>
