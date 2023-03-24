@@ -167,7 +167,7 @@ include 'info_C2.php';
         <form action="sendinfo_C2.php" method="post">
         <center><h2>Ingreso de notas por periodo</h2></center>
            <center> <label>ID: </label>
-            <input type="text"  name="id" class="nie"><br>
+            <input type="text"  name="id" class="nie" require><br>
             </center>
             <label>Actividad 1:<label>
                 <input type="text" name="act1" class="act">
@@ -178,7 +178,7 @@ include 'info_C2.php';
                 <label>Prueba Objetiva:<label>
                 <input type="text" name="PO"  class="act">
                 <label>Seleccionar Periodo:<label>
-                <select name="seleccion">
+                <select name="seleccion" require>
                 <option></option>
                     <option>Periodo 1</option>
                     <option>Periodo 2</option>
