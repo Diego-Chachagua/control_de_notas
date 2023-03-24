@@ -19,16 +19,16 @@
        <!--Formulario-->
        <div class="formulario">
             <h1 id="inicio">Elija la secci&oacute;n y grado deseado</h1>
-            <form method="post" onsubmit="return confirmacion()">
+            <form method="post" onsubmit="return confirmacion()" action="cuadro2.php">
                 <div class="username">
                     
                 </div>
-                <select id="anio">
+                <select id="anio" name="anio">
                     <option disabled selected="">Selecciona un a&ntilde;o</option>
                     <option>1</option>
                     <option>2</option>
                 </select>
-                <select class="seccion" id="seccion">
+                <select class="seccion" id="seccion" name="seccion">
                     <option disabled selected="">Selecciona una secci&oacute;n</option>
                     <option>A</option>
                     <option>F</option>
