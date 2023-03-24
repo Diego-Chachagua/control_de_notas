@@ -3,6 +3,9 @@ include 'conexion.php';
 $con=conexion();
 
 $id=$_POST['id'];
+if($id==""){
+    header("location: cuadro2.php");
+}
 $act1=$_POST['act1'];
 $act2=$_POST['act2'];
 $po=$_POST['PO'];
@@ -82,5 +85,21 @@ if($seleccion=="Periodo 1"){
     
 
 }elseif($seleccion==""){
+    header("location: cuadro2.php");
 
+}
+$recuperacion_e1=$_POST['R_E1'];
+$recuperacion_e2=$_POST['R_E2'];
+$avanzo=$_POST['avanzo'];
+if($recuperacion_e1!=""){
+    $consulta="UPDATE tbl_notas SET re1='$recuperacion_e1' WHERE cod_nota='$id'";
+    $query=pg_query($con,$consulta);
+}
+if($recuperacion_e2!=""){
+    $consulta="UPDATE tbl_notas SET re2='$recuperacion_e2' WHERE cod_nota='$id'";
+    $query=pg_query($con,$consulta);
+}
+if($avanzo!=""){
+    $consulta="UPDATE tbl_notas SET avanzo='$avanzo' WHERE cod_nota='$id'";
+    $query=pg_query($con,$consulta);
 }
