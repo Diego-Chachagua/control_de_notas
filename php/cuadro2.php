@@ -1,5 +1,35 @@
 <?php
-include 'info_C2.php';
+
+if($_POST['anio']=="1"){
+    $anio=$_POST['anio'];
+}elseif($_POST['anio']=="2"){
+    $anio=$_POST['anio'];
+}elseif($_POST['anio']="Selecciona un a&ntilde;o"){
+      header("location: eleccion.php");
+}
+
+if($_POST['seccion']=="A"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=1;
+}elseif($_POST['seccion']=="F"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=2;
+}elseif($_POST['seccion']=="E"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=3;
+}elseif($_POST['seccion']=="H"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=4;
+}elseif($_POST['seccion']=="G"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=5;
+}elseif($_POST['seccion']=="D"){
+    $seccion=$_POST['seccion'];
+    $cod_seccion=6;
+}elseif($_POST['seccion']=="Selecciona una secci&oacute;n"){
+    header("location: eleccion.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +41,9 @@ include 'info_C2.php';
 </head>
 <body>
 <div id="Container">
-    <center><h1>Cuadro "K"  GRADO "2°"</h1><center>
+    <center><h1>  GRADO "<?php 
+    echo $anio;
+    ?> " SECCIÓN "<?php  echo $seccion; ?>"</h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
   <input class="save " type="button" value="Actualizar" >
@@ -74,6 +106,11 @@ include 'info_C2.php';
             </td>
 
       <?php
+      include 'conexion.php';
+      $con= conexion();
+      //extraer datos desde la base para mostrar en pantalla
+      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_grado='$anio' AND cod_seccion='$cod_seccion'  AND cod_materia='3' ORDER BY cod_nota ASC";
+      $query=pg_query($con,$consulta);
 
       $c=0;
        //variable c definida en 0
