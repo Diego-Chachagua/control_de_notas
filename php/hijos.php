@@ -19,34 +19,48 @@ $user = "notasadmin";
 $password = "incasnotas";
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password") or die("Error de conexión: " . pg_last_error());
-
 ?>
 
+
 <?php
-//solicitud de datos a la base
-$query = "SELECT usuario_padres, contrasena_padres, nombre_padre FROM tbl_usuario INNER JOIN tbl_padres ON tbl_usuario.dui=tbl_padres.dui";
+//llamada del dato dui desde formulario
+ session_start();
+ $dui = $_SESSION['dui'];
+ ?>
+ <?php
+ //consulta a la base de datos
+$query = "SELECT nombre_estudiante,nie FROM tbl_estudiantes where dui='$dui'";
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 ?>
 
-<table class="tablau" border="3">
+<table class="tablah" border="3">
   <tr>
-    <th class="usuario">Usuario</th>
-    <th class="contrasena">Contrase&ntilde;a</th>
-    <th class="nombrep">Nombre del padre</th>
+    <th class="usuario">Hijos</th>
+    <th class="usuario">nie</th>
   </tr>
   <?php
-  //condicion para que imprima una tabla con informacion automaticamente
+  //condicion de regeneración de tabla automitica
   while ($row = pg_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td>" . $row['usuario_padres'] . "</td>";
-    echo "<td>" . $row['contrasena_padres'] . "</td>";
-    echo "<td>" . $row['nombre_padre'] . "</td>";
+    echo "<td>" . $row['nombre_estudiante'] . "</td>";
+    echo "<td>" . $row['nie'] . "</td>";    
     echo "</tr>";
   }
   ?>
-</table>
+  </table>
 
-<?php
+  <?php
 pg_close($conn);
 ?>
+<br>
+<form>
+    <input type="text" class="inputn" name="nie" placeholder="Ingrese el nie de estudiante que quiere ver la boleta" ><br>
+</form>
+<form >
+<center><a href="/control_de_notas/php/lladama.php"><input type="submit" id="nie"  value="Ver boleta"></a></center>
+</form>
 
+<?php 
+$nie = trim($_POST['nie']);
+$_SESSION['nie']=$nie;
+?>
