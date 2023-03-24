@@ -41,7 +41,7 @@
 
                 </div>
 
-                <input type="submit" value="Aceptar">
+                <input type="submit" value="Aceptar" onclik="confirmacion()">
                 <div class="Registrar"></div><br>
                 <input type="submit" value="Cancelar">
                 <div class="Registrar"></div>
@@ -50,13 +50,22 @@
            <script>
             //creamos la funcion, capturamos el valor selecionado en variables con el DOM
   function confirmacion() {
-    var seccion = document.getElementById("seccion").value;
     var anio = document.getElementById("anio").value;
+    var seccion = document.getElementById("seccion").value;
+    
     //creamos otra variable para capturar el mensaje que contenga las otras 2 valriables y luego lo retornamos
-    var mensaje = "¿Son correctos los valores seleccionados?\n\nSección: " + seccion + "\nAño: " + anio;
-    return confirm(mensaje);
+    var mensaje = "¿Son correctos los valores seleccionados?\n\nAño: " + anio + "\nSección: " + seccion;
+  // Agregamos la confirmación de redireccionamiento y el redireccionamiento en caso de que se acepte la confirmación
+  if (confirm(mensaje)) {
+    window.open("cuadro1.php", "_blank");
+       
+    return true
+        
+  } else {
+    return false;
   }
+}
 </script>
-       </div>
+</div>
     </body>
 </html>
