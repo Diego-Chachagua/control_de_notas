@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
         
         <!--Vinculaación de ficheros externos-->
     <title>Boleta de notas</title>
-    <link rel="shourt icon" href="/control_de_notas/images/incas.png">
+
     <style>
 .info{
     width: 1100px;
@@ -64,15 +67,12 @@ table{
     height: 25px;
 }
 
-.resultadoa{
-    width: 300px;
-    background-color: #7c7e7c;
-}
-
     </style>
 </head>
 <body>
-   <br><br><br><br><br><br><br>
+<div class="grid-layout4">
+    <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
+    </div><br>
     <table border="3">
         <tr>
             <th class="tablag">Sede Educativa</th>
@@ -98,7 +98,7 @@ table{
             <th class="tablag">Estudiante</th>
             <th colspan="5" class="info"></th> 
         </tr>
-    </table><br><br><br><br><br>
+    </table><br><br>
     <table border="3">
         <tr>
             <th class="colarriba1">Componente plan estudio</th>
@@ -114,7 +114,7 @@ table{
             <th class="colarriba2">NF</th>
             <th class="colarriba3">Resultado</th>
         </tr>
-        <tr> 
+        <tr>
             <th class="barras1">LENGUAJE Y LITERATURA</th>
             <th class="barras2"></th>
             <th class="barras2"></th>
@@ -283,7 +283,6 @@ table{
             <th class="barras1"></th>
         </tr>
         <tr>
-            
             <th class="barras1">SE EXPRESA Y PARTICPA CON RESPETO</th>
             <th class="barras2"></th>
             <th class="barras2"></th>
@@ -311,9 +310,9 @@ table{
             <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
-       
-    </table>
-
+    </table><br>
+</body>
+</html>
 <?php
 $html=ob_get_clean();
 //echo $html;
@@ -327,7 +326,7 @@ $dompdf = new Dompdf();
 
 $dompdf->loadHtml($html);
 
-$dompdf->setPaper('A2','letter ');
+$dompdf->setPaper('A2','letter');
 
 $dompdf->render();
 

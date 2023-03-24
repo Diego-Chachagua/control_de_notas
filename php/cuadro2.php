@@ -23,7 +23,7 @@ include 'info_C2.php';
     <table class="table_one" >
         <tr class="celda_encabezado">
             <td rowspan="2" ><b>N°</b></td>
-            <td rowspan="2" class="n"><b>NIE</b></td>
+            <td rowspan="2" class="n"><b>ID</b></td>
             <td rowspan="2" class="col1"><b>Nombre del estudiante</b></td>
             <td class="periodo"><b>Periodo 1</b></td>
             <td class="periodo"><b>Periodo 2</b></td>
@@ -74,103 +74,85 @@ include 'info_C2.php';
             </td>
 
       <?php
+
       $c=0;
        //variable c definida en 0
+       while($col=pg_fetch_array($query)){
       
-        while($col4=pg_fetch_Array($query)  ){
-            
-            while($col2=pg_fetch_Array($query1)  ){
-              
-                while($col3=pg_fetch_Array($query2)  ){
-                    
-                    while($col1=pg_fetch_Array($query3)  ){
-                        
-                       
-                         
-           
-
-                     
-       
-      $c=$c+1;
-      $name=$c;
-      //contador
-      
-
-      
-            
+      $c=$c+1;    
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>".$col4['cod_nota']."</td>";
-        echo "<td>".$col4['nombre_estudiante']."</td>";
+         echo "<td>".$col['cod_nota']."</td>";
+        echo "<td>".$col['nombre_estudiante']."</td>";
         
             
           //periodo 1
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col4['act1']."</td>"; 
-                echo "<td>".$col4['act2']."</td>";
-                echo "<td>".$col4['po']."</td>";
-               echo " <td>0</td>";
+              
+               echo " <td>".$col['act1_p1']."</td>"; 
+                echo "<td>".$col['act2_p1']."</td>";
+                echo "<td>".$col['po_p1']."</td>";
+                $promedio_p1=round(($col['act1_p1']+$col['act2_p1']+$col['po_p1'])/3);
+               echo " <td>$promedio_p1</td>";
                 echo "</table>";
            echo " </td>";
 
            //periodo 2
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col2['act1']."</td>"; 
-                echo "<td>".$col2['act2']."</td>";
-                echo "<td>".$col2['po']."</td>";
-               echo " <td>0</td>";
+               
+               echo " <td>".$col['act1_p2']."</td>"; 
+                echo "<td>".$col['act2_p2']."</td>";
+                echo "<td>".$col['po_p2']."</td>";
+                $promedio_p2=round(($col['act1_p2']+$col['act2_p2']+$col['po_p2'])/3);
+               echo " <td>$promedio_p2</td>";
                 echo "</table>";
            echo " </td>";
 
            //periodo 3
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col3['act1']."</td>"; 
-                echo "<td>".$col3['act2']."</td>";
-                echo "<td>".$col3['po']."</td>";
-               echo " <td>0</td>";
+              
+               echo " <td>".$col['act1_p3']."</td>"; 
+                echo "<td>".$col['act2_p3']."</td>";
+                echo "<td>".$col['po_p3']."</td>";
+                $promedio_p3=round(($col['act1_p3']+$col['act2_p3']+$col['po_p3'])/3);
+               echo " <td>$promedio_p3</td>";
                 echo "</table>";
            echo " </td>";
 
            //periodo 4
            echo " <td>";
                echo " <table class='table-second'>";
-               //asignacion de identificador a un name 
-               echo " <td>".$col1['act1']."</td>"; 
-                echo "<td>".$col1['act2']."</td>";
-                echo "<td>".$col1['po']."</td>";
-               echo " <td>0</td>";
+              
+               echo " <td>".$col['act1_p4']."</td>"; 
+                echo "<td>".$col['act2_p4']."</td>";
+                echo "<td>".$col['po_p4']."</td>";
+                $promedio_p4=round(($col['act1_p4']+$col['act2_p4']+$col['po_p4'])/3);
+               echo " <td>$promedio_p4</td>";
                 echo "</table>";
            echo " </td>";
         
             //ultimas filas
-            echo "<td>0</td>";
-            echo "<td></td>";
-            echo "<td></td>";
-            echo "<td></td>";
-            echo "<td>0</td>";
-            echo "<td>REPROBADO</td>";
-            
+            $promedio_institucional=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);
+            echo "<td>$promedio_institucional</td>";
+            echo "<td>".$col['re1']."</td>";
+            echo "<td>".$col['avanzo']."</td>";
+            echo "<td>".$col['re2']."</td>";
+            $prom_inicial=$promedio_institucional*0.85;
+            $nota_avanzo=$col['avanzo']*0.15;
+            $promedio_final=round($prom_inicial+$nota_avanzo);
+            echo "<td>$promedio_final</td>";
+            if($promedio_final>=6){
+                echo "<td class='aprobado'>APROBADO</td>";
+            }else{
+            echo "<td class='reprobado'>REPROBADO</td>";
+            }
             
         echo "</tr>";
-        
-                    }
-
-           
-       
-    }
-    }
-}
-    
-
-    
-
+       }
     ?> 
     </table>
 </div>
@@ -182,10 +164,10 @@ include 'info_C2.php';
 <div class="box_big">
   <div class="box_info">
    
-        <form action="info_C2.php" method="post">
+        <form action="sendinfo_C2.php" method="post">
         <center><h2>Ingreso de notas por periodo</h2></center>
-           <center> <label>NIE: </label>
-            <input type="text"  name="nie" class="nie"><br>
+           <center> <label>ID: </label>
+            <input type="text"  name="id" class="nie" require><br>
             </center>
             <label>Actividad 1:<label>
                 <input type="text" name="act1" class="act">
@@ -196,7 +178,7 @@ include 'info_C2.php';
                 <label>Prueba Objetiva:<label>
                 <input type="text" name="PO"  class="act">
                 <label>Seleccionar Periodo:<label>
-                <select name="seleccion">
+                <select name="seleccion" require>
                 <option></option>
                     <option>Periodo 1</option>
                     <option>Periodo 2</option>

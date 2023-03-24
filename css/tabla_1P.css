@@ -176,3 +176,10 @@ h2{
   
    
 }
+.aprobado{
+    background-color: rgb(120, 211, 120);
+    
+}
+.reprobado{
+    background-color: rgb(240, 91, 91);
+}
