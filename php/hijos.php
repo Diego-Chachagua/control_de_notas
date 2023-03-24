@@ -62,5 +62,7 @@ pg_close($conn);
 
 <?php 
 $nie = trim($_POST['nie']);
+
 $_SESSION['nie']=$nie;
+
 ?>
