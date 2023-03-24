@@ -61,6 +61,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
             //Elije la pagina segun la cantidad de hijos que tenga
             if($num_filas > 0){
                 header("location: ./hijos.php");
+                $_SESSION['dui']=$dui;
             }else{
                 header("location: ./boleta_notas.php");
             }    
