@@ -117,6 +117,7 @@
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
+            <option>1 y 2</option>
         </select>
        </form>
        <form>
@@ -155,6 +156,7 @@
                     <option disabled selected="">Selecciona un opci&oacute;n:</option>
                     <option>Maestro</option>
                     <option>Alumno</option>
+                    <option>Padre</option>
                 </select>
                </form>
             <form>
