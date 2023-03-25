@@ -19,9 +19,8 @@
        <!--Formulario-->
        <div class="formulario">
             <h1 id="inicio">Elija la secci&oacute;n y grado deseado</h1>
-            <form method="post" onsubmit="return confirmacion()" action="cuadro2.php">
-                <div class="username">
-                    
+            <form method="post" onsubmit="return confirmacion()" action="sesion_C2.php">
+                <div class="username"> 
                 </div>
                 <select id="anio" name="anio">
                     <option disabled selected="">Selecciona un a&ntilde;o</option>
@@ -57,7 +56,7 @@
     var mensaje = "¿Son correctos los valores seleccionados?\n\nAño: " + anio + "\nSección: " + seccion;
   // Agregamos la confirmación de redireccionamiento y el redireccionamiento en caso de que se acepte la confirmación
   if (confirm(mensaje)) {
-    window.open("cuadro1.php", "_blank");
+   
        
     return true
         

@@ -1,16 +1,27 @@
 <?php
 include 'conexion.php';
-$con=conexion();
+$con=conexion();//conexion con la bd
 
-$id=$_POST['id'];
-if($id==""){
+$id=$_POST['id'];//captura el id del estudiante desde formulario en cuadro2
+if($id==""){//evalua si esta vacio
     header("location: cuadro2.php");
 }
 $act1=$_POST['act1'];
 $act2=$_POST['act2'];
 $po=$_POST['PO'];
+//evaluacion si los campos estan vacios
+if($act1==""){
+  header("location: cuadro2.php");
+}
+if($act2==""){
+  header("location: cuadro2.php");
+}
+if($po==""){
+  header("location: cuadro2.php");
+}
 
-$seleccion=$_POST['seleccion'];
+$seleccion=$_POST['seleccion'];//recupera la eleccion del periodo 
+//en base a la eleccion ejecutara los siguientes bloques de codigo  y haran la actualizacion en la BD segun id
 if($seleccion=="Periodo 1"){
     if($act1!=""){
         $consulta="UPDATE tbl_notas SET act1_p1='$act1' WHERE cod_nota='$id' ";
@@ -84,13 +95,15 @@ if($seleccion=="Periodo 1"){
    
     
 
-}elseif($seleccion==""){
+}elseif($seleccion==""){//si la seleccion es vacio solo volvera a redirigir al cuadro
     header("location: cuadro2.php");
 
 }
+//obtiene los valores de los campos de recuperacion y avanzo
 $recuperacion_e1=$_POST['R_E1'];
 $recuperacion_e2=$_POST['R_E2'];
 $avanzo=$_POST['avanzo'];
+//evalua si hay campos con datos , si hay hace la actualizacion , de lo contrario no hara nada 
 if($recuperacion_e1!=""){
     $consulta="UPDATE tbl_notas SET re1='$recuperacion_e1' WHERE cod_nota='$id'";
     $query=pg_query($con,$consulta);
