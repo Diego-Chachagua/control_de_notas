@@ -1,5 +1,8 @@
 <?php
 session_start();
+$grado= $_SESSION['grado'];
+$seccion=$_SESSION['nombre_seccion'];
+$cod_seccion=$_SESSION['cod_seccion'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +14,13 @@ session_start();
 </head>
 <body>
 <div id="Container">
-    <center><h1>  GRADO :"<?php echo $_SESSION['grado']; ?>" </h1><center>
+   
+    <center><h1>  GRADO :"<?php echo $grado; ?>"  SECCIÓN: "<?php echo $seccion; ?>" </h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
   <a href="cuadro2.php"><input class="save " type="button" value="Actualizar" ></a>
   <input class="save " type="submit" value="Imprimir" name="submit"><br>
+  <a href="eleccion.php"> <input class="save " type="submit" value="Regresar" name="submit"></a><br>
  
 </div>
 <!--div de la caja principal-->
@@ -29,12 +34,15 @@ session_start();
             <td class="periodo"><b>Periodo 2</b></td>
             <td class="periodo"><b>Periodo 3</b></td>
             <td class="periodo"><b>Periodo 4</b></td>
+            <td rowspan="2" class="col2" ><b>A</b></td>
             <td rowspan="2" class="col2" ><b>PI</b></td>
             <td rowspan="2" class="col2"><b>R,E1</b></td>
             <td rowspan="2" class="col2"><b>Avanzo</b></td>
             <td rowspan="2" class="col2"><b>R,E2</b></td>
             <td rowspan="2" class="col2"><b>P,T</b></td>
             <td rowspan="2" class="col3"><b>Resultado</b></td>    
+            <td rowspan="2" class="col2"><b>R,P</b></td>
+            
         </tr>
         <tr class="second-col">
             <td>
@@ -77,7 +85,7 @@ session_start();
       include 'conexion.php';
       $con= conexion();
       //extraer datos desde la base para mostrar en pantalla
-      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE cod_grado='$anio' AND cod_seccion='$cod_seccion'  AND cod_materia='3' ORDER BY cod_nota ASC";
+      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='3' ORDER BY cod_nota ASC";
       $query=pg_query($con,$consulta);
 
       $c=0;
@@ -139,7 +147,7 @@ session_start();
                echo " <td>$promedio_p4</td>";
                 echo "</table>";
            echo " </td>";
-        
+           echo "<td></td>";
             //ultimas filas
             $promedio_institucional=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);
             echo "<td>$promedio_institucional</td>";
@@ -155,6 +163,7 @@ session_start();
             }else{
             echo "<td class='reprobado'>REPROBADO</td>";
             }
+            echo "<td> </td>";
             
         echo "</tr>";
        }

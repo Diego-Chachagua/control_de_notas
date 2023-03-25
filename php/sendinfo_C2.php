@@ -1,6 +1,7 @@
 <?php
 include 'conexion.php';
 $con=conexion();
+session_start();
 
 $id=$_POST['id'];
 if($id==""){
