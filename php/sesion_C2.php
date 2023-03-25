@@ -1,12 +1,14 @@
 <?php
-session_start();
-if($_POST['anio']==1  ){
+session_start();//sesion activa
+if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
     $_SESSION['grado']=1;
     header('location: cuadro1.php');
-    }elseif($_POST['anio']==2 ){
+    }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
         $_SESSION['grado']=2;
         header("location: cuadro2.php");
     }
+    //condiciones que evaluan que seccion se ah registrado
+    //si seccion es X guardarlo y genera su respectivo codigo de BD para el uso de SELECT en cuadro 2
 if($_POST['seccion']=="A"){
     $_SESSION['nombre_seccion']="A";
     $_SESSION['cod_seccion']=1;
