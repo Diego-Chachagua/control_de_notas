@@ -59,7 +59,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
             $resultado = pg_query($conexion, $query2);
             $num_filas = pg_num_rows($resultado);
             //Elije la pagina segun la cantidad de hijos que tenga
-            if($num_filas > 0){
+            if($num_filas > 1){
                 header("location: ./hijos.php");
                 $_SESSION['dui']=$dui;
             }else{
