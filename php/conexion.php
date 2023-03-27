@@ -11,12 +11,7 @@ $password = "password=incasnotas";
 
 $db = pg_connect("$host $port $dbname $user $password");
 
-// Comprobar la conexión
-if ($db){
-    echo "Exito";
-}else{
-    echo "Error".pg_last_error();
-}
+
 return $db;
 
 }

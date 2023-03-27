@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +10,67 @@
         <meta name="copyright" content="Sitio web sobre control de notas INCAS,Promoci&oacute;n de bachillerato tecnico vocacional en software año 2023">
         
         <!--Vinculaación de ficheros externos-->
-    <title>Consulta de notas INCAS</title>
-    <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+    <title>Boleta de notas</title>
+
+    <style>
+.info{
+    width: 1100px;
+}
+
+table{
+    background-color: white;
+    border-color: #000000;
+}
+
+.info1{
+    width: 600px;
+}
+
+.info2{
+    width: 300px;
+}
+
+.info3{
+    width: 900px;
+}
+
+.info4{
+    width: 300px;
+}
+
+.info5{
+    width: 300px;
+}
+
+.colarriba1{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.colarriba2{
+    background-color: #7c7e7c;
+    width: 70px;
+}
+
+.colarriba3{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.barras1{
+    width: 350px;
+    height: 25px;
+}
+
+.barras2{
+    width: 70px;
+    height: 25px;
+}
+
+    </style>
 </head>
 <body>
-    <div class="grid-layout4">
-    <img class="escudo" src="/control_de_notas/images/escudo.png">
+<div class="grid-layout4">
     <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
     </div><br>
     <table border="3">
@@ -253,34 +310,25 @@
             <th class="barras2"></th>
             <th class="barras1"></th>
         </tr>
-    </table><br><br>
-    <table border="3">
-        <tr>
-            <th class="avanzo1">Componente plan estudio</th>
-            <th class="colarriba2">NF</th>
-            <th class="resultadoa">Resultado</th>
-        </tr>
-        <tr>
-            <th class="avanzo2">LENGUAJE Y LITERATURA PRUEBA AVANZO</th>
-            <th class="barras2"></th>
-            <th class="avanzo3"></th>
-        </tr>
-        <tr>
-            <th class="avanzo2">CIENCIAS NATURALES PRUEBA AVANZO</th>
-            <th class="barras2"></th>
-            <th class="avanzo3"></th>
-        </tr>
-        <tr>
-            <th class="avanzo2">ESTUDIOS SOCIALES Y C&Iacute;VICA PRUEBA AVANZO</th>
-            <th class="barras2"></th>
-            <th class="avanzo3"></th>
-        </tr>
-        <tr>
-            <th class="avanzo2">MATEM&Aacute;TICA PRUEBA AVANZO</th>
-            <th class="barras2"></th>
-            <th class="avanzo3"></th>
-        </tr>
-    </table><br><br>
-    <a download="Boleta de notas" href="/control_de_notas/php/boletas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
+    </table><br>
 </body>
 </html>
+<?php
+$html=ob_get_clean();
+//echo $html;
+?>
+<?php
+require_once '../dompdf/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('A2','letter');
+
+$dompdf->render();
+
+$dompdf->stream('Boleta de notas.pdf', array('Attachment' => 0));
+?>

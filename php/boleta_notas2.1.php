@@ -1,3 +1,36 @@
+<?php
+$host = "localhost";
+$port = "5432";
+$dbname = "notas";
+$user = "notasadmin";
+$password = "incasnotas";
+
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password") or die("Error de conexión: " . pg_last_error());
+?>
+
+<?php
+//llamada del dato dui desde formulario
+ session_start();
+ $dui = $_SESSION['dui'];
+ ?>
+
+<?php
+//llamada del dato nie desde la página de hijos.php
+$nie = $_POST['niee'];
+ ?>
+
+<?php
+//solicitud de datos a la base
+$query = "SELECT dui, nie, nombre_estudiante FROM tbl_estudiantes where nie='$nie' and dui='$dui'";
+$result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
+while($mostrar=pg_fetch_assoc($result)){
+
+$query2 = "SELECT tbl_estudiantes.nie, tbl_promedio.cod_materia, tbl_promedio.promedio_p1 FROM tbl_estudiantes INNER JOIN tbl_promedio ON tbl_estudiantes.nie=tbl_promedio.nie WHERE tbl_estudiantes.nie='$nie'";
+$result1 = pg_query($conn, $query2) or die("Error en la consulta: " . pg_last_error());
+while($mostrar2=pg_fetch_assoc($result1)){
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +60,7 @@
         </tr>
         <tr>
             <th class="tablag">Plan de Estudio</th>
-            <th colspan="5" class="info"></th> 
+            <th colspan="5" class="info"><?php  ?></th> 
         </tr>
         <tr>
             <th class="tablag">Grado</th>
@@ -39,9 +72,10 @@
         </tr>
         <tr>
             <th class="tablag">Estudiante</th>
-            <th colspan="5" class="info"></th> 
+            <th colspan="5" class="info"><?php echo $mostrar['nombre_estudiante'] ?></th> 
         </tr>
     </table><br><br>
+
     <table border="3">
         <tr>
             <th class="colarriba1">Componente plan estudio</th>
@@ -59,7 +93,7 @@
         </tr>
         <tr>
             <th class="barras1">LENGUAJE Y LITERATURA</th>
-            <th class="barras2"></th>
+            <th class="barras2"><?php echo $mostrar2['promedio_p1']?></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
             <th class="barras2"></th>
@@ -281,6 +315,15 @@
             <th class="avanzo3"></th>
         </tr>
     </table><br><br>
+
+    <?php 
+}
+    ?>
+
+    <?php 
+}
+    ?>
     <a download="Boleta de notas" href="/control_de_notas/php/boletas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
+

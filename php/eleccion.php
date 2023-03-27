@@ -18,34 +18,29 @@
 
        <!--Formulario-->
        <div class="formulario">
-            <h1 id="inicio">Elija la secci&oacute;n y grado deciado</h1>
-            <form method="post" onsubmit="return confirmacion()">
-                <div class="username">
-                    
+            <h1 id="inicio">Elija la secci&oacute;n y grado deseado</h1>
+            <form method="post" onsubmit="return confirmacion()" action="sesion_C2.php">
+                <div class="username"> 
                 </div>
-                <select class="seccion" id="seccion">
-                    <option disabled selected="">Selecciona una secci&oacute;n</option>
-                    <option>K</option>
-                    <option>O</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>N</option>
-                    <option>D</option>
-                    <option>H</option>
-                    <option>G</option>
-                    <option>E</option>
-                    <option>B</option>
-                </select>
-                <select id="anio">
+                <select id="anio" name="anio">
                     <option disabled selected="">Selecciona un a&ntilde;o</option>
                     <option>1</option>
                     <option>2</option>
                 </select>
+                <select class="seccion" id="seccion" name="seccion">
+                    <option disabled selected="">Selecciona una secci&oacute;n</option>
+                    <option>A</option>
+                    <option>F</option>
+                    <option>E</option>
+                    <option>H</option>
+                    <option>G</option>
+                    <option>D</option>
+                </select>
                 <div class="username">
 
                 </div>
 
-                <input type="submit" value="Aceptar">
+                <input type="submit" value="Aceptar" onclik="confirmacion()">
                 <div class="Registrar"></div><br>
                 <input type="submit" value="Cancelar">
                 <div class="Registrar"></div>
@@ -54,13 +49,22 @@
            <script>
             //creamos la funcion, capturamos el valor selecionado en variables con el DOM
   function confirmacion() {
-    var seccion = document.getElementById("seccion").value;
     var anio = document.getElementById("anio").value;
+    var seccion = document.getElementById("seccion").value;
+    
     //creamos otra variable para capturar el mensaje que contenga las otras 2 valriables y luego lo retornamos
-    var mensaje = "¿Son correctos los valores seleccionados?\n\nSección: " + seccion + "\nAño: " + anio;
-    return confirm(mensaje);
+    var mensaje = "¿Son correctos los valores seleccionados?\n\nAño: " + anio + "\nSección: " + seccion;
+  // Agregamos la confirmación de redireccionamiento y el redireccionamiento en caso de que se acepte la confirmación
+  if (confirm(mensaje)) {
+   
+       
+    return true
+        
+  } else {
+    return false;
   }
+}
 </script>
-       </div>
+</div>
     </body>
 </html>

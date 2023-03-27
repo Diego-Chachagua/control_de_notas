@@ -1,19 +1,87 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta name="description" content="Sitio web sobre control de notas INCAS">
-        <meta name="Keywords" content="Control de notas incas,CONTROL DE NOTAS INCAS,Control De Notas Incas,control de notas incas,incas,Incas,INCAS,&iacute;nstituto nacional cornelio azen&oacute;n Sierra, &Iacute;NSTITUTO NACIONAL CORNELIO AZEN&Oacute;N SIERRA,&Iacute;nstituto Nacional Cornelio Azen&oacute;n Sierra">
-        <meta name="author" content="Promoci&oacute;n de bachillerato tecnico vocacional en software año 2023">
-        <meta name="copyright" content="Sitio web sobre control de notas INCAS,Promoci&oacute;n de bachillerato tecnico vocacional en software año 2023">
-        
-        <!--Vinculaación de ficheros externos-->
-    <title>Consulta de notas INCAS</title>
-    <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+<style>
+.tablag{
+    width: 30px;
+    height: 10px;
+}
+
+
+.info{
+    width: 1100px;
+}
+
+table{
+    background-color: white;
+    border-color: #000000;
+}
+
+
+.info1{
+    width: 600px;
+}
+
+.info2{
+    width: 300px;
+}
+
+.info3{
+    width: 900px;
+}
+
+.info4{
+    width: 300px;
+}
+
+.info5{
+    width: 300px;
+}
+
+.colarriba1{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.colarriba2{
+    background-color: #7c7e7c;
+    width: 70px;
+}
+
+.colarriba3{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.barras1{
+    width: 350px;
+    height: 25px;
+}
+
+.barras2{
+    width: 70px;
+    height: 25px;
+}
+.avanzo1{
+    width: 450px;
+    background-color: #7c7e7c;
+}
+
+.resultadoa{
+    width: 900px;
+    background-color: #7c7e7c;
+}
+
+.avanzo3{
+    width: 900px;
+}
+</style>  
 </head>
 <body>
     <div class="grid-layout4">
-    <img class="escudo" src="/control_de_notas/images/escudo.png">
     <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
     </div><br>
     <table border="3">
@@ -280,7 +348,25 @@
             <th class="barras2"></th>
             <th class="avanzo3"></th>
         </tr>
-    </table><br><br>
-    <a download="Boleta de notas" href="/control_de_notas/php/boletas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
+    </table>
 </body>
 </html>
+<?php
+$html=ob_get_clean();
+//echo $html;
+?>
+<?php
+require_once '../dompdf/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('A2','letter');
+
+$dompdf->render();
+
+$dompdf->stream('Boleta de notas.pdf', array('Attachment' => 0));
+?>

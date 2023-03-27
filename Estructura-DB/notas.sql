@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS tbl_grado;
 DROP TABLE IF EXISTS tbl_padres;
 DROP TABLE IF EXISTS tbl_materias;
 DROP TABLE IF EXISTS tbl_promedio;
-DROP TABLE IF EXISTS tbl_periodo;
 DROP TABLE IF EXISTS tbl_profe_materia;
 DROP TABLE IF EXISTS tbl_boletas;
 DROP TABLE IF EXISTS tbl_estu_mate;
@@ -69,11 +68,6 @@ promedio_r VARCHAR(5),
 promedio_t VARCHAR(5)
 );
 
-CREATE TABLE tbl_periodo(
-cod_periodo SMALLSERIAL PRIMARY KEY,
-periodo CHAR(1) NOT NULL
-);
-
 CREATE TABLE tbl_boletas(
 cod_boleta SMALLSERIAL PRIMARY KEY,
 anio CHAR(4) NOT NULL
@@ -95,11 +89,19 @@ CREATE TABLE tbl_notas(
 cod_nota SMALLSERIAL PRIMARY KEY,
 nie VARCHAR(10) NOT NULL,
 cod_boleta SMALLINT NOT NULL,
-cod_periodo SMALLINT NOT NULL,
 cod_materia SMALLINT NOT NULL,
-act1 VARCHAR(5),
-act2 VARCHAR(5),
-po VARCHAR(5),
+act1_p1 VARCHAR(5),
+act2_p1 VARCHAR(5),
+po_p1 VARCHAR(5),
+act1_p2 VARCHAR(5),
+act2_p2 VARCHAR(5),
+po_p2 VARCHAR(5),
+act1_p3 VARCHAR(5),
+act2_p3 VARCHAR(5),
+po_p3 VARCHAR(5),
+act1_p4 VARCHAR(5),
+act2_p4 VARCHAR(5),
+po_p4 VARCHAR(5),
 re1 VARCHAR(5),
 re2 VARCHAR(5),
 avanzo VARCHAR(5)
@@ -166,8 +168,6 @@ ALTER TABLE tbl_promedio ADD CONSTRAINT fk_codigo_mate FOREIGN KEY(cod_materia) 
 ALTER TABLE tbl_notas ADD CONSTRAINT fk_cod_nota FOREIGN KEY(nie) REFERENCES tbl_estudiantes(nie);
 
 ALTER TABLE tbl_notas ADD CONSTRAINT fk_codnota FOREIGN KEY(cod_boleta) REFERENCES tbl_boletas(cod_boleta);
-
-ALTER TABLE tbl_notas ADD CONSTRAINT fk_codnotas FOREIGN KEY(cod_periodo) REFERENCES tbl_periodo(cod_periodo);
 
 ALTER TABLE tbl_notas ADD CONSTRAINT fk_cod_n_materias FOREIGN KEY(cod_materia) REFERENCES tbl_materias(cod_materia);
 
