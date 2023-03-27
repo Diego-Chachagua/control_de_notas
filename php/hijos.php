@@ -53,16 +53,7 @@ $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_erro
 pg_close($conn);
 ?>
 <br>
-<form>
-    <input type="text" class="inputn" name="nie" placeholder="Ingrese el nie de estudiante que quiere ver la boleta" ><br>
+<form action="boleta_notas2.1.php" method="post">
+    <input type="text" class="inputn" name="niee" placeholder="Ingrese el nie de estudiante que quiere ver la boleta" ><br>
+    <br><input type="submit" id="nio"  value="Ver boleta">
 </form>
-<form >
-<center><a href="/control_de_notas/php/lladama.php"><input type="submit" id="nie"  value="Ver boleta"></a></center>
-</form>
-
-<?php 
-$nie = trim($_POST['nie']);
-
-$_SESSION['nie']=$nie;
-
-?>
