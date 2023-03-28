@@ -29,7 +29,7 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
     <table class="table_one" >
         <tr class="celda_encabezado">
             <td rowspan="2" ><b>N°</b></td>
-            <td rowspan="2" class="n"><b>ID</b></td>
+            <td rowspan="2" class="n"><b>NIE</b></td>
             <td rowspan="2" class="col1"><b>Nombre del estudiante</b></td>
             <td class="periodo"><b>Periodo 1</b></td>
             <td class="periodo"><b>Periodo 2</b></td>
@@ -87,20 +87,25 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
       include 'conexion.php';
       $con= conexion();
       //extraer datos desde la base para mostrar en pantalla
-      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='3' ORDER BY cod_nota ASC";
+      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='1'  ORDER BY cod_nota ASC";
       $query=pg_query($con,$consulta);
+      
       
 
       $c=0;//contador definido en 0
        
        while($col=pg_fetch_array($query)){//while para recorrer el array de datos y mostrarlos en pantalla
+        $cod=$col['cod_nota'];//guardar valor en variable
+        $consulta1="SELECT nie FROM tbl_notas WHERE cod_nota='$cod' ";//extraer el nie
+        $query1=pg_query($con,$consulta1);
+        while($col1=pg_fetch_array($query1)){
       
       $c=$c+1;   //contador inicializado como autoincremental 
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
         //inicio de  definicion de celdas para mostrar datos en pantalla
          echo "<td>".$c."</td>";
-         echo "<td>".$col['cod_nota']."</td>";
+         echo "<td>".$col1['nie']."</td>";
         echo "<td>".$col['nombre_estudiante']."</td>";
              
           //periodo 1
@@ -166,9 +171,19 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
             echo "<td class='reprobado'>REPROBADO</td>";
             }
             echo "<td> </td>";//espacio de celda para mostrar si un alumno es repitente
+            //ingreso de nuevo estudiante en la BD de tbl_promedio
+            $nie=$col1['nie'];
+  
+            //ingreso de promedios a BD 
+            $consulta3="UPDATE tbl_promedio SET promedio_p1='$promedio_p1', promedio_p2='$promedio_p2', promedio_p3='$promedio_p3', promedio_p4='$promedio_p4', promedio_f='$promedio_institucional', promedio_r='0', promedio_t='$promedio_final' WHERE nie='$nie'";
+            $query3=pg_query($con,$consulta3);
+           
             
         echo "</tr>";
        }
+
+    }
+   
     ?> 
     </table>
 </div>
@@ -182,11 +197,11 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
    
         <form action="sendinfo_C2.php" method="post">
         <center><h2>Ingreso de notas por periodo</h2></center>
-           <center> <label>ID: </label>
-            <input type="text"  name="id" class="nie" require><br>
+           <center> <label>NIE: </label>
+            <input type="text"  name="nie" class="nie" require><br>
             </center>
             <label>Actividad 1:<label>
-                <input type="text" name="act1" class="act">
+                <input type="text" name="act1" class="act" id="act1">
 
                 <label>Actividad 2:<label>
                 <input type="text" name="act2"  class="act">
@@ -203,8 +218,10 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
                 </select>
                 
                 <center>
-                <input type="submit" value="Guardar" class="send">
+                   
+                <input type="submit" value="Guardar" class="send"  >
                 <input type="reset"  value="Reiniciar" class="send">
+              
     </center> 
    
         </div> 
@@ -227,6 +244,7 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
 
     </form>
     <!--fin de definicion de formulario-->
+    
     
     
 </div>

@@ -1,26 +1,26 @@
-DROP TABLE IF EXISTS tbl_estudiantes;
-DROP TABLE IF EXISTS tbl_profesor;
-DROP TABLE IF EXISTS tbl_secciones;
-DROP TABLE IF EXISTS tbl_profe_seccion;
-DROP TABLE IF EXISTS tbl_grado;
-DROP TABLE IF EXISTS tbl_padres;
-DROP TABLE IF EXISTS tbl_materias;
-DROP TABLE IF EXISTS tbl_promedio;
-DROP TABLE IF EXISTS tbl_periodo;
-DROP TABLE IF EXISTS tbl_profe_materia;
-DROP TABLE IF EXISTS tbl_boletas;
-DROP TABLE IF EXISTS tbl_estu_mate;
-DROP TABLE IF EXISTS tbl_notas;
-DROP TABLE IF EXISTS tbl_pro_notas;
-DROP TABLE IF EXISTS tbl_usuario;
-DROP TABLE IF EXISTS tbl_profe_grado;
-DROP TABLE IF EXISTS tbl_boleta_info;
+DROP TABLE IF EXISTS tbl_estudiantes CASCADE;
+DROP TABLE IF EXISTS tbl_profesor CASCADE;
+DROP TABLE IF EXISTS tbl_secciones CASCADE;
+DROP TABLE IF EXISTS tbl_profe_seccion CASCADE;
+DROP TABLE IF EXISTS tbl_grado CASCADE;
+DROP TABLE IF EXISTS tbl_padres CASCADE;
+DROP TABLE IF EXISTS tbl_materias CASCADE;
+DROP TABLE IF EXISTS tbl_promedio CASCADE;
+DROP TABLE IF EXISTS tbl_profe_materia CASCADE;
+DROP TABLE IF EXISTS tbl_boletas CASCADE;
+DROP TABLE IF EXISTS tbl_estu_mate CASCADE;
+DROP TABLE IF EXISTS tbl_notas CASCADE;
+DROP TABLE IF EXISTS tbl_pro_nota CASCADE;
+DROP TABLE IF EXISTS tbl_usuario CASCADE;
+DROP TABLE IF EXISTS tbl_profe_grado CASCADE;
+DROP TABLE IF EXISTS tbl_anio CASCADE;
 
 CREATE TABLE tbl_estudiantes(
 nie VARCHAR(10) PRIMARY KEY,
 cod_seccion SMALLINT,
 cod_grado SMALLINT,
 dui CHARACTER(9) NOT NULL,
+cod_anio SMALLINT,
 nombre_estudiante VARCHAR(30) NOT NULL,
 apellido_estudiante VARCHAR(30) NOT NULL,
 genero CHARACTER(1) NOT NULL
@@ -69,14 +69,9 @@ promedio_r VARCHAR(5),
 promedio_t VARCHAR(5)
 );
 
-CREATE TABLE tbl_periodo(
-cod_periodo SMALLSERIAL PRIMARY KEY,
-periodo CHAR(1) NOT NULL
-);
-
 CREATE TABLE tbl_boletas(
 cod_boleta SMALLSERIAL PRIMARY KEY,
-anio CHAR(4) NOT NULL
+nie VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE tbl_profe_seccion(
@@ -138,16 +133,14 @@ contrasena_admin VARCHAR(15)
 );
 
 CREATE TABLE tbl_profe_grado(
-    cod_p_grado SMALLSERIAL PRIMARY KEY,
-    cod_profe SMALLINT NOT NULL,
-    cod_grado SMALLINT NOT NULL
+cod_p_grado SMALLSERIAL PRIMARY KEY,
+cod_profe SMALLINT NOT NULL,
+cod_grado SMALLINT NOT NULL
 );
 
-CREATE TABLE tbl_boleta_info(
-cod_boleta_s_g SMALLSERIAL PRIMARY KEY,
-cod_grado SMALLINT NOT NULL,
-cod_seccion SMALLINT NOT NULL,
-cod_boleta SMALLINT NOT NULL
+CREATE TABLE tbl_anio(
+cod_anio SMALLSERIAL PRIMARY KEY,
+anio CHAR(4) NOT NULL
 );
 
 
@@ -155,7 +148,9 @@ ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codestudiante FOREIGN KEY(dui) REF
 
 ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codseccion FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
 
-ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codanio FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codgrado FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+
+ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codanio FOREIGN KEY(cod_anio) REFERENCES tbl_anio(cod_anio);
 
 ALTER TABLE tbl_profe_seccion ADD CONSTRAINT fk_codseccion FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
 
@@ -175,8 +170,6 @@ ALTER TABLE tbl_notas ADD CONSTRAINT fk_cod_nota FOREIGN KEY(nie) REFERENCES tbl
 
 ALTER TABLE tbl_notas ADD CONSTRAINT fk_codnota FOREIGN KEY(cod_boleta) REFERENCES tbl_boletas(cod_boleta);
 
-ALTER TABLE tbl_notas ADD CONSTRAINT fk_codnotas FOREIGN KEY(cod_periodo) REFERENCES tbl_periodo(cod_periodo);
-
 ALTER TABLE tbl_notas ADD CONSTRAINT fk_cod_n_materias FOREIGN KEY(cod_materia) REFERENCES tbl_materias(cod_materia);
 
 ALTER TABLE tbl_pro_nota ADD CONSTRAINT fk_cod_pro_n FOREIGN KEY(cod_nota) REFERENCES tbl_notas(cod_nota);
@@ -195,8 +188,4 @@ ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_g FOREIGN KEY(cod_grado) REF
 
 ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_p FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_profe);
 
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_s FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
-
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_g FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
-
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_b FOREIGN KEY(cod_boleta) REFERENCES tbl_boletas(cod_boleta);
+ALTER TABLE tbl_boletas ADD CONSTRAINT fk_cod_boleta_estu FOREIGN KEY(nie) REFERENCES tbl_estudiantes(nie);

@@ -24,7 +24,7 @@
        <!--Formulario-->
        <div class="formulario">
             <h1 id="inicio">Inicio de sesi&oacute;n</h1>
-            <form method="post">
+            <form method="post" action="materia.php">
                 <div class="username">
                     <input type="text" required name="usuario">
                     <label>Nombre de usuario</label>
