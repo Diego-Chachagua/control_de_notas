@@ -228,7 +228,7 @@ label{
 
 .grid-layout{
     display: grid;
-    grid-template-columns: 50% 12% 14% 10%;
+    grid-template-columns: 50% 12% 14% 20%;
 }
 
 .letrao{
@@ -590,4 +590,47 @@ table{
     margin-left: 510px;
     width: 350px;
     height: 30px;
+}
+
+.box{
+    height: 40px;
+}
+
+.box p{
+    margin-left: 50px;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #ffd9e2;
+    text-shadow: 0 0 0 transparent,
+                0 0 10px #747a9e,
+                0 0 20px rgba(255, 0, 60, 0.5),
+                0 0 40px #747a9e,
+                0 0 100px #747a9e,
+                0 0 200px #747a9e,
+                0 0 300px #747a9e,
+                0 0 500px #747a9e,
+                0 0 1000px #747a9e;
+animation: animate 3s infinite alternate;
+}
+
+@keyframes animate{
+    40%{
+        opacity: 1;
+    }
+
+    42%{
+        opacity: 0.8;
+    }
+
+    43%{
+        opacity: 1;
+    }
+
+    45%{
+        opacity: 0.3;
+    }
+
+    46%{
+        opacity: 1;
+    }
 }
