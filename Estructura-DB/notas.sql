@@ -13,13 +13,14 @@ DROP TABLE IF EXISTS tbl_notas;
 DROP TABLE IF EXISTS tbl_pro_notas;
 DROP TABLE IF EXISTS tbl_usuario;
 DROP TABLE IF EXISTS tbl_profe_grado;
-DROP TABLE IF EXISTS tbl_boleta_info;
+DROP TABLE IF EXISTS tbl_anio;
 
 CREATE TABLE tbl_estudiantes(
 nie VARCHAR(10) PRIMARY KEY,
 cod_seccion SMALLINT,
 cod_grado SMALLINT,
 dui CHARACTER(9) NOT NULL,
+cod_anio SMALLINT,
 nombre_estudiante VARCHAR(30) NOT NULL,
 apellido_estudiante VARCHAR(30) NOT NULL,
 genero CHARACTER(1) NOT NULL
@@ -132,16 +133,14 @@ contrasena_admin VARCHAR(15)
 );
 
 CREATE TABLE tbl_profe_grado(
-    cod_p_grado SMALLSERIAL PRIMARY KEY,
-    cod_profe SMALLINT NOT NULL,
-    cod_grado SMALLINT NOT NULL
+cod_p_grado SMALLSERIAL PRIMARY KEY,
+cod_profe SMALLINT NOT NULL,
+cod_grado SMALLINT NOT NULL
 );
 
-CREATE TABLE tbl_boleta_info(
-cod_boleta_s_g SMALLSERIAL PRIMARY KEY,
-cod_grado SMALLINT NOT NULL,
-cod_seccion SMALLINT NOT NULL,
-cod_boleta SMALLINT NOT NULL
+CREATE TABLE tbl_anio(
+cod_anio SMALLINT PRIMARY KEY,
+anio CHAR(4) NOT NULL
 );
 
 
@@ -149,7 +148,9 @@ ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codestudiante FOREIGN KEY(dui) REF
 
 ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codseccion FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
 
-ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codanio FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codgrado FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
+
+ALTER TABLE tbl_estudiantes ADD CONSTRAINT fk_codanio FOREIGN KEY(cod_anio) REFERENCES tbl_anio(cod_anio);
 
 ALTER TABLE tbl_profe_seccion ADD CONSTRAINT fk_codseccion FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
 
@@ -187,8 +188,4 @@ ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_g FOREIGN KEY(cod_grado) REF
 
 ALTER TABLE tbl_profe_grado ADD CONSTRAINT fk_cod_p_p FOREIGN KEY(cod_profe) REFERENCES tbl_profesor(cod_profe);
 
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_s FOREIGN KEY(cod_seccion) REFERENCES tbl_secciones(cod_seccion);
-
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_g FOREIGN KEY(cod_grado) REFERENCES tbl_grado(cod_grado);
-
-ALTER TABLE tbl_boleta_info ADD CONSTRAINT fk_boleta_b FOREIGN KEY(cod_boleta) REFERENCES tbl_boletas(cod_boleta);
+ALTER TABLE tbl_boletas ADD CONSTRAINT fk_cod_boleta_estu FOREIGN KEY(nie) REFERENCES tbl_estudiantes(nie);
