@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  $grado= $_SESSION['grado'];//guarda en numero el numero de año 
+$seccion=$_SESSION['nombre_seccion'];//guarda el nombre de la seccion
+$cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
 </head>
 <body>
 <div id="Container">
-    <center><h1>Cuadro "K"  GRADO "1°"</h1><center>
+    <center><h1>GRADO "<?php echo $grado;?>" SECCION "<?php echo $seccion; ?>"</h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
   <a href="cuadro1A(2).php"><input class="save " type="button" value="Actualizar" ></a><br>
@@ -71,34 +77,34 @@
             </td>
 
       <?php
+      include 'conexion.php';
+      $con= conexion();
       $c=0;
        //variable c definida en 0
-        for($i=1;$i<=10;$i++){
-           
-       //for para repetir las columnas hasta 30
-      $c=$c+1;
-      //contador
-      $A1p1="a".$c;
-      //contador con identificador para primera fila
-      $A2p1="b".$c;
-      //contador con identificador para segunda fila
-      
-            
+       $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='2'  ORDER BY cod_nota ASC";
+      $query=pg_query($con,$consulta);
+      while($col=pg_fetch_array($query)){//while para recorrer el array de datos y mostrarlos en pantalla
+        $cod=$col['cod_nota'];//guardar valor en variable
+        $consulta1="SELECT nie FROM tbl_notas WHERE cod_nota='$cod' ";//extraer el nie
+        $query1=pg_query($con,$consulta1);
+        while($col1=pg_fetch_array($query1)){
+      $c=$c+1;     
             //inicio de definicion de columna     
         echo "<tr class='three-col'>";
          echo "<td>".$c."</td>";
-         echo "<td>1234567</td>";
-        echo "<td>NAME AND LAST NAME</td>";
+         echo "<td>".$col1['nie']."</td>";
+        echo "<td>".$col['nombre_estudiante']."</td>";
         
             
           //periodo 1
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
-               echo " <td>0</td>";
+               echo " <td>".$col['act1_p1']."</td>"; 
+                echo "<td>".$col['act2_p1']."</td>";
+                echo "<td>".$col['po_p1']."</td>";
+                $promedio_p1=round(($col['act1_p1']+$col['act1_p2']+$col['po_p1'])/3);
+               echo " <td>$promedio_p1</td>";
                 echo "</table>";
            echo " </td>";
 
@@ -106,9 +112,9 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col['act1_p2']."</td>"; 
+                echo "<td>".$col['act2_p2']."</td>";
+                echo "<td>".$col['po_p2']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -117,9 +123,9 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col['act1_p3']."</td>"; 
+                echo "<td>".$col['act2_p3']."</td>";
+                echo "<td>".$col['po_p3']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
@@ -128,23 +134,24 @@
            echo " <td>";
                echo " <table class='table-second'>";
                //asignacion de identificador a un name 
-               echo " <td></td>"; 
-                echo "<td></td>";
-                echo "<td></td>";
+               echo " <td>".$col['act1_p4']."</td>"; 
+                echo "<td>".$col['act2_p4']."</td>";
+                echo "<td>".$col['po_p4']."</td>";
                echo " <td>0</td>";
                 echo "</table>";
            echo " </td>";
         
             //ultimas filas
             echo "<td>0</td>";
-            echo "<td></td>";
-            echo "<td></td>";
+            echo "<td>".$col['re1']."</td>";
+            echo "<td>".$col['re2']."</td>";
             echo "<td>0</td>";
             echo "<td>REPROBADO</td>";
             
             
         echo "</tr>";
         }
+    }
 
     ?> 
     </table>

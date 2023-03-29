@@ -228,7 +228,13 @@ label{
 
 .grid-layout{
     display: grid;
+    
     grid-template-columns: 50% 12% 14% 10%;
+    border-style: groove;
+}
+.grid-layout div input{
+    float: left;
+    
 }
 
 .letrao{
@@ -338,6 +344,7 @@ P{
 .grid-layout4{
     display: grid;
     grid-template-columns: 30% 70%;
+   
 }
 
 .tablag{
@@ -459,6 +466,7 @@ table{
     border-radius: 50px;
     width: 1300px;
     margin-left: 20px;
+   
 }
 
 .materia2{

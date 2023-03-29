@@ -36,16 +36,17 @@
     </div><br>
     <div class="grid-layout">
         <form>
+            <div>
                 <input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="Nombre del estudiante" >
-        </form>
-       <form>
+</div>
+       <div class="seleccion">
         <select>
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
         </select>
-       </form>
-       <form>
+
+      
         <select class="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
@@ -59,31 +60,32 @@
             <option>E</option>
             <option>B</option>
         </select>
-       </form>
-       <form>
+
+      
+       
         <select>
             <option disabled selected="">Selecciona un g&eacute;nero</option>
             <option>Masculino</option>
             <option>Femenino</option>
         
         </select>
-       </form>
+</div>
     </div>
-    <form>
+    <div>
         <input type="text" id="nombre_alumno" name="apellidos_alumno" placeholder="Apellidos del estudiante" >
-    </form>
-    <form>
+</div>
+    <div>
         <input type="text" id="nombre_alumno" name="nombre_padre" placeholder="Nombres del padre" >
-    </form>
-    <form>
+</div>
+    <div>
         <input type="text" id="nombre_alumno" name="apellidos_pardre" placeholder="Apellidos del padre" >
-    </form>
-    <form>
+</div>
+    <div>
         <input type="text" id="dui" name="dui" placeholder="Dui del padre" >
-    </form>
-    <form>
+</div>
+    <div>
         <input type="text" id="nie" name="nie" placeholder="NIE estudiante">
-    </form><br>
+</div><br>
     <input type="submit" id="guardar"  value="Guardar">
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
     <h2 class="inst">Escriba los datos del profesor a registrar</h2><br>
