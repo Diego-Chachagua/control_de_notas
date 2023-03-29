@@ -8,6 +8,7 @@
 </head>
 <body>
 <div id="Container">
+   
     <center><h1>Cuadro "K"  GRADO "1°"</h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
@@ -70,7 +71,7 @@
                 </table> 
             </td>
 
-      <?php
+    <?php
       $c=0;
        //variable c definida en 0
         for($i=1;$i<=10;$i++){
