@@ -1861,17 +1861,13 @@ if($mostrar27=pg_fetch_assoc($result27)){
             <th class="barras1"></th>
         </tr>
     </table><br><br>
+    <h1 class="neon" data-text="ESTO SOLO APLICA PARA ESTUDIANTES DE SEGUNDO A&ntilde;O">ESTO SOLO APLICA PARA ESTUDIANTES DE SEGUNDO A&Ntilde;O</h1>
     <table border="3">
         <tr>
             <th class="avanzo1">Componente plan estudio</th>
             <th class="colarriba2">NF</th>
             <th class="resultadoa">Resultado</th>
         </tr>
-
-<div class="box"> 
-            <center><p>ESTO SOLO APLICA PARA ESTUDIANTES DE SEGUNDO AÑO:</p></center>
-</div><br><br><br><br><br>
-
         <tr>
             <th class="avanzo2">LENGUAJE Y LITERATURA PRUEBA AVANZO</th>
             <th class="barras2">
