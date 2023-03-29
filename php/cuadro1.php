@@ -82,18 +82,17 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
             </td>
 
       <?php
-      $c=0;
-       //variable c definida en 0
-        for($i=1;$i<=10;$i++){
+     //conexion a la bd
+     include 'conexion.php';
+     $con= conexion();
+     //extraer datos desde la base para mostrar en pantalla
+        
            
-       //for para repetir las columnas hasta 30
-      $c=$c+1;
-      //contador
-      $A1p1="a".$c;
-      //contador con identificador para primera fila
-      $A2p1="b".$c;
-      //contador con identificador para segunda fila
-      
+     $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='1'  ORDER BY cod_nota ASC";
+      $query=pg_query($con,$consulta);
+     
+    
+   
 
       $c=0;//contador definido en 0
        
