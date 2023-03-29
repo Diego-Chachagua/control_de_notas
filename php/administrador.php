@@ -14,6 +14,7 @@
     <body>
         <h2 class="inst">Escriba los datos del alumno a registrar</h2><br>
         <h3 class="materia2">Elija las materias que llevara el alumno</h3><br>
+        <form>
         <div class="materias1">
     <input type="checkbox" name="materias" id="materias" class="check1"> Lenguaje
     <input type="checkbox" name="materias" id="materias" class="check1"> Sociales
@@ -35,18 +36,16 @@
     <center><input type="checkbox" name="materias" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
     </div><br>
     <div class="grid-layout">
-        <form>
-            <div>
+        
                 <input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="Nombre del estudiante" >
-</div>
-       <div class="seleccion">
+    
         <select>
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
         </select>
-
-      
+       
+       
         <select class="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
@@ -60,8 +59,7 @@
             <option>E</option>
             <option>B</option>
         </select>
-
-      
+       
        
         <select>
             <option disabled selected="">Selecciona un g&eacute;nero</option>
@@ -69,27 +67,27 @@
             <option>Femenino</option>
         
         </select>
-</div>
+       
     </div>
-    <div>
-        <input type="text" id="nombre_alumno" name="apellidos_alumno" placeholder="Apellidos del estudiante" >
-</div>
-    <div>
-        <input type="text" id="nombre_alumno" name="nombre_padre" placeholder="Nombres del padre" >
-</div>
-    <div>
-        <input type="text" id="nombre_alumno" name="apellidos_pardre" placeholder="Apellidos del padre" >
-</div>
-    <div>
-        <input type="text" id="dui" name="dui" placeholder="Dui del padre" >
-</div>
-    <div>
-        <input type="text" id="nie" name="nie" placeholder="NIE estudiante">
-</div><br>
+    
+        <input type="text" id="nombre_alumno" name="apellidos_alumno" placeholder="Apellidos del estudiante" ><br>
+    
+    
+        <input type="text" id="nombre_alumno" name="nombre_padre" placeholder="Nombres del padre" ><br>
+
+        <input type="text" id="nombre_alumno" name="apellidos_pardre" placeholder="Apellidos del padre" ><br>
+    
+    
+        <input type="text" id="dui" name="dui" placeholder="Dui del padre" ><br>
+    
+        <input type="text" id="nie" name="nie" placeholder="NIE estudiante"><br>
+    <br>
     <input type="submit" id="guardar"  value="Guardar">
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
+</form>
     <h2 class="inst">Escriba los datos del profesor a registrar</h2><br>
     <h3 class="materia2">Elija las materias que llevara el Profesor</h3><br>
+    <form>
         <div class="materias1">
     <input type="checkbox" name="materias" id="materias" class="check1"> Lenguaje
     <input type="checkbox" name="materias" id="materias" class="check1"> Sociales
@@ -111,18 +109,18 @@
     <center><input type="checkbox" name="materias" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
     </div><br>
     <div class="grid-layout">
-        <form>
+        
                 <input type="text" id="nombre_alumno" name="nombre_profesor" placeholder="Nombre del profesor" >
-        </form>
-       <form>
+       
+       
         <select>
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
             <option>1 y 2</option>
         </select>
-       </form>
-       <form>
+       
+    
         <select class="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
@@ -136,21 +134,20 @@
             <option>E</option>
             <option>B</option>
         </select>
-       </form>
-       <form>
+       
         <select>
             <option disabled selected="">Selecciona un g&eacute;nero</option>
             <option>Masculino</option>
             <option>Femenino</option>
         
         </select>
-       </form>
+       
     </div>
-    <form>
         <input type="text" id="nombre_alumno" name="apellidos_profesor" placeholder="Apellidos del profesor" >
-    </form><br>
+    <br>
         <input type="submit" id="guardar"  value="Guardar">
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
+</form>
         <h2 class="inst">Escriba lo que desea eliminar</h2>
         <div class="grid-layout2">
             <form>
@@ -160,22 +157,18 @@
                     <option>Alumno</option>
                     <option>Padre</option>
                 </select>
-               </form>
-            <form>
                 <input type="text" id="eliminar" name="Eliminar" placeholder="Escriba lo que desea eliminar" >
-            </form>
         </div><br>
         <input type="submit" id="eliminar_total"  value="Eliminar"><br><br>
+</form>
+<form>
         <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n</h2><br>
         <div class="grid-layuot5">
-        <form>
         <select class="opanio">
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
         </select>
-       </form>
-       <form>
         <select class="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
