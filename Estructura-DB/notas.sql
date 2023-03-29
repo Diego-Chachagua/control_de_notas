@@ -1,19 +1,19 @@
-DROP TABLE IF EXISTS tbl_estudiantes;
-DROP TABLE IF EXISTS tbl_profesor;
-DROP TABLE IF EXISTS tbl_secciones;
-DROP TABLE IF EXISTS tbl_profe_seccion;
-DROP TABLE IF EXISTS tbl_grado;
-DROP TABLE IF EXISTS tbl_padres;
-DROP TABLE IF EXISTS tbl_materias;
-DROP TABLE IF EXISTS tbl_promedio;
-DROP TABLE IF EXISTS tbl_profe_materia;
-DROP TABLE IF EXISTS tbl_boletas;
-DROP TABLE IF EXISTS tbl_estu_mate;
-DROP TABLE IF EXISTS tbl_notas;
-DROP TABLE IF EXISTS tbl_pro_notas;
-DROP TABLE IF EXISTS tbl_usuario;
-DROP TABLE IF EXISTS tbl_profe_grado;
-DROP TABLE IF EXISTS tbl_anio;
+DROP TABLE IF EXISTS tbl_estudiantes CASCADE;
+DROP TABLE IF EXISTS tbl_profesor CASCADE;
+DROP TABLE IF EXISTS tbl_secciones CASCADE;
+DROP TABLE IF EXISTS tbl_profe_seccion CASCADE;
+DROP TABLE IF EXISTS tbl_grado CASCADE;
+DROP TABLE IF EXISTS tbl_padres CASCADE;
+DROP TABLE IF EXISTS tbl_materias CASCADE;
+DROP TABLE IF EXISTS tbl_promedio CASCADE;
+DROP TABLE IF EXISTS tbl_profe_materia CASCADE;
+DROP TABLE IF EXISTS tbl_boletas CASCADE;
+DROP TABLE IF EXISTS tbl_estu_mate CASCADE;
+DROP TABLE IF EXISTS tbl_notas CASCADE;
+DROP TABLE IF EXISTS tbl_pro_nota CASCADE;
+DROP TABLE IF EXISTS tbl_usuario CASCADE;
+DROP TABLE IF EXISTS tbl_profe_grado CASCADE;
+DROP TABLE IF EXISTS tbl_anio CASCADE;
 
 CREATE TABLE tbl_estudiantes(
 nie VARCHAR(10) PRIMARY KEY,
@@ -71,7 +71,7 @@ promedio_t VARCHAR(5)
 
 CREATE TABLE tbl_boletas(
 cod_boleta SMALLSERIAL PRIMARY KEY,
-anio CHAR(4) NOT NULL
+nie VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE tbl_profe_seccion(
@@ -139,7 +139,7 @@ cod_grado SMALLINT NOT NULL
 );
 
 CREATE TABLE tbl_anio(
-cod_anio SMALLINT PRIMARY KEY,
+cod_anio SMALLSERIAL PRIMARY KEY,
 anio CHAR(4) NOT NULL
 );
 
