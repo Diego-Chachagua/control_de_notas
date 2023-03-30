@@ -19,7 +19,7 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
     <center><h1>  GRADO :"<?php echo $grado;//muestra en pantalla el grado  ?>"  SECCIÓN: "<?php echo $seccion;//muestra en pantalla la seccion ?>" </h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
-  <a href="cuadro2.php"><input class="save " type="button" value="Actualizar" ></a>
+  <a href="cuadro1.php"><input class="save " type="button" value="Actualizar" ></a>
   <input class="save " type="submit" value="Imprimir" name="submit"><br>
   <a href="eleccion.php"> <input class="save " type="submit" value="Regresar" name="submit"></a><br>
  

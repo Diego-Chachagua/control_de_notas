@@ -120,6 +120,7 @@ $recuperacion_e2=$_POST['R_E2'];
 $avanzo=$_POST['avanzo'];
 //evalua si hay campos con datos , si hay hace la actualizacion , de lo contrario no hara nada 
 if($recuperacion_e1<=10 && $recuperacion_e1!=""){
+  $recuperacion_e1=6;
   $consulta="UPDATE tbl_notas SET re1='$recuperacion_e1' WHERE nie='$nie' AND cod_materia='1' ";
   $query=pg_query($con,$consulta);
   header("location: cuadro2.php");
@@ -127,6 +128,7 @@ if($recuperacion_e1<=10 && $recuperacion_e1!=""){
   header("location: cuadro2.php");
 }
 if($recuperacion_e2<=10 && $recuperacion_e2!=""){
+  $recuperacion_e2=6;
   $consulta="UPDATE tbl_notas SET re2='$recuperacion_e2' WHERE nie='$nie' AND cod_materia='1'";
   $query=pg_query($con,$consulta);
   header("location: cuadro2.php");
