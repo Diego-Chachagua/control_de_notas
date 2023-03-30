@@ -170,7 +170,7 @@ if (isset($_POST['usuario'])) {
     $usuario = null;
 }
 
-if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesores
+if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
     header("location: ./formulario_profesor.php");
 }
 
