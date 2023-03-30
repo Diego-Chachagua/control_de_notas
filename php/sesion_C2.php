@@ -2,6 +2,7 @@
 session_start();//sesion activa
 if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
     $_SESSION['grado']=1;
+    
     header('location: cuadro1.php');
     }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
         $_SESSION['grado']=2;

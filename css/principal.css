@@ -339,6 +339,7 @@ P{
 .grid-layout4{
     display: grid;
     grid-template-columns: 30% 70%;
+   
 }
 
 .tablag{
@@ -460,6 +461,7 @@ table{
     border-radius: 50px;
     width: 1300px;
     margin-left: 20px;
+   
 }
 
 .materia2{
@@ -593,4 +595,3 @@ table{
     width: 350px;
     height: 30px;
 }
-
