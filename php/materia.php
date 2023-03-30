@@ -170,9 +170,9 @@ if (isset($_POST['usuario'])) {
     $usuario = null;
 }
 
-if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
-    header("location: ./formulario_profesor.php");
-}
+// if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
+//     header("location: ./formulario_profesor.php");
+// }
 
 
 ?>
@@ -183,23 +183,28 @@ if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia
     var materia3 = <?php echo $codmateria3; ?>;
     var materia4 = <?php echo $codmateria4; ?>;
     var condicon = 0;
+    var mate = 0;
 
     function ciencia(){
         // Verifica si los datos son distintos
         if (materia1 == 3) {
            condicion = 1;
+           mate = 1;
         }
 
         if (materia2 == 3) {
            condicion = 1;
+           mate = 2;
         }
 
         if (materia3 == 3) {
            condicion = 1;
+           mate = 3;
         }
 
         if (materia4 == 3) {
            condicion = 1;
+           mate = 4;
         }
 
         if (condicion != 1){
@@ -210,6 +215,24 @@ if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+
+
+        if(mate = 1){
+            <?php $_SESSION['cod_materia']=$codmateria1;  ?>
+        }
+
+        if(mate = 2){
+            <?php $_SESSION['cod_materia']=$codmateria2;  ?>
+        }
+
+        if(mate = 3){
+            <?php $_SESSION['cod_materia']=$codmateria3;  ?>
+        }
+
+        if(mate = 4){
+            <?php $_SESSION['cod_materia']=$codmateria4;  ?>
+        }
+
         
     }
 

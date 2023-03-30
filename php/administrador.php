@@ -14,39 +14,39 @@
     <body>
         <h2 class="inst">Escriba los datos del alumno a registrar</h2><br>
         <h3 class="materia2">Elija las materias que llevara el alumno</h3><br>
-        <form>
+        <form action="info_admin.php" method="post">
         <div class="materias1">
-    <input type="checkbox" name="materias" id="materias" class="check1"> Lenguaje
-    <input type="checkbox" name="materias" id="materias" class="check1"> Sociales
-    <input type="checkbox" name="materias" id="materias" class="check1"> Ciencia
-    <input type="checkbox" name="materias" id="materias" class="check1"> Muci
-    <input type="checkbox" name="materias" id="materias" class="check1"> Ingles
-    <input type="checkbox" name="materias" id="materias" class="check1"> Matem&aacute;tica
-    <input type="checkbox" name="materias" id="materias" class="check1"> Inform&aacute;tica
-    <input type="checkbox" name="materias" id="materias" class="check1"> Oplv
-    <input type="checkbox" name="materias" id="materias" class="check1"> Seminario
-    <input type="checkbox" name="materias" id="materias" class="check1"> Curso de habilitaci&oacute;n para la vida
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="1"> Lenguaje
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="4"> Sociales
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="3"> Ciencia
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="5"> Muci
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="6"> Ingles
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="2"> Matem&aacute;tica
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="7"> Inform&aacute;tica
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="8"> Oplv
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="9"> Seminario
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="10"> Curso de habilitaci&oacute;n para la vida
     </div><br>
     <div class="materias1">
-    <input type="checkbox" name="materias" id="materias" class="check1"> Evidencia actitudes favorables para la convivencia
-    <input type="checkbox" name="materias" id="materias" class="check1"> Toma desiciones de forma a&uacute;tonoma y responsable
-    <input type="checkbox" name="materias" id="materias" class="check1"> Se expresa y participa con respeto
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="11"> Evidencia actitudes favorables para la convivencia
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="12"> Toma desiciones de forma a&uacute;tonoma y responsable
+    <input type="checkbox" name="materias[]" id="materias" class="check1" value="13"> Se expresa y participa con respeto
     </div><br>
     <div class="materias1">
-    <center><input type="checkbox" name="materias" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
+    <center><input type="checkbox" name="materias[]" id="materias[]" class="check1" value="14"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
     </div><br>
     <div class="grid-layout">
         
                 <input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="Nombre del estudiante" >
     
-        <select>
+        <select name="grado">
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
         </select>
        
        
-        <select class="seccion">
+        <select class="seccion" name="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
             <option>O</option>
@@ -61,7 +61,7 @@
         </select>
        
        
-        <select>
+        <select name="genero">
             <option disabled selected="">Selecciona un g&eacute;nero</option>
             <option>Masculino</option>
             <option>Femenino</option>
@@ -75,7 +75,7 @@
     
         <input type="text" id="nombre_alumno" name="nombre_padre" placeholder="Nombres del padre" ><br>
 
-        <input type="text" id="nombre_alumno" name="apellidos_pardre" placeholder="Apellidos del padre" ><br>
+        <input type="text" id="nombre_alumno" name="apellidos_padre" placeholder="Apellidos del padre" ><br>
     
     
         <input type="text" id="dui" name="dui" placeholder="Dui del padre" ><br>
@@ -86,27 +86,27 @@
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
 </form>
     <h2 class="inst">Escriba los datos del profesor a registrar</h2><br>
-    <h3 class="materia2">Elija las materias que llevara el Profesor</h3><br>
-    <form>
-        <div class="materias1">
-    <input type="checkbox" name="materias" id="materias" class="check1"> Lenguaje
-    <input type="checkbox" name="materias" id="materias" class="check1"> Sociales
-    <input type="checkbox" name="materias" id="materias" class="check1"> Ciencia
-    <input type="checkbox" name="materias" id="materias" class="check1"> Muci
-    <input type="checkbox" name="materias" id="materias" class="check1"> Ingles
-    <input type="checkbox" name="materias" id="materias" class="check1"> Matem&aacute;tica
-    <input type="checkbox" name="materias" id="materias" class="check1"> Inform&aacute;tica
-    <input type="checkbox" name="materias" id="materias" class="check1"> Oplv
-    <input type="checkbox" name="materias" id="materias" class="check1"> Seminario
-    <input type="checkbox" name="materias" id="materias" class="check1"> Curso de habilitaci&oacute;n para la vida
+    <h3 class="materia2">Elija las materias[] que llevara el Profesor</h3><br>
+    <form action="info_admin" method="post">
+        <div class="materias1" >
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Lenguaje
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Sociales
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Ciencia
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Muci
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Ingles
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Matem&aacute;tica
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Inform&aacute;tica
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Oplv
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Seminario
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Curso de habilitaci&oacute;n para la vida
     </div><br>
     <div class="materias1">
-    <input type="checkbox" name="materias" id="materias" class="check1"> Evidencia actitudes favorables para la convivencia
-    <input type="checkbox" name="materias" id="materias" class="check1"> Toma desiciones de forma a&uacute;tonoma y responsable
-    <input type="checkbox" name="materias" id="materias" class="check1"> Se expresa y participa con respeto
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Evidencia actitudes favorables para la convivencia
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Toma desiciones de forma a&uacute;tonoma y responsable
+    <input type="checkbox" name="materias[]" id="materias" class="check1"> Se expresa y participa con respeto
     </div><br>
     <div class="materias1">
-    <center><input type="checkbox" name="materias" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
+    <center><input type="checkbox" name="materias[]" id="materias" class="check1"> Muestra sentido de pertenencia y respeto por nuestra cultura</center>
     </div><br>
     <div class="grid-layout">
         

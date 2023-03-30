@@ -68,3 +68,8 @@
 </div>
     </body>
 </html>
+
+<?php 
+session_start();
+$_SESSION['cod_materia'];
+?>
