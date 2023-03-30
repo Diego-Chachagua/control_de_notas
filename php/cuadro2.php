@@ -4,6 +4,11 @@ session_start();
 $grado= $_SESSION['grado'];//guarda en numero el numero de año 
 $seccion=$_SESSION['nombre_seccion'];//guarda el nombre de la seccion
 $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
+$cod_materia=$_SESSION['cod_materia'];
+if($cod_materia==3){
+    $nombre_materia="Ciencias";
+    echo $cod_materia;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +21,7 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
 <body>
 <div id="Container">
    
-    <center><h1>  GRADO :"<?php echo $grado;//muestra en pantalla el grado  ?>"  SECCIÓN: "<?php echo $seccion;//muestra en pantalla la seccion ?>" </h1><center>
+    <center><h1>  GRADO :"<?php echo $grado;//muestra en pantalla el grado  ?>"  SECCIÓN: "<?php echo $seccion;//muestra en pantalla la seccion ?>" MATERIA "<?php echo $nombre_materia ?>" </h1><center>
  <!--div para el manejo de botones en cuadro-->
 <div class="buttons">
   <a href="cuadro2.php"><input class="save " type="button" value="Actualizar" ></a>
@@ -87,7 +92,7 @@ $cod_seccion=$_SESSION['cod_seccion'];//guarda el codigo de seccion
       include 'conexion.php';
       $con= conexion();
       //extraer datos desde la base para mostrar en pantalla
-      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='1'  ORDER BY cod_nota ASC";
+      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion'  AND cod_materia='$cod_materia'  ORDER BY cod_nota ASC";
       $query=pg_query($con,$consulta);
       
       

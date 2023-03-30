@@ -39,14 +39,14 @@
         
                 <input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="Nombre del estudiante" >
     
-        <select>
+        <select name="grado">
             <option disabled selected="">Selecciona un a&ntilde;o</option>
             <option>1</option>
             <option>2</option>
         </select>
        
        
-        <select class="seccion">
+        <select class="seccion" name="seccion">
             <option disabled selected="">Selecciona una secci&oacute;n</option>
             <option>K</option>
             <option>O</option>
@@ -61,7 +61,7 @@
         </select>
        
        
-        <select>
+        <select name="genero">
             <option disabled selected="">Selecciona un g&eacute;nero</option>
             <option>Masculino</option>
             <option>Femenino</option>
@@ -75,7 +75,7 @@
     
         <input type="text" id="nombre_alumno" name="nombre_padre" placeholder="Nombres del padre" ><br>
 
-        <input type="text" id="nombre_alumno" name="apellidos_pardre" placeholder="Apellidos del padre" ><br>
+        <input type="text" id="nombre_alumno" name="apellidos_padre" placeholder="Apellidos del padre" ><br>
     
     
         <input type="text" id="dui" name="dui" placeholder="Dui del padre" ><br>
