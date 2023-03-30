@@ -28,7 +28,7 @@ if($mostrar=pg_fetch_assoc($result)){
     //solicitud de datos a la base materia matematica
 $query1 = "SELECT  cod_materia, promedio_p1, promedio_p2, promedio_p3, promedio_p4, promedio_f, promedio_r, promedio_t FROM tbl_promedio where nie='$nie' and cod_materia=2";
 $result1 = pg_query($conn, $query1) or die("Error en la consulta: " . pg_last_error());
-if($mostrar1=pg_fetch_assoc($result1)){
+if($mostrar1=pg_fetch_assoc($result1)) {
 
 //solicitud de datos a la base materia ciencia
 $query2 = "SELECT  cod_materia, promedio_p1, promedio_p2, promedio_p3, promedio_p4, promedio_f, promedio_r, promedio_t FROM tbl_promedio where nie='$nie' and cod_materia=3";

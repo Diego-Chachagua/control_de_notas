@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MATERIAS</title>
     <link rel="stylesheet" type="text/css" href="/control_de_notas/css/materia.css" media="screen"/>
-    <link rel="stylesheet" href="/control_de_notas/js/materia.js" media="screen"/>
 </head>
 <body>
     <div></div>
@@ -117,11 +116,40 @@ if (isset($_POST['usuario'])) {
             $consulta2 = pg_query($conexion, "SELECT cod_materia FROM tbl_profe_materia WHERE cod_profe='$codprofe'");
 
             if ($consulta2) { // Verifica si la consulta se realizó correctamente
-                // Verifica si la consulta devolvió algún resultado
-                if (pg_num_rows($consulta2) > 0) {
-                    //Guarda la información de la consulta
-                    $row2 = pg_fetch_assoc($consulta2);
-                    $codmateria = $row2['cod_materia'];
+               // Verifica si la consulta devolvió algún resultado
+               if (pg_num_rows($consulta2) > 0) {
+                    //Guarda la información de la consulta en un array
+                    $codmateria_array = array();
+                    while ($row2 = pg_fetch_assoc($consulta2)) {
+                        $codmateria_array[] = $row2['cod_materia'];
+                    }
+                    // Asigna los valores del array a variables diferentes
+                    $num_codmaterias = count($codmateria_array); // Cuenta el número de códigos de materia encontrados
+                    for ($i = 0; $i < $num_codmaterias; $i++) {
+                        // Asigna el valor del elemento correspondiente a la variable creada
+                        if ($i == 0) {
+                            $codmateria1 = $codmateria_array[$i];
+                        } elseif ($i == 1) {
+                            $codmateria2 = $codmateria_array[$i];
+                        } elseif ($i == 2) {
+                            $codmateria3 = $codmateria_array[$i];
+                        } elseif ($i == 3) {
+                            $codmateria4 = $codmateria_array[$i];
+                        }
+                    }
+                    if(empty($codmateria1)){
+                        $codmateria1 = 0;
+                    }
+                    if(empty($codmateria2)){
+                        $codmateria2 = 0;
+                    }
+                    if(empty($codmateria3)){
+                        $codmateria3 = 0;
+                    }
+                    if(empty($codmateria4)){
+                        $codmateria4 = 0;
+                    }
+
                 } else {
                     // Si la consulta no devuelve ningún resultado, establece la variable a un valor nulo
                     $codmateria = null;
@@ -142,182 +170,309 @@ if (isset($_POST['usuario'])) {
     $usuario = null;
 }
 
-if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesores
+if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
     header("location: ./formulario_profesor.php");
 }
 
+
 ?>
 
-<script>
-function ciencia(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 3;
-        var btnEnviar = document.getElementById("1");
+<script type="text/javascript">
+    var materia1 = <?php echo $codmateria1; ?>;
+    var materia2 = <?php echo $codmateria2; ?>;
+    var materia3 = <?php echo $codmateria3; ?>;
+    var materia4 = <?php echo $codmateria4; ?>;
+    var condicon = 0;
 
+    function ciencia(){
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 3) {
+           condicion = 1;
+        }
+
+        if (materia2 == 3) {
+           condicion = 1;
+        }
+
+        if (materia3 == 3) {
+           condicion = 1;
+        }
+
+        if (materia4 == 3) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function muci(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 5;
-        var btnEnviar = document.getElementById("2");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 5) {
+           condicion = 1;
+        }
+
+        if (materia2 == 5) {
+           condicion = 1;
+        }
+
+        if (materia3 == 5) {
+           condicion = 1;
+        }
+
+        if (materia4 == 5) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function sociales(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 4;
-        var btnEnviar = document.getElementById("3");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 4) {
+           condicion = 1;
+        }
+
+        if (materia2 == 4) {
+           condicion = 1;
+        }
+
+        if (materia3 == 4) {
+           condicion = 1;
+        }
+
+        if (materia4 == 4) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function ingles(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 6;
-        var btnEnviar = document.getElementById("4");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 6) {
+           condicion = 1;
+        }
+
+        if (materia2 == 6) {
+           condicion = 1;
+        }
+
+        if (materia3 == 6) {
+           condicion = 1;
+        }
+
+        if (materia4 == 6) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function oplv(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 8;
-        var btnEnviar = document.getElementById("5");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 8) {
+           condicion = 1;
+        }
+
+        if (materia2 == 8) {
+           condicion = 1;
+        }
+
+        if (materia3 == 8) {
+           condicion = 1;
+        }
+
+        if (materia4 == 8) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function mate(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 2;
-        var btnEnviar = document.getElementById("6");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 2) {
+           condicion = 1;
+        }
+
+        if (materia2 == 2) {
+           condicion = 1;
+        }
+
+        if (materia3 == 2) {
+           condicion = 1;
+        }
+
+        if (materia4 == 2) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function lenguaje(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 1;
-        var btnEnviar = document.getElementById("7");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 1) {
+           condicion = 1;
+        }
+
+        if (materia2 == 1) {
+           condicion = 1;
+        }
+
+        if (materia3 == 1) {
+           condicion = 1;
+        }
+
+        if (materia4 == 1) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function info(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 7;
-        var btnEnviar = document.getElementById("8");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 7) {
+           condicion = 1;
+        }
+
+        if (materia2 == 7) {
+           condicion = 1;
+        }
+
+        if (materia3 == 7) {
+           condicion = 1;
+        }
+
+        if (materia4 == 7) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function semi(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 9;
-        var btnEnviar = document.getElementById("9");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 9) {
+           condicion = 1;
+
+        }
+
+        if (materia2 == 9) {
+           condicion = 1;
+        }
+
+        if (materia3 == 9) {
+           condicion = 1;
+        }
+
+        if (materia4 == 9) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
     function hpp(){
-        var codmateria = <?php echo $codmateria; ?>;
-        var materia = 10;
-        var btnEnviar = document.getElementById("10");
-
         // Verifica si los datos son distintos
-        if (codmateria !== materia) {
+        if (materia1 == 10) {
+           condicion = 1;
+        }
+
+        if (materia2 == 10) {
+           condicion = 1;
+        }
+
+        if (materia3 == 10) {
+           condicion = 1;
+        }
+
+        if (materia4 == 10) {
+           condicion = 1;
+        }
+
+        if (condicion != 1){
             // Desactiva el botón
             btnEnviar.disabled = true;
             return false;
         }
-
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
+        
     }
 
-    
 </script>
