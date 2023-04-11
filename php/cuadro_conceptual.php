@@ -91,9 +91,7 @@
    $consulta1="SELECT nie FROM tbl_notas WHERE cod_nota='$cod' ";//extraer el nie
    $query1=pg_query($con,$consulta1);
    while($col1=pg_fetch_array($query1)){
-
-      //variable c definida en 0
-      
+  
       //for para repetir las columnas hasta 30
       $c=$c+1;
       //contador
@@ -102,6 +100,7 @@
       $A2p1="b".$c;
       //contador con identificador para segunda fila
 
+     
      //inicio de definicion de columna     
      echo "<tr class='three-col'>";
      echo "<td>".$c."</td>";
@@ -214,52 +213,71 @@
            
            if($promedio_p4=="3"){
            echo "<td><b></b></td>";
-           }elseif($promedio_p4>=10){
+           }elseif($promedio_p4=10){
            echo "<td><b>MB</b></td>";
-           }elseif($promedio_p4>=9){
+           }elseif($promedio_p4=9){
            echo "<td><b>MB</b></td>";
-           }elseif($promedio_p4>=8){
+           }elseif($promedio_p4=8){
            echo "<td><b>B</b></td>";
-           }elseif($promedio_p4>=7){
+           }elseif($promedio_p4=7){
            echo "<td><b>B</b></td>";
-           }elseif($promedio_p4>=6){
+           }elseif($promedio_p4=6){
            echo "<td><b>D</b></td>";
-           }elseif($promedio_p4>=5){
+           }elseif($promedio_p4=5){
            echo "<td><b>D</b></td>";
-           }elseif($promedio_p4>=4){
+           }elseif($promedio_p4=4){
            echo "<td><b>M</b></td>";
-           }elseif($promedio_p4>=3){
+           }elseif($promedio_p4<=3){
            echo "<td><b>M</b></td>";
            }  
            echo "</table>";
        echo "</td>";
-           
-           //espacio para las ultimas filas
-           $promedio_final=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);//calculo de promedio final
-           echo "<td>$promedio_final</td>";
+        
+       
+           $promedio_inicial=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);//calculo de promedio institucional
+           echo "<td>$promedio_inicial</td>";
            echo "<td>".$col['re1']."</td>";
-           echo "<td>".$col['re2']."</td>";
-           echo "<td></td>";
           
-            if($promedio_final>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
-             echo "<td class='aprobado'>APROBADO</td>";
-            }else{
-            echo "<td class='reprobado'>REPROBADO</td>";
-            }
+           $promedio_total=0; 
+            if($promedio_inicial<6){
+               if($col['re1']!=""){
+                   $promedio_r1=round(($promedio_inicial+$col['re1'])/2);
+                   if($promedio_r1>=6){
+                       $promedio_total=$promedio_r1;
+                   }else{
+                       if($col['re2']!=""){
+                       $promedio_r2=round(($promedio_r1+$col['re2'])/2);
+                       $promedio_total=$promedio_r2;
+                       }else{
+                           $promedio_total=$promedio_inicial;
+                       }
+                   }
+               }else{
+                   $promedio_total=$promedio_inicial;
+               }
+           }elseif($promedio_inicial>=6){
+               $promedio_total=$promedio_inicial;
+           }
+      
+           echo "<td>".$col['re2']."</td>";
+           
+           echo "<td>".$promedio_total."</td>";
+           if($promedio_total>=6){
+               echo "<td class='aprobado'>APROBADO</td>";
+           }else{
+               echo "<td class='reprobado'>REPROBADO</td>";
+           }
             $nie=$col1['nie'];
 
             //ingreso de promedios a BD 
-            $consulta3="UPDATE tbl_promedio SET promedio_p1='$promedio_p1', promedio_p2='$promedio_p2', promedio_p3='$promedio_p3', promedio_p4='$promedio_p4', promedio_r='0', promedio_t='$promedio_final' WHERE nie='$nie'";
-            $query3=pg_query($con,$consulta3);
+            // $consulta3="UPDATE tbl_promedio SET promedio_p1='$promedio_p1', promedio_p2='$promedio_p2', promedio_p3='$promedio_p3', promedio_p4='$promedio_p4', promedio_r='0', promedio_t='$promedio_final' WHERE nie='$nie'";
+            //$query3=pg_query($con,$consulta3);
         
         echo "</tr>";
          }
         }
     
-    
-
-
-   ?>
+?>
    </table>
 </div>
 <br>
