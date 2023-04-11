@@ -63,7 +63,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
                 header("location: ./hijos.php");
                 $_SESSION['dui']=$dui;
             }else{
-                header("location: ./boleta_notas.php");
+                header("location: ./boleta_notas2.php");
             }    
         }else{
             echo "Datos incorrectos";
