@@ -80,7 +80,7 @@
     
         <input type="text" id="dui" name="dui" placeholder="Dui del padre" ><br><br>
     
-        <input type="text" id="nia" name="nia" placeholder="NIE estudiante" ><br>
+        <input type="text" id="nia" name="nie" placeholder="NIE estudiante" ><br>
     <br>
     <input type="submit" id="guardar"  value="Guardar">
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
