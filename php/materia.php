@@ -50,7 +50,7 @@
                 <p class="letras">OPLV</p>
             </div>
     </button>
-    <button class="materia"  id="6" onclick="mate()">
+    <button class="materia"  id="6" onclick="matematica()">
             <div class="foto">
                 <img src="../images/mate.png" alt="">
             </div>
@@ -182,7 +182,6 @@ if (isset($_POST['usuario'])) {
     var materia2 = <?php echo $codmateria2; ?>;
     var materia3 = <?php echo $codmateria3; ?>;
     var materia4 = <?php echo $codmateria4; ?>;
-    var condicon = 0;
     var mate = 0;
 
     function ciencia(){
@@ -215,25 +214,6 @@ if (isset($_POST['usuario'])) {
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
         window.location.href = "./eleccion.php";
         return true;
-
-
-        if(mate = 1){
-            <?php $_SESSION['cod_materia']=$codmateria1;  ?>
-        }
-
-        if(mate = 2){
-            <?php $_SESSION['cod_materia']=$codmateria2;  ?>
-        }
-
-        if(mate = 3){
-            <?php $_SESSION['cod_materia']=$codmateria3;  ?>
-        }
-
-        if(mate = 4){
-            <?php $_SESSION['cod_materia']=$codmateria4;  ?>
-        }
-
-        
     }
 
     function muci(){
@@ -352,34 +332,6 @@ if (isset($_POST['usuario'])) {
         
     }
 
-    function mate(){
-        // Verifica si los datos son distintos
-        if (materia1 == 2) {
-           condicion = 1;
-        }
-
-        if (materia2 == 2) {
-           condicion = 1;
-        }
-
-        if (materia3 == 2) {
-           condicion = 1;
-        }
-
-        if (materia4 == 2) {
-           condicion = 1;
-        }
-
-        if (condicion != 1){
-            // Desactiva el botón
-            btnEnviar.disabled = true;
-            return false;
-        }
-        // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
-        return true;
-        
-    }
 
     function lenguaje(){
         // Verifica si los datos son distintos
@@ -496,6 +448,36 @@ if (isset($_POST['usuario'])) {
         window.location.href = "./eleccion.php";
         return true;
         
+    }
+
+
+    function matematica(){
+
+        // Verifica si los datos son distintos
+        if (materia1 == 2){
+            condicion = 1;
+        }
+        
+        if (materia2 == 2){
+            condicion = 1;
+        }
+        
+        if (materia3 == 2){
+            condicion = 1;
+        }
+        
+        if (materia4 == 2){
+            condicion = 1;
+        }
+        
+        if (condicion != 1){
+            // Desactiva el botón
+            btnEnviar.disabled = true;
+            return false;
+        }
+        // Si los datos son iguales; redirige al usuario a la página eleccion.php
+        window.location.href = "./eleccion.php";
+        return true;
     }
 
 </script>
