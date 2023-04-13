@@ -19,12 +19,16 @@ $user = "notasadmin";
 $password = "incasnotas";
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password") or die("Error de conexión: " . pg_last_error());
-
 ?>
 
 <?php
+$grado = $_POST['grado2'];
+$seccion = $_POST['seccion2'];
+ ?>
+
+<?php
 //solicitud de datos a la base
-$query = "SELECT usuario_padres, contrasena_padres, nombre_padre FROM tbl_usuario INNER JOIN tbl_padres ON tbl_usuario.dui=tbl_padres.dui";
+$query = "SELECT tbl_usuario.usuario_padres, tbl_usuario.contrasena_padres, tbl_padres.nombre_padre, tbl_secciones.cod_seccion, tbl_secciones.seccion, tbl_grado.cod_grado, tbl_grado.grado FROM tbl_usuario INNER JOIN tbl_padres ON tbl_usuario.dui=tbl_padres.dui INNER JOIN tbl_estudiantes ON tbl_padres.dui=tbl_estudiantes.dui INNER JOIN tbl_secciones ON tbl_secciones.cod_seccion=tbl_estudiantes.cod_seccion INNER JOIN tbl_grado ON tbl_estudiantes.cod_grado=tbl_grado.cod_grado where tbl_secciones.seccion='$seccion' and tbl_grado.grado='$grado'";
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 ?>
 
@@ -49,4 +53,3 @@ $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_erro
 <?php
 pg_close($conn);
 ?>
-

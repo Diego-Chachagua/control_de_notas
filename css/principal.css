@@ -20,6 +20,19 @@ body{
     margin-right: 70px;
 }
 
+#usuarios{
+    width: 10%;
+    height: 35px;
+    border: 1px solid;
+    background: #7c7e7c;
+    border-radius: 0px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin-left: 20px;
+}
+
 #inicio{
     font-size: 30px;
     
@@ -264,6 +277,17 @@ label{
     height: 30px;
     margin: 20px;
     font-size: 20px;
+}
+
+#select1{
+    background-color: rgb(138, 138, 138);
+    border-radius: 10px;
+    height: 27px;
+    margin-top: 23px;
+    height: 100px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+
 }
 
 select{
