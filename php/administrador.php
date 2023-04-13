@@ -121,15 +121,6 @@
         </select>
        
     
-        <select class="seccion" name="secciones_prof[]" multiple>
-            <option disabled selected="">Selecciona una secci&oacute;n</option>
-            <option value="1">1<p>-A</p></option>
-            <option value="2">2<p>-F</p></option>
-            <option value="3">3<p>-E</p></option>
-            <option value="4">4<p>-H</p></option>
-            <option value="5">5<p>-G</p></option>
-            <option value="6">6<p>-D</p></option>
-        </select>
        
         <select name="genero_prof">
             <option disabled selected="" >Selecciona un g&eacute;nero</option>
@@ -141,6 +132,15 @@
     </div>
         <input type="text" id="nombre_alumno" name="apellidos_profesor" placeholder="Apellidos del profesor" >
     <br>
+    <select id="select1" class="seccion" name="secciones_prof[]" multiple>
+            <option disabled selected="">Selecciona una secci&oacute;n</option>
+            <option value="1">1<p>-A</p></option>
+            <option value="2">2<p>-F</p></option>
+            <option value="3">3<p>-E</p></option>
+            <option value="4">4<p>-H</p></option>
+            <option value="5">5<p>-G</p></option>
+            <option value="6">6<p>-D</p></option>
+        </select><br><br>
         <input type="submit" id="guardar"  value="Guardar">
         <input type="submit" id="cancelar"  value="Cancelar"><br><br>
 </form>
@@ -187,7 +187,7 @@ if(isset($_POST['eliminar'])){
         <input type="text" id="grado2" name="grado2" placeholder="Grado">
         <input type="text" id="seccion2" name="seccion2" placeholder="Seccion">
         <br><br>
-        <br><input type="submit" id="verboleta"  value="Ver boleta">
+        <br><input type="submit" id="usuarios"  value="Ver usuarios">
         </center>
 </form>
     </body>
