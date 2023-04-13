@@ -236,7 +236,9 @@ if($mostrar27=pg_fetch_assoc($result27)){
              ?></th>
              <?php
             }else{ 
-                echo 0
+                echo "<th>";
+                echo 1;
+               echo "</th>";
             ?>
             <?php
             }
