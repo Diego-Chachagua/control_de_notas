@@ -181,29 +181,13 @@ if(isset($_POST['eliminar'])){
         </div><br>
         <input type="submit" id="eliminar_total"  value="Eliminar"><br><br>
 </form>
-
-<form>
-        <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n</h2><br>
-        <div class="grid-layuot5">
-        <select class="opanio">
-            <option disabled selected="">Selecciona un a&ntilde;o</option>
-            <option>1</option>
-            <option>2</option>
-        </select>
-        <select class="seccion">
-            <option disabled selected="">Selecciona una secci&oacute;n</option>
-            <option>K</option>
-            <option>O</option>
-            <option>M</option>
-            <option>L</option>
-            <option>N</option>
-            <option>D</option>
-            <option>H</option>
-            <option>G</option>
-            <option>E</option>
-            <option>B</option>
-        </select>
-       </form>
-       </div><br><br>
-        <a href="/control_de_notas/php/alumnos.php"><h1 class="botonU">Click para ver los usuarios asignados</h1></a><br><br>
+<center>
+<form action="alumnos.php" method="post">
+        <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver usuarios:</h2><br>
+        <input type="text" id="grado2" name="grado2" placeholder="Grado">
+        <input type="text" id="seccion2" name="seccion2" placeholder="Seccion">
+        <br><br>
+        <br><input type="submit" id="verboleta"  value="Ver boleta">
+        </center>
+</form>
     </body>
