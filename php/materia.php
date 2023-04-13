@@ -170,41 +170,35 @@ if (isset($_POST['usuario'])) {
     $usuario = null;
 }
 
-// if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
-//     header("location: ./formulario_profesor.php");
-// }
-
-
+if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
+    header("location: ./formulario_profesor.php");
+}
 ?>
 
 <script type="text/javascript">
+
     var materia1 = <?php echo $codmateria1; ?>;
     var materia2 = <?php echo $codmateria2; ?>;
     var materia3 = <?php echo $codmateria3; ?>;
     var materia4 = <?php echo $codmateria4; ?>;
-    var mate = 0;
-
     function ciencia(){
         // Verifica si los datos son distintos
         if (materia1 == 3) {
            condicion = 1;
-           mate = 1;
         }
 
         if (materia2 == 3) {
            condicion = 1;
-           mate = 2;
         }
 
         if (materia3 == 3) {
            condicion = 1;
-           mate = 3;
         }
 
         if (materia4 == 3) {
            condicion = 1;
-           mate = 4;
         }
+
 
         if (condicion != 1){
             // Desactiva el botón
@@ -212,7 +206,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "CIENCIAS";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
     }
 
@@ -240,7 +235,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "MUCI";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -269,7 +265,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "SOCIALES";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -298,9 +295,9 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "INGLES";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
-        
     }
 
     function oplv(){
@@ -327,7 +324,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "OPLV";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -357,7 +355,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "LENGUAJE";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -385,8 +384,8 @@ if (isset($_POST['usuario'])) {
             btnEnviar.disabled = true;
             return false;
         }
-        // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "INFORMATICA";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -416,7 +415,8 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "SEMINARIO";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
         
     }
@@ -445,9 +445,9 @@ if (isset($_POST['usuario'])) {
             return false;
         }
         // Si los datos son iguales, redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "HPP";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
-        
     }
 
 
@@ -475,9 +475,10 @@ if (isset($_POST['usuario'])) {
             btnEnviar.disabled = true;
             return false;
         }
-        // Si los datos son iguales; redirige al usuario a la página eleccion.php
-        window.location.href = "./eleccion.php";
+        var dato = "MATEMATICA";
+        window.location.href = "./eleccion.php?dato=" + dato;
         return true;
     }
 
+    
 </script>

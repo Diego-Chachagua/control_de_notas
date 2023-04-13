@@ -68,3 +68,10 @@
 </div>
     </body>
 </html>
+
+<script>
+  var dato = window.location.search.split('=')[1];
+console.log(dato);
+// Guardar dato en una cookie
+document.cookie = "dato=" + dato + "; expires=Thu, 1 Jan 2030 12:00:00 UTC; path=/;";
+</script>

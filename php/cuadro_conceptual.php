@@ -1,3 +1,52 @@
+<?php
+// Leer dato de la cookie y Resive el nombre de la materia
+if(isset($_COOKIE['dato'])) {
+  $nombre_materia = $_COOKIE['dato'];
+}else{
+    $nombre_materia = null;
+}
+
+//Evaluea y asigna el código de la materia
+if($nombre_materia == "CIENCIAS"){
+    $cod_materia = 3;
+}
+
+if($nombre_materia == "SOCIALES"){
+    $cod_materia = 4;
+}
+
+if($nombre_materia == "MATEMATICA"){
+    $cod_materia = 2;
+}
+
+if($nombre_materia == "LENGUAJE"){
+    $cod_materia = 1;
+}
+
+if($nombre_materia == "OPLV"){
+    $cod_materia = 8;
+}
+
+if($nombre_materia == "MUCI"){
+    $cod_materia = 5;
+}
+
+if($nombre_materia == "INFORMATICA"){
+    $cod_materia = 7;
+}
+
+if($nombre_materia == "HPP"){
+    $cod_materia = 10;
+}
+
+if($nombre_materia == "SEMINARIO"){
+    $cod_materia = 9;
+}
+
+if($nombre_materia == "INGLES"){
+    $cod_materia = 6;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
