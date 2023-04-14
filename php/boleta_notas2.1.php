@@ -145,6 +145,10 @@ if($mostrar26=pg_fetch_assoc($result26)){
 $query27 = "SELECT  re1, re2, cod_materia FROM tbl_notas where nie='$nie' and cod_materia=14";
 $result27 = pg_query($conn, $query27) or die("Error en la consulta: " . pg_last_error());
 if($mostrar27=pg_fetch_assoc($result27)){ 
+
+$query28 = "SELECT  tbl_anio.anio, tbl_anio.cod_anio, tbl_estudiantes.nie FROM tbl_anio INNER JOIN tbl_estudiantes ON tbl_anio.cod_anio=tbl_estudiantes.cod_anio where nie='$nie'";
+$result28 = pg_query($conn, $query28) or die("Error en la consulta: " . pg_last_error());
+if($mostrar28=pg_fetch_assoc($result28)){
 ?>
 
 <!DOCTYPE html>
@@ -176,11 +180,11 @@ if($mostrar27=pg_fetch_assoc($result27)){
             <th class="info2">Secci&oacute;n</th>
             <th class="info3"><?php echo $mostrar['seccion'] ?></th>
             <th class="info4">A&ntilde;o</th>
-            <th class="info5"></th>
+            <th class="info5"><?php echo $mostrar28['anio'] ?></th>
         </tr>
         <tr>
             <th class="tablag">Estudiante</th>
-            <th colspan="5" class="info"><?php echo $mostrar['nombre_estudiante']." ".$mostrar['apellido_estudiante'] ?></th> 
+            <th colspan="5" class="info"><?php echo $mostrar['nombre_estudiante']." ".$mostrar['apellido_estudiante']." "."Nie:".$mostrar['nie'] ?></th> 
         </tr>
     </table><br><br>
 
@@ -1947,6 +1951,10 @@ if($mostrar27=pg_fetch_assoc($result27)){
     <?php 
 }
     ?>
+
+<?php 
+}
+?>
 
 <?php 
 }
