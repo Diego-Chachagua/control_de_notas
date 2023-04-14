@@ -2,7 +2,7 @@
 include 'conexion.php';
 $con=conexion();
 //entrada de datos para el registro de estudiantes
-$materias=$_POST['materias'];//contiene en array los codigos de las materias seleccionadas
+/*$materias=$_POST['materias'];//contiene en array los codigos de las materias seleccionadas
 $nombre_estudiante=$_POST['nombre_alumno'];
 $grado=$_POST['grado'];
 $seccion=$_POST['seccion'];
@@ -75,7 +75,6 @@ $grado_prof=$_POST['grado_prof'];
 $seccion_prof=$_POST['secciones_prof'];
 $genero_prof=$_POST['genero_prof'];
 $nombre_prof=$_POST['nombre_profesor'];
-
 $apellidos_prof=$_POST['apellidos_profesor'];
 if($grado_prof=="" || $seccion_prof=="" || $genero_prof=="" || $nombre_prof=="" || $apellidos_prof="" ){
     //si cualquiera de los campos esta vacio
@@ -110,9 +109,7 @@ $max=6;
     }
   }
 }
-//con un usuario y contraseña  se guarda el valor
-$consulta8="INSERT INTO tbl_usuario(usuario_profe,contrasena_profe) VALUES ('$usuario','$key')";
-$query8=pg_query($con,$consulta8);
+
 //ingreso de datos del maestro a la tabla profe_materia
 //obtener el ultimo codigo del profesor y sumarle +1 para asginar un nuevo codigo y llenar otras tablas
 $consulta9="SELECT cod_profe FROM tbl_profesor";
@@ -133,25 +130,28 @@ for($i=0;$i<=$contar_profe;$i++){
 //ingreso de datos del profesor a tabla profe_Secciones
 $contar_S=count($seccion_prof)-1;
 for($i=0;$i<=$contar_S;$i++){
-    $consulta11="INSERT INTO tbl_profe_seccion(cod_profe,cod_seccion) VALUES ('$cod_profe','$seccion_prof[$i]')";
+    $consulta11="INSERT INTO tbl_profe_seccion(cod_profe,cod_seccion) VALUES ('$codigo_p','$seccion_prof[$i]')";
     $query11=pg_query($con,$consulta11);
 }
+//con un usuario y contraseña  se guarda el valor
+$consulta8="INSERT INTO tbl_usuario(cod_profe,usuario_profe,contrasena_profe) VALUES ('$codigo_p','$usuario','$key')";
+$query8=pg_query($con,$consulta8);
 //para llenar la tabla profe_grado
 if($grado_prof=="1"){
-    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$cod_profe','$grado_prof')";
+    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$codigo_p','$grado_prof')";
     $query12=pg_query($con,$consulta12);
 }elseif($grado_prof=="2"){
-    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$cod_profe','$grado_prof')";
+    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$codigo_p','$grado_prof')";
     $query12=pg_query($con,$consulta12);
 }elseif($grado_prof=="1 y 2"){
     for($i=1;$i<=2;$i++){
-    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$cod_profe','$i')";
+    $consulta12="INSERT INTO tbl_profe_grado(cod_profe,cod_grado) VALUES ('$codigo_p','$i')";
     $query12=pg_query($con,$consulta12);
     }
 }
 header("location: administrador.php");
 
-}//fin de funcionalidad de bloque para el ingreso de datos del profesor
-//oscar si ves esto el apartado de escoger seccion del profesor le hace falta mejoras en el css
+}*///fin de funcionalidad de bloque para el ingreso de datos del profesor
+
 
 

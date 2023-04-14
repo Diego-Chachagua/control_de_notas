@@ -38,4 +38,5 @@ if($_POST['seccion']=="A"){
 
 
 
+
    
