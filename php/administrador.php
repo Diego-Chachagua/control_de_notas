@@ -148,10 +148,10 @@
        
         <div class="grid-layout2">
        
-            <form action="administrador.php" method="post">
-                <select class="opcion" name="eliminar">
+            <form action="info_admin.php" method="post">
+                <select class="opcion" name="eliminar" id="eleccion">
                     <option disabled selected="">Selecciona un opci&oacute;n:</option>
-                    <option>Maestro</option>
+                    <option value="Maestro" >Maestro</option>
                     <option>Alumno</option>
                     <option>Padre</option>
                 </select>
@@ -159,84 +159,9 @@
 
 
         </div><br>
-        <input type="submit" id="eliminar_total"  value="Eliminar"><br><br>
+        <input type="submit" id="eliminar_total"  value="Eliminar" ><br><br>
 </form>
 
-<?php
-include 'conexion.php';
-$con=conexion();
-if(isset($_POST['cod_user']) && isset($_POST['eliminar'])){
-
-//espacio para funcionalidad en espacio de eliminar
-$cod_user=$_POST['cod_user'];
-$eliminar=$_POST['eliminar'];
-//espacio para borrar los registros de un profesor en especifico
-if($eliminar=="Maestro"){
-    $consulta13="DELETE FROM tbl_profe_materia WHERE cod_profe='$cod_user'";
-    $query13=pg_query($con,$consulta13);
-    $consulta15="DELETE FROM tbl_profe_seccion WHERE cod_profe='$cod_user'";
-    $query15=pg_query($con,$consulta15);
-    $consulta16="DELETE FROM tbl_profe_grado WHERE cod_profe='$cod_user'";
-    $query16=pg_query($con,$consulta16);
-    $consulta17="DELETE FROM tbl_usuario WHERE cod_profe='$cod_user'";
-    $query17=pg_query($con,$consulta17);
-    $consulta14="DELETE FROM tbl_profesor WHERE cod_profe='$cod_user'";
-    $query14=pg_query($con,$consulta14);
-}elseif($eliminar=="Alumno"){
-    
-    //espacio para borrar a un alumno en especifico
-    $consulta28="SELECT nie FROM tbl_estudiantes WHERE nie='$cod_user'";
-    $query28=pg_query($con,$consulta28);
-    $nie_es=0;
-    while($col4=pg_fetch_Array($query28)){
-        $nie_es=$col4['nie'];
-    }
-   if($nie_es==""){
-
-   }else{
-    if($nie_es != $cod_user){
-        echo "<script>alert('Numero de NIE no encontrado')</script>";
-    }else{
-    $consulta18="DELETE FROM tbl_notas WHERE nie='$cod_user'";
-    $query18=pg_query($con,$consulta18);
-    $consulta19="DELETE FROM tbl_promedio WHERE nie='$cod_user'";
-    $query19=pg_query($con,$consulta19);
-    $consulta20="DELETE FROM tbl_estu_mate WHERE nie='$cod_user'";
-    $query20=pg_query($con,$consulta20);
-    $consulta21="DELETE FROM tbl_estudiantes WHERE nie='$cod_user'";
-    $query21=pg_query($con,$consulta21);
-    $consulta22="SELECT dui FROM tbl_estudiantes WHERE nie='$cod_user'";//consulta el dui segun nie para posteriormente borrarlo
-    $query22=pg_query($con,$consulta22);
-    while($col3=pg_fetch_Array($query22)){
-        $dui_padre=$col3['dui'];
-    }
-    if($dui_padre==""){
-
-    }else{
-    $consulta23="DELETE FROM tbl_padres WHERE dui='$dui_padre'";
-    $query23=pg_query($con,$consulta23);
-    }
-}
-}
-   
-}elseif($eliminar=="Padre"){
-    $consulta24="SELECT nie FROM tbl_estudiante WHERE dui=$cod_user";
-    $query24=pg_query($con,$consulta24);
-    while($col2=pg_fetch_Array($query24)){
-        $nie_estudiante=$col2['nie'];
-    }
-    $consulta25="DELETE FROM tbl_estudiante WHERE nie='$nie_estudiante'";
-    $query25=pg_query($con,$consulta25);
-    $consulta26="DELETE FROM tbl_usuario WHERE dui='$cod_user'";
-    $query26=pg_query($con,$consulta26);
-    $consulta27="DELETE FROM tbl_padre WHERE dui='$cod_user'";
-    $query27=pg_query($con,$consulta27);
-}
-
-}
-
-
-?>
 <center>
 <form action="alumnos.php" method="post">
         <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver usuarios:</h2><br>
@@ -246,4 +171,4 @@ if($eliminar=="Maestro"){
         <br><input type="submit" id="usuarios"  value="Ver usuarios">
         </center>
 </form>
-    </body>
+    </body>;
