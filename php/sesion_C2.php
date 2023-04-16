@@ -1,14 +1,40 @@
 <?php
 session_start();//sesion activa
-if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
+if(isset($_COOKIE['dato'])) {
+    $materia = $_COOKIE['dato'];
+  }else{
+      $materia = null;
+  }
+  echo $materia;
+
+if($_POST['anio']==1 ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
+    if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'SOCIALES' or $materia == 'INFORMATICA' or $materia== 'LENGUAJE' or $materia == 'INGLES'){
     $_SESSION['grado']=1;
     
     header('location: cuadro1.php');
-    }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
-        $_SESSION['grado']=2;
-       
-        header("location: cuadro2.php");
     }
+    }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
+        if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'SOCIALES' or $materia == 'INFORMATICA' or $materia== 'LENGUAJE' or $materia == 'INGLES'){
+            $_SESSION['grado']=2;
+            
+            header('location: cuadro2.php');
+            }
+    }
+
+    if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
+        if($materia == 'SEMINARIO' or $materia == 'HPP' or $materia == 'OPLV' or $materia == 'MUCI'){
+            $_SESSION['grado']=1;
+            
+            header('location: cuadro_conceptual.php');
+            }
+    }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
+        if($materia == 'SEMINARIO' or $materia == 'HPP' or $materia == 'OPLV' or $materia == 'MUCI'){
+            $_SESSION['grado']=1;
+            
+            header('location: cuadro_conceptual.php');
+            }
+    }
+    
     //condiciones que evaluan que seccion se ah registrado
     //si seccion es X guardarlo y genera su respectivo codigo de BD para el uso de SELECT en cuadro 2
 if($_POST['seccion']=="A"){
@@ -31,6 +57,7 @@ if($_POST['seccion']=="A"){
     $_SESSION['cod_seccion']=6;
 
 }
+
 
 
 
