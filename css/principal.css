@@ -605,3 +605,13 @@ table{
     width: 350px;
     height: 30px;
 }
+
+.aprobado{
+    font-size: 20px;
+    color: #1eff00;
+}
+
+.reprobado{
+    font-size: 20px;
+    color: #dd0909;
+}
