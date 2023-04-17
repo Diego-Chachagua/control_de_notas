@@ -48,8 +48,34 @@ if($nombre_materia == "INGLES"){
     $cod_materia = 6;
 }
 $nie=$_POST['nie'];//captura el id del estudiante desde formulario en cuadro2
+$buscar="SELECT nie FROM tbl_estudiantes WHERE nie='$nie'";
+$query2=pg_query($con,$buscar);
+while($col1=pg_fetch_array($query2)){
+  $nie_Estudiante=$col1['nie'];
+}
+if($nie_Estudiante!=$nie){
+  echo "<script type='text/javascript'>
+        var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
+        w.document.open();
+        w.document.write('<center><br><h1>¡NIE no encontrado!</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
+        w.document.close();
+       </script> ";
+        sleep(2);
+        echo "<script>
+        window.location.href = 'cuadro2.php';
+        </script>";
+}
 if($nie==""){//evalua si esta vacio
-    header("location: cuadro2.php");
+  echo "<script type='text/javascript'>
+  var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
+  w.document.open();
+  w.document.write('<center><br><h1>¡No se ingreso ningun NIE !</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
+  w.document.close();
+ </script> ";
+  sleep(2);
+  echo "<script>
+  window.location.href = 'cuadro2.php';
+  </script>";
 }
 $act1=$_POST['act1'];
 $act2=$_POST['act2'];
