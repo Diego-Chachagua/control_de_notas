@@ -135,7 +135,7 @@ if($nombre_materia == "INGLES"){
       include 'conexion.php';
       $con= conexion();
       //extraer datos desde la base para mostrar en pantalla
-      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion' ORDER BY cod_nota ASC";
+      $consulta="SELECT cod_nota, nombre_estudiante, act1_p1, act2_p1, po_p1, act1_p2, act2_p2, po_p2, act1_p3, act2_p3, po_p3, act1_p4, act2_p4, po_p4, re1, avanzo, re2 FROM tbl_notas INNER JOIN tbl_estudiantes ON tbl_notas.nie=tbl_estudiantes.nie WHERE  cod_grado='$grado' AND cod_seccion='$cod_seccion' AND cod_materia='$cod_materia' ORDER BY cod_nota ASC";
       $query=pg_query($con,$consulta);
       
       
@@ -144,7 +144,7 @@ if($nombre_materia == "INGLES"){
        
        while($col=pg_fetch_array($query)){//while para recorrer el array de datos y mostrarlos en pantalla
         $cod=$col['cod_nota'];//guardar valor en variable
-        $consulta1="SELECT nie FROM tbl_notas WHERE cod_nota='$cod' ";//extraer el nie
+        $consulta1="SELECT nie FROM tbl_notas WHERE cod_nota='$cod'  ";//extraer el nie
         $query1=pg_query($con,$consulta1);
         while($col1=pg_fetch_array($query1)){
       
@@ -228,6 +228,7 @@ if($nombre_materia == "INGLES"){
                 }
             }
              }
+            }
             echo "<td>$promedio_final</td>";
             if($promedio_final>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
                 echo "<td class='aprobado'>APROBADO</td>";
@@ -246,7 +247,7 @@ if($nombre_materia == "INGLES"){
         echo "</tr>";
        }
 
-    }
+    
 
    
     ?> 

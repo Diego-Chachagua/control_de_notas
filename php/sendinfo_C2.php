@@ -53,30 +53,29 @@ $query2=pg_query($con,$buscar);
 while($col1=pg_fetch_array($query2)){
   $nie_Estudiante=$col1['nie'];
 }
-if($nie_Estudiante!=$nie){
+if($nie==""){
   echo "<script type='text/javascript'>
         var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
         w.document.open();
-        w.document.write('<center><br><h1>¡NIE no encontrado!</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
+        w.document.write('<center><br><h1>¡NIE no ingresado!</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
         w.document.close();
        </script> ";
         sleep(2);
         echo "<script>
         window.location.href = 'cuadro2.php';
         </script>";
-}
-if($nie==""){//evalua si esta vacio
+}elseif($nie_Estudiante!=$nie){//evalua si esta vacio
   echo "<script type='text/javascript'>
   var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
   w.document.open();
-  w.document.write('<center><br><h1>¡No se ingreso ningun NIE !</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
+  w.document.write('<center><br><h1>¡NIE no encontrado !</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
   w.document.close();
  </script> ";
   sleep(2);
   echo "<script>
   window.location.href = 'cuadro2.php';
   </script>";
-}
+}elseif($nie!="" && $nie_Estudiante==$nie){
 $act1=$_POST['act1'];
 $act2=$_POST['act2'];
 $po=$_POST['PO'];
@@ -212,4 +211,5 @@ if($avanzo<=10 && $avanzo!=""){
   header("location: cuadro2.php");
 }else{
   header("location: cuadro2.php");
+}
 }
