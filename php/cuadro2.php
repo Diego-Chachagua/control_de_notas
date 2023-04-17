@@ -206,10 +206,11 @@ if($nombre_materia == "INGLES"){
             //ultimas filas
             $promedio_institucional=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);//calculo de promedio institucional
             echo "<td>$promedio_institucional</td>";
+            echo "<td>".$col['re1']."</td>";
+            echo "<td>".$col['avanzo']."</td>";
+            echo "<td>".$col['re2']."</td>";
             if($col['avanzo']==""){
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td></td>";
+                $promedio_final=$promedio_institucional;
 
             }else{
              if($promedio_institucional<6){
@@ -217,9 +218,7 @@ if($nombre_materia == "INGLES"){
                     $promedio_r1=round(($promedio_institucional+$col['re1'])/2);
                     $promedio_institucional=$promedio_r1;
                 }
-            echo "<td>".$col['re1']."</td>";
-            echo "<td>".$col['avanzo']."</td>";
-            echo "<td>".$col['re2']."</td>";
+            
             $prom_inicial=$promedio_institucional*0.85;//calculo de promedio para el uso en calculo de promedio final
             $nota_avanzo=$col['avanzo']*0.15;//calculo de nota avanzo multiplicado por el 15%
             $promedio_final=round($prom_inicial+$nota_avanzo);//calculo de promedio final
@@ -228,7 +227,7 @@ if($nombre_materia == "INGLES"){
                     $promedio_final=round(($promedio_final+$col['re2'])/2);
                 }
             }
-        
+             }
             echo "<td>$promedio_final</td>";
             if($promedio_final>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
                 echo "<td class='aprobado'>APROBADO</td>";
@@ -248,7 +247,7 @@ if($nombre_materia == "INGLES"){
        }
 
     }
-}
+
    
     ?> 
     </table>
