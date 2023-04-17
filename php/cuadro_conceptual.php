@@ -168,23 +168,31 @@ if($nombre_materia == "INGLES"){
            echo "<td>$promedio_p1</td>";
            
            
-           if($promedio_p1==10){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p1>=9){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p1>=8){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p1>=7){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p1>=6){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p1>=5){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p1>=4){
-           echo "<td><b>M</b></td>";
-           }elseif($promedio_p1>=3){
-           echo "<td><b>M</b></td>";
-           }        
+           if($promedio_p1=10){
+            echo "<td><b>E</b></td>";
+            $PC_1="E";
+            }elseif($promedio_p1=9){
+            echo "<td><b>E</b></td>";
+            $PC_!="E";
+            }elseif($promedio_p1=8){
+            echo "<td><b>MB</b></td>";
+            $PC_1="MB";
+            }elseif($promedio_p1=7){
+            echo "<td><b>MB</b></td>";
+            $PC_1="MB";
+            }elseif($promedio_p1=6){
+            echo "<td><b>B</b></td>";
+            $PC_1="B";
+            }elseif($promedio_p1=5){
+            echo "<td><b>B</b></td>";
+            $PC_1="B";
+            }elseif($promedio_p1=4){
+            echo "<td><b>D</b></td>";
+            $PC_1="D";
+            }elseif($promedio_p1<=3){
+            echo "<td><b>D</b></td>";
+            $PC_1="D";
+            }      
            echo "</table>";
        echo "</td>";
 
@@ -198,23 +206,31 @@ if($nombre_materia == "INGLES"){
            $promedio_p2=round(($col['act1_p2']+$col['act2_p2']+$col['po_p2'])/3);//calculo de promedio de segundo periodo
            echo "<td>$promedio_p2</td>";
           
-           if($promedio_p2==10){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p2>=9){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p2>=8){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p2>=7){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p2>=6){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p2>=5){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p2>=4){
-           echo "<td><b>M</b></td>";
-           }elseif($promedio_p2>=3){
-           echo "<td><b>M</b></td>";
-           }  
+           if($promedio_p2=10){
+            echo "<td><b>E</b></td>";
+            $PC_2="E";
+            }elseif($promedio_p2=9){
+            echo "<td><b>E</b></td>";
+            $PC_2="E";
+            }elseif($promedio_p2=8){
+            echo "<td><b>MB</b></td>";
+            $PC_2="MB";
+            }elseif($promedio_p2=7){
+            echo "<td><b>MB</b></td>";
+            $PC_2="MB";
+            }elseif($promedio_p2=6){
+            echo "<td><b>B</b></td>";
+            $PC_2="B";
+            }elseif($promedio_p2=5){
+            echo "<td><b>B</b></td>";
+            $PC_2="B";
+            }elseif($promedio_p2=4){
+            echo "<td><b>D</b></td>";
+            $PC_2="D";
+            }elseif($promedio_p2<=3){
+            echo "<td><b>D</b></td>";
+            $PC_2="D";
+            }  
            echo "</table>";
        echo "</td>";
 
@@ -228,25 +244,31 @@ if($nombre_materia == "INGLES"){
            $promedio_p3=round(($col['act1_p3']+$col['act2_p3']+$col['po_p3'])/3);//calculo de promedio de tercer periodo
            echo "<td>$promedio_p3</td>";
            
-           if($promedio_p3=="3"){
-           echo "<td><b></b></td>";
-           }elseif($promedio_p3>=10){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p3>=9){
-           echo "<td><b>MB</b></td>";
-           }elseif($promedio_p3>=8){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p3>=7){
-           echo "<td><b>B</b></td>";
-           }elseif($promedio_p3>=6){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p3>=5){
-           echo "<td><b>D</b></td>";
-           }elseif($promedio_p3>=4){
-           echo "<td><b>M</b></td>";
-           }elseif($promedio_p3>=3){
-           echo "<td><b>M</b></td>";
-           }  
+           if($promedio_p3=10){
+            echo "<td><b>E</b></td>";
+            $PC_3="E";
+            }elseif($promedio_p3=9){
+            echo "<td><b>E</b></td>";
+            $PC_3="E";
+            }elseif($promedio_p3=8){
+            echo "<td><b>MB</b></td>";
+            $PC_3="MB";
+            }elseif($promedio_p3=7){
+            echo "<td><b>MB</b></td>";
+            $PC_3="MB";
+            }elseif($promedio_p3=6){
+            echo "<td><b>B</b></td>";
+            $PC_3="B";
+            }elseif($promedio_p3=5){
+            echo "<td><b>B</b></td>";
+            $PC_3="B";
+            }elseif($promedio_p3=4){
+            echo "<td><b>D</b></td>";
+            $PC_3="D";
+            }elseif($promedio_p3<=3){
+            echo "<td><b>D</b></td>";
+            $PC_3="D";
+            }  
            echo "</table>";
        echo "</td>";
 
@@ -260,24 +282,30 @@ if($nombre_materia == "INGLES"){
            $promedio_p4=round(($col['act1_p4']+$col['act2_p4']+$col['po_p4'])/3);//calculo de prpomedio de cuarto periodo
            echo "<td>$promedio_p4</td>";
            
-           if($promedio_p4=="3"){
-           echo "<td><b></b></td>";
-           }elseif($promedio_p4=10){
-           echo "<td><b>MB</b></td>";
+           if($promedio_p4=10){
+           echo "<td><b>E</b></td>";
+           $PC_4="E";
            }elseif($promedio_p4=9){
-           echo "<td><b>MB</b></td>";
+           echo "<td><b>E</b></td>";
+           $PC_4="E";
            }elseif($promedio_p4=8){
-           echo "<td><b>B</b></td>";
+           echo "<td><b>MB</b></td>";
+           $PC_4="MB";
            }elseif($promedio_p4=7){
-           echo "<td><b>B</b></td>";
+           echo "<td><b>MB</b></td>";
+           $PC_4="MB";
            }elseif($promedio_p4=6){
-           echo "<td><b>D</b></td>";
+           echo "<td><b>B</b></td>";
+           $PC_4="B";
            }elseif($promedio_p4=5){
-           echo "<td><b>D</b></td>";
+           echo "<td><b>B</b></td>";
+           $PC_4="B";
            }elseif($promedio_p4=4){
-           echo "<td><b>M</b></td>";
+           echo "<td><b>D</b></td>";
+           $PC_4="D";
            }elseif($promedio_p4<=3){
-           echo "<td><b>M</b></td>";
+           echo "<td><b>D</b></td>";
+           $PC_4="D";
            }  
            echo "</table>";
        echo "</td>";
@@ -307,10 +335,33 @@ if($nombre_materia == "INGLES"){
            }elseif($promedio_inicial>=6){
                $promedio_total=$promedio_inicial;
            }
-      
+           if($promedio_total=10){
+            echo "<td><b>E</b></td>";
+            $PC="E";
+            }elseif($promedio_total=9){
+            echo "<td><b>E</b></td>";
+            $PC="E";
+            }elseif($promedio_total=8){
+            echo "<td><b>MB</b></td>";
+            $PC="MB";
+            }elseif($promedio_total=7){
+            echo "<td><b>MB</b></td>";
+            $PC="MB";
+            }elseif($promedio_total=6){
+            echo "<td><b>B</b></td>";
+            $PC="B";
+            }elseif($promedio_total=5){
+            echo "<td><b>B</b></td>";
+            $PC="B";
+            }elseif($promedio_total=4){
+            echo "<td><b>D</b></td>";
+            $PC="D";
+            }elseif($promedio_total<=3){
+            echo "<td><b>D</b></td>";
+            $PC="D";
+            }  
            echo "<td>".$col['re2']."</td>";
-           
-           echo "<td>".$promedio_total."</td>";
+           echo "<td>".$PC."</td>";
            if($promedio_total>=6){
                echo "<td class='aprobado'>APROBADO</td>";
            }else{
@@ -319,8 +370,8 @@ if($nombre_materia == "INGLES"){
             $nie=$col1['nie'];
 
             //ingreso de promedios a BD 
-            // $consulta3="UPDATE tbl_promedio SET promedio_p1='$promedio_p1', promedio_p2='$promedio_p2', promedio_p3='$promedio_p3', promedio_p4='$promedio_p4', promedio_r='0', promedio_t='$promedio_final' WHERE nie='$nie'";
-            //$query3=pg_query($con,$consulta3);
+            $consulta3="UPDATE tbl_promedio SET promedio_p1='$PC_1', promedio_p2='$PC_2', promedio_p3='$_PC3', promedio_p4='$PC_4', promedio_r='0', promedio_t='$PC' WHERE nie='$nie'";
+            $query3=pg_query($con,$consulta3);
         
         echo "</tr>";
          }
