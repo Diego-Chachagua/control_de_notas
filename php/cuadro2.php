@@ -206,7 +206,12 @@ if($nombre_materia == "INGLES"){
             //ultimas filas
             $promedio_institucional=round(($promedio_p1+$promedio_p2+$promedio_p3+$promedio_p4)/4);//calculo de promedio institucional
             echo "<td>$promedio_institucional</td>";
-            
+            if($col['avanzo']==""){
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+
+            }else{
              if($promedio_institucional<6){
                 if($col['re1']!=""){
                     $promedio_r1=round(($promedio_institucional+$col['re1'])/2);
@@ -238,7 +243,7 @@ if($nombre_materia == "INGLES"){
             $consulta3="UPDATE tbl_promedio SET promedio_p1='$promedio_p1', promedio_p2='$promedio_p2', promedio_p3='$promedio_p3', promedio_p4='$promedio_p4', promedio_f='$promedio_institucional', promedio_r='0', promedio_t='$promedio_final' WHERE nie='$nie'";
             $query3=pg_query($con,$consulta3);
            
-            
+        }
         echo "</tr>";
        }
 
