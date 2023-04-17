@@ -24,7 +24,7 @@
        <!--Formulario-->
        <div class="formulario">
             <h1 id="inicio">Inicio de sesi&oacute;n</h1>
-            <form method="post" action="materia.php">
+            <form method="post" action="info_profe.php" >
                 <div class="username">
                     <input type="text" required name="usuario">
                     <label>Nombre de usuario</label>
@@ -36,14 +36,15 @@
                 <input type="submit" value="Inciar" name="registro">
                 <div class="Registrar"></div>
                 <br>
-                <input type="submit" onclick="history.back()" name="Cancelar" value="Cancelar">
             </form>
        </div>
     </body>
 </html>
 
 <?php
-if(isset($_POST['registro'])) {//Evaluea si hay datos
+
+
+/*if(isset($_POST['registro'])) {//Evaluea si hay datos
     if (strlen($_POST['usuario']) >= 1 or strlen($_POST['contrasena']) >= 1 ) {
         session_start();
         $usuario = trim($_POST['usuario']);//Llama los datos de usuario
@@ -55,12 +56,12 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         if($cantidad>0){
             header("location: ./materia.php");
         }else{
-           echo "Datos incorrectos";
+           echo "<h1 class=datosi>Datos incorrectos</h1>";
         }
 
 
     }
 
-}
+}*/
 
 ?>

@@ -95,12 +95,15 @@
 
 <?php
 /*Conexión entre php y la base de datos "notas" de postgresql */
+session_start();
+$usuario=$_SESSION['usuario'];
 $conexion=pg_connect("host=localhost dbname=notas user=notasadmin password=incasnotas");
 
+
 //Evita el error de datos vacios de la variable $usuario
-if (isset($_POST['usuario'])) {
+if (isset($_SESSION['usuario'])) {
     //Recibe el dato de usuario de profesor del inicio de sesion del profesor
-    $usuario = $_POST['usuario'];
+    $usuario = $_SESSION['usuario'];
 
     //Extraer el valor del codigo profesor con el usuario 
     $consulta = pg_query($conexion,"SELECT cod_profe FROM tbl_usuario WHERE usuario_profe='$usuario'");
@@ -170,9 +173,7 @@ if (isset($_POST['usuario'])) {
     $usuario = null;
 }
 
-if(empty($usuario)){//Si entran a la pagina sin primero iniciar sesión lo envia a la pagina para iniciar sesión de profesor
-    header("location: ./formulario_profesor.php");
-}
+
 ?>
 
 <script type="text/javascript">
