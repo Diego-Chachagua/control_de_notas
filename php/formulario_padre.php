@@ -34,7 +34,7 @@
                  </div>
                  <input type="submit" value="Inciar" name="registro">
                  <div class="Registrar"></div>
-                 <input type="submit" name="Cancelar" value="Cancelar" onClick="../control_de_notas/formulario_padre.php"><br> 
+                 <input type="submit" onclick="history.back()" name="Cancelar" value="Cancelar"> 
              </form>
         </div>
     </body>

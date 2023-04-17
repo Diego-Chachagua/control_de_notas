@@ -35,6 +35,8 @@
                 </div>
                 <input type="submit" value="Inciar" name="registro">
                 <div class="Registrar"></div>
+                <br>
+                <input type="submit" onclick="history.back()" name="Cancelar" value="Cancelar">
             </form>
        </div>
     </body>
