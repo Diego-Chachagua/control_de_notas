@@ -148,39 +148,20 @@
        
         <div class="grid-layout2">
        
-            <form action="administrador.php" method="post">
-                <select class="opcion" name="eliminar">
+            <form action="info_admin.php" method="post">
+                <select class="opcion" name="eliminar" id="eleccion">
                     <option disabled selected="">Selecciona un opci&oacute;n:</option>
-                    <option>Maestro</option>
+                    <option value="Maestro" >Maestro</option>
                     <option>Alumno</option>
                     <option>Padre</option>
                 </select>
-                <input type="text" id="eliminar" name="cod" placeholder="Escriba el Codigo/NIE/DUI que decea borrar" >
-<?php
-include 'conexion.php';
-$con=conexion();
-if(isset($_POST['eliminar'])){
-    if(isset($_POST['cod'])){
-        $codigo=$_POST['cod'];
-    }
-    $eliminar=$_POST['eliminar'];
-    if($eliminar=="Maestros"){
-       $consulta="DELETE FROM tbl_profesor WHERE cod_profe='$codigo'";
-       $query=pg_query($con,$consulta);
-    }elseif($eliminar=="Alumno"){
-        $consulta="DELETE FROM tbl_estudiantes WHERE nie='$codigo'";
-        $query=pg_query($con,$consulta);
-    }elseif($eliminar=="Padre"){
-     $consulta="DELETE FROM tbl_padres WHERE dui='$codigo'";
-    $query=pg_query($con,$consulta);
-    
-}
-}
-?>
+                <input type="text" id="eliminar" name="cod_user" placeholder="Escriba el Codigo/NIE/DUI que decea borrar" >
+
 
         </div><br>
-        <input type="submit" id="eliminar_total"  value="Eliminar"><br><br>
+        <input type="submit" id="eliminar_total"  value="Eliminar" ><br><br>
 </form>
+
 <center>
 <form action="alumnos.php" method="post">
         <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver usuarios:</h2><br>
@@ -190,4 +171,4 @@ if(isset($_POST['eliminar'])){
         <br><input type="submit" id="usuarios"  value="Ver usuarios">
         </center>
 </form>
-    </body>
+    </body>;

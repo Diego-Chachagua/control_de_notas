@@ -317,7 +317,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
 
         <tr>
@@ -438,7 +445,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+           <?php 
+            if($mostrar1['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
 
         <tr>
@@ -559,7 +573,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar2['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
 
         <tr>
@@ -679,7 +700,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar3['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">MORAL URBANIDAD Y C&Iacute;VICA</th>
@@ -797,7 +825,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar4['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">IDIOMA EXTRANJERO</th>
@@ -915,7 +950,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar5['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">INFORM&Aacute;TICA</th>
@@ -1033,7 +1075,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar6['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
 
         <tr>
@@ -1152,7 +1201,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar7['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">SEMINARIOS</th>
@@ -1271,7 +1327,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar8['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">CURSOS DE HABILITACI&Oacute;N LABORAL</th>
@@ -1388,7 +1451,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar9['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
 
         <tr>
@@ -1507,7 +1577,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar10['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">TOMA DESICIONES DE FORMA A&Uacute;TONOMA Y RESPONSABLE</th>
@@ -1626,7 +1703,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar11['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">SE EXPRESA Y PARTICPA CON RESPETO</th>
@@ -1745,7 +1829,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar12['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="barras1">MUESTRA SENTIDO DE PERTENENCIA Y RESPETO POR NUESTRA CULTURA</th>
@@ -1864,7 +1955,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             ?>
             </th>
 
-            <th class="barras1"></th>
+            <th class="barras1">
+            <?php 
+            if($mostrar13['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
     </table><br><br>
     <h1 class="neon" data-text="ESTO SOLO APLICA PARA ESTUDIANTES DE SEGUNDO A&ntilde;O">ESTO SOLO APLICA PARA ESTUDIANTES DE SEGUNDO A&Ntilde;O</h1>
@@ -1889,7 +1987,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="avanzo3"></th>
+            <th class="avanzo3">
+            <?php 
+            if($mostrar14['avanzo']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="avanzo2">CIENCIAS NATURALES PRUEBA AVANZO</th>
@@ -1906,7 +2011,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="avanzo3"></th>
+            <th class="avanzo3">
+            <?php 
+            if($mostrar16['avanzo']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="avanzo2">ESTUDIOS SOCIALES Y C&Iacute;VICA PRUEBA AVANZO</th>
@@ -1923,7 +2035,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="avanzo3"></th>
+            <th class="avanzo3">
+            <?php 
+            if($mostrar17['avanzo']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
         <tr>
             <th class="avanzo2">MATEM&Aacute;TICA PRUEBA AVANZO</th>
@@ -1940,7 +2059,14 @@ if($mostrar28=pg_fetch_assoc($result28)){
             }
             ?>
             </th>
-            <th class="avanzo3"></th>
+            <th class="avanzo3">
+            <?php 
+            if($mostrar15['avanzo']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else{
+            echo "<h1 class='reprobado'>REPROBADO</h1>";
+            }?>
+            </th>
         </tr>
     </table><br><br>
 

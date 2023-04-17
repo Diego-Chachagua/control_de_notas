@@ -75,3 +75,12 @@ console.log(dato);
 // Guardar dato en una cookie
 document.cookie = "dato=" + dato + "; expires=Thu, 1 Jan 2030 12:00:00 UTC; path=/;";
 </script>
+<script>
+  window.onload = function(){
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"
+    window.onhashchange = function(){
+      window.location.hash = "no-back-button";
+    }
+  }
+  </script>
