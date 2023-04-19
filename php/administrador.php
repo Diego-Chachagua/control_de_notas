@@ -171,4 +171,5 @@
         <br><input type="submit" id="usuarios"  value="Ver usuarios">
         </center>
 </form>
+<a href="/control_de_notas/php/manuales.php"><input id="Imprimir" type="submit" name="Imprimir" value="AYUDA!">
     </body>;

@@ -1,3 +1,4 @@
+<?php  ob_start() ?>
 <?php
 $host = "localhost";
 $port = "5432";
@@ -15,9 +16,15 @@ $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pa
  ?>
 
 <?php
-//llamada del dato nie desde la página de hijos.php
-$nie = $_POST['niee'];
+$consulta = "SELECT nie FROM tbl_estudiantes where dui='$dui'";
+$result100 = pg_query($conn, $consulta) or die("Error en la consulta: " . pg_last_error());
+if($mostrar100=pg_fetch_assoc($result100)){
+$nie = $mostrar100['nie']
  ?>
+
+ <?php
+}
+?>
 
 <?php
 //solicitud de datos a la base materia lenguaje
@@ -25,7 +32,7 @@ $query = "SELECT tbl_estudiantes.dui, tbl_estudiantes.nie, tbl_estudiantes.nombr
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 if($mostrar=pg_fetch_assoc($result)){
 
-    //solicitud de datos a la base materia matematica
+//solicitud de datos a la base materia matematica
 $query1 = "SELECT  cod_materia, promedio_p1, promedio_p2, promedio_p3, promedio_p4, promedio_f, promedio_r, promedio_t FROM tbl_promedio where nie='$nie' and cod_materia=2";
 $result1 = pg_query($conn, $query1) or die("Error en la consulta: " . pg_last_error());
 if($mostrar1=pg_fetch_assoc($result1)) {
@@ -162,7 +169,106 @@ if($mostrar28=pg_fetch_assoc($result28)){
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+   <style> 
+   .escudo{
+    width: 150px;
+    height: 150px;
+    margin-left: 59px;
+}
+
+P{
+    color: black;
+    margin-right: 250px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.grid-layout4{
+    display: grid;
+    grid-template-columns: 30% 70%;
+   
+}
+
+.tablag{
+    width: 0px;
+    height: 30px;
+}
+
+.info{
+    width: 1100px;
+}
+
+table{
+    background-color: white;
+    border-color: #000000;
+}
+
+.info1{
+    width: 270px;
+}
+
+.info2{
+    width: 270px;
+}
+
+.info3{
+    width: 270px;
+}
+
+.info4{
+    width: 270px;
+}
+
+.info5{
+    width: 270px;
+}
+
+.colarriba1{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.colarriba2{
+    background-color: #7c7e7c;
+    width: 70px;
+}
+
+.colarriba3{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.barras1{
+    width: 350px;
+    height: 25px;
+}
+
+.barras2{
+    width: 70px;
+    height: 25px;
+}
+
+.avanzo1{
+    width: 450px;
+    background-color: #7c7e7c;
+}
+
+.resultadoa{
+    width: 900px;
+    background-color: #7c7e7c;
+}
+
+.avanzo3{
+    width: 900px;
+}
+
+.inst{
+    margin-left: 20px;
+    font-size: 40px;
+    color: white;
+}
+
+</style>
 </head>
 <body>
     <div class="grid-layout4">
@@ -184,7 +290,7 @@ if($mostrar28=pg_fetch_assoc($result28)){
         </tr>
         <tr>
             <th class="tablag">Estudiante</th>
-            <th colspan="5" class="info"><?php echo $mostrar['nombre_estudiante']." ".$mostrar['apellido_estudiante']." "."Nie:".$mostrar['nie'] ?></th> 
+            <th colspan="5" class="info"><?php echo $mostrar['nombre_estudiante']." ".$mostrar['apellido_estudiante']." "."Nie:".$mostrar['nie'] ?></th>  
         </tr>
     </table><br><br>
 
@@ -240,9 +346,7 @@ if($mostrar28=pg_fetch_assoc($result28)){
              ?></th>
              <?php
             }else{ 
-                echo "<th>";
-                echo 1;
-               echo "</th>";
+                echo 0
             ?>
             <?php
             }
@@ -446,7 +550,7 @@ if($mostrar28=pg_fetch_assoc($result28)){
             ?>
             </th>
             <th class="barras1">
-           <?php 
+            <?php 
             if($mostrar1['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
             echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
@@ -2185,6 +2289,29 @@ if($mostrar28=pg_fetch_assoc($result28)){
 <?php 
 }
 ?>
-<a download="Boleta de notas.pdf" href="/control_de_notas/php/bolet_notas.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
+<?php $html = ob_get_clean();
+//echo $html;
+
+
+
+require_once '../libreria/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('A2','letter'); 
+
+$dompdf->render();
+
+$dompdf->stream("boleta.pdf", array("Attachment" =>false));
+?>
