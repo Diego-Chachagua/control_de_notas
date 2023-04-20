@@ -45,6 +45,7 @@ $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_erro
     echo "<td>" . $row['nombre_estudiante'] . "</td>";
     echo "<td>" . $row['nie'] . "</td>";    
     echo "</tr>";
+    $_SESSION['estu'] = $row['nie'];
   }
   ?>
   </table>
@@ -57,3 +58,4 @@ pg_close($conn);
     <input type="text" class="inputn" name="niee" placeholder="Ingrese el nie de estudiante que quiere ver la boleta" ><br>
     <br><input type="submit" id="nio"  value="Ver boleta">
 </form>
+ 

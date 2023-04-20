@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 $host = "localhost";
 $port = "5432";
 $dbname = "notas";
@@ -16,7 +19,7 @@ $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pa
 
 <?php
 //llamada del dato nie desde la página de hijos.php
-$nie = $_POST['niee'];
+$nie = $_SESSION['estu'];
  ?>
 
 <?php
@@ -162,7 +165,105 @@ if($mostrar28=pg_fetch_assoc($result28)){
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+    <style>
+        .escudo{
+    width: 150px;
+    height: 150px;
+    margin-left: 59px;
+}
+
+P{
+    color: black;
+    margin-right: 250px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.grid-layout4{
+    display: grid;
+    grid-template-columns: 30% 70%;
+   
+}
+
+.tablag{
+    width: 0px;
+    height: 30px;
+}
+
+.info{
+    width: 1100px;
+}
+
+table{
+    background-color: white;
+    border-color: #000000;
+}
+
+.info1{
+    width: 270px;
+}
+
+.info2{
+    width: 270px;
+}
+
+.info3{
+    width: 270px;
+}
+
+.info4{
+    width: 270px;
+}
+
+.info5{
+    width: 270px;
+}
+
+.colarriba1{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.colarriba2{
+    background-color: #7c7e7c;
+    width: 70px;
+}
+
+.colarriba3{
+    background-color: #7c7e7c;
+    width: 350px;
+}
+
+.barras1{
+    width: 350px;
+    height: 25px;
+}
+
+.barras2{
+    width: 70px;
+    height: 25px;
+}
+
+.avanzo1{
+    width: 450px;
+    background-color: #7c7e7c;
+}
+
+.resultadoa{
+    width: 900px;
+    background-color: #7c7e7c;
+}
+
+.avanzo3{
+    width: 900px;
+}
+
+.inst{
+    margin-left: 20px;
+    font-size: 40px;
+    color: white;
+}
+    </style>
 </head>
 <body>
     <div class="grid-layout4">
@@ -2185,6 +2286,28 @@ if($mostrar28=pg_fetch_assoc($result28)){
 <?php 
 }
 ?>
-<a download="Boleta de notas.pdf" href="/control_de_notas/php/bolet_notas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
+<?php
+$html=ob_get_clean();
+//echo $html
+
+require_once '../libreria/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('A2','letter'); 
+
+$dompdf->render();
+
+$dompdf->stream("boleta.pdf", array("Attachment" =>false));
+?>

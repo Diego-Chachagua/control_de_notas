@@ -2189,7 +2189,7 @@ if($mostrar28=pg_fetch_assoc($result28)){
 <?php 
 }
 ?>
-<a download="Boleta de notas" href="/control_de_notas/php/boletas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
+<a download="Boleta de notas" href="/control_de_notas/php/bolet_notas.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
 

@@ -1,4 +1,4 @@
-<?php  ob_start() ?>
+<?php  ob_start(); ?>
 <?php
 $host = "localhost";
 $port = "5432";
