@@ -45,7 +45,7 @@
               
                 <div class="Registrar"></div>
             </form>
-            <form action="/control_de_notas/materia.php">
+            <form action="./materia.php">
             <input type="submit" onclick="history.back()" value="Cancelar"> 
             </form>
            <script>
