@@ -51,7 +51,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 450px;
+    height: 500px;
     background:url(/control_de_notas/images/fondo_t.jpg);
     background-position: center;
     background-size: cover;
@@ -579,6 +579,10 @@ table{
 
 .tablau{
     margin-left: 370px;
+}
+
+.tablae{
+    margin-left: 480px;
 }
 
 .usuario{

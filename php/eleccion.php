@@ -45,8 +45,8 @@
               
                 <div class="Registrar"></div>
             </form>
-            <form action="/control_de_notas/index.html">
-            <input type="submit" value="Cancelar">
+            <form action="./materia.php">
+            <input type="submit" onclick="history.back()" value="Cancelar"> 
             </form>
            <script>
             //creamos la funcion, capturamos el valor selecionado en variables con el DOM
