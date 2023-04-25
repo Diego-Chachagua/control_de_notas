@@ -33,35 +33,16 @@
                     <input type="password" required name="contrasena">
                     <label>Contrase&ntilde;a</label>
                 </div>
+                <br>
                 <input type="submit" value="Inciar" name="registro">
                 <div class="Registrar"></div>
-                <br>
+                <br><br>
+                <input type="submit" onclick="history.back()" name="Cancelar" value="Cancelar"> 
             </form>
        </div>
     </body>
 </html>
 
 <?php
-
-
-/*if(isset($_POST['registro'])) {//Evaluea si hay datos
-    if (strlen($_POST['usuario']) >= 1 or strlen($_POST['contrasena']) >= 1 ) {
-        session_start();
-        $usuario = trim($_POST['usuario']);//Llama los datos de usuario
-        $password = trim($_POST['contrasena']);//Llama los datos de contraseña
-        //Validad los datos
-        $query="SELECT * FROM tbl_usuario WHERE usuario_profe='$usuario' AND contrasena_profe='$password'";
-        $consulta=pg_query($conexion,$query);
-        $cantidad=pg_num_rows($consulta);
-        if($cantidad>0){
-            header("location: ./materia.php");
-        }else{
-           echo "<h1 class=datosi>Datos incorrectos</h1>";
-        }
-
-
-    }
-
-}*/
 
 ?>
