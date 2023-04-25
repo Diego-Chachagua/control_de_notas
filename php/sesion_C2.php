@@ -14,19 +14,21 @@ if($_POST['anio']==1 ){//si lo que se ingresa es año 1 redirigir al cuadro de p
     header('location: cuadro1.php');
     }
     }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
-        if($materia == 'INFORMATICA' or $materia== 'LENGUAJE' or $materia == 'INGLES' or $materia == 'LENGUAJE'){
+        if($materia == 'INFORMATICA' or $materia== 'INGLES'){
             $_SESSION['grado']=2;
+            
+            header('location: cuadro1.php');
+            }
+    }
+
+    if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
+        if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'LENGUAJE' or $materia == 'SOCIALES'){
+            $_SESSION['grado']=1;
             
             header('location: cuadro2.php');
             }
     }
-
-    if($_POST['anio']==2){
-        if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'SOCIALES' or $materia== 'LENGUAJE'){
-            $_SESSION['grado']=2;
-            header('location: cuadro2.php');
-        }
-    }
+  
 
     if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
         if($materia == 'SEMINARIO' or $materia == 'HPP' or $materia == 'OPLV' or $materia == 'MUCI'){
