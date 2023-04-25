@@ -42,10 +42,12 @@
 
                 <input type="submit" value="Aceptar" onclik="confirmacion()">
                 <div class="Registrar"></div><br>
-                <input type="submit" value="Cancelar">
+              
                 <div class="Registrar"></div>
             </form>
-           
+            <form action="/control_de_notas/index.html">
+            <input type="submit" value="Cancelar">
+            </form>
            <script>
             //creamos la funcion, capturamos el valor selecionado en variables con el DOM
   function confirmacion() {
