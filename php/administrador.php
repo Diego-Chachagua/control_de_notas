@@ -166,10 +166,40 @@
 <form action="alumnos.php" method="post">
         <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver usuarios:</h2><br>
         <input type="text" id="grado2" name="grado2" placeholder="Grado">
-        <input type="text" id="seccion2" name="seccion2" placeholder="Seccion">
+        <input type="text" id="seccion2" name="seccion2" placeholder="Seccion ej: A">
         <br><br>
         <br><input type="submit" id="usuarios"  value="Ver usuarios">
-        </center>
+        </center><br><br>
 </form>
+<center>
+<form action="estudiantes.php" method="post">
+        <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver los estudiantes:</h2><br>
+        <input type="text" id="grado2" name="grado2" placeholder="Grado">
+        <input type="text" id="seccion2" name="seccion2" placeholder="Seccion ej: A">
+        <br><br>
+        <br><input type="submit" id="usuarios"  value="Ver estudiantes">
+        </center><br><br>
+</form>
+<center>
+<form action="padre.php" method="post">
+        <h2 class="inst">Ingrese de que a&ntilde;o y secci&oacute;n desea ver los padres:</h2><br>
+        <input type="text" id="grado2" name="grado2" placeholder="Grado">
+        <input type="text" id="seccion2" name="seccion2" placeholder="Seccion ej: A">
+        <br><br>
+        <br><input type="submit" id="usuarios"  value="Ver padres">
+        </center><br><br>
+</form>
+<center>
+<form action="profesores.php" method="post">
+        <h2 class="inst">Ver profesores </h2><br>
+        <br><input type="submit" id="usuarios"  value="Ver profesores">
+        </center><br><br>
+</form>
+
+<form action="boleta_admin.php" method="post">
+    <input type="text" class="inputn" name="niee" placeholder="Ingrese el nie de estudiante que quiere ver la boleta" ><br>
+    <br><input type="submit" id="nio"  value="Ver boleta">
+</form>
+
 <a href="/control_de_notas/php/manuales.php"><input id="Imprimir" type="submit" name="Imprimir" value="AYUDA!">
     </body>;

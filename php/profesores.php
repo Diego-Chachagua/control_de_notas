@@ -23,9 +23,8 @@ $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pa
 
 <?php
 //solicitud de datos a la base
-$query = "SELECT nombre_profesor, apellido_profesor from tbl_profesor";
+$query = "SELECT nombre_profesor, apellido_profesor FROM tbl_profesor";
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
-if($mostrar=pg_fetch_assoc($result)) {
 ?>
 
 <table class="tablae" border="3">
@@ -43,6 +42,3 @@ if($mostrar=pg_fetch_assoc($result)) {
   }
   ?>
 </table>
-<?php
-}
-?>
