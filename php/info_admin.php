@@ -45,7 +45,7 @@ $query5=pg_query($con,$consulta5);
         $genero="F";
     }
     //insercion de datos en tabla estudiantes
-    $consulta1="INSERT INTO tbl_estudiantes VALUES ('$nie_estudiante','$cod_seccion','$grado','$dui_padre','$nombre_estudiante', '$apellido_estudiante','$genero')";
+    $consulta1="INSERT INTO tbl_estudiantes VALUES ('$nie_estudiante','$cod_seccion','$grado','$dui_padre','1','$nombre_estudiante', '$apellido_estudiante','$genero')";
     $query1=pg_query($con,$consulta1);
     //ingreso de notas a tabla estu_mate
     $contar=count($materias)-1;
@@ -55,12 +55,12 @@ for($i=0;$i<=$contar;$i++){
 }
 //insercion de datos en tabla notas
 for($i=0;$i<=$contar;$i++){
-$consulta3="INSERT INTO tbl_notas(nie,cod_boleta,cod_materia) VALUES ('$nie_estudiante','1','$materias[$i]') ";
+$consulta3="INSERT INTO tbl_notas(nie,cod_materia) VALUES ('$nie_estudiante','$materias[$i]') ";
 $query3=pg_query($con,$consulta3);
 }
 //insercion en tabla promedio
 for($i=0;$i<=$contar;$i++){
-$consulta4="INSERT INTO tbl_promedio(nie,cod_materia,cod_boleta) VALUES ('$nie_estudiante','$materias[$i]','1')";  
+$consulta4="INSERT INTO tbl_promedio(nie,cod_materia) VALUES ('$nie_estudiante','$materias[$i]')";  
 $query4=pg_query($con,$consulta4); 
 }
 $usuario_P=$nombre_padre.rand(1,100);
@@ -86,7 +86,7 @@ $max=6;
 $insert="INSERT INTO tbl_usuario(dui,usuario_padres,contrasena_padres) VALUES ('$dui_padre','$usuario_P','$key_p')";
 $dato_U=pg_query($con,$insert);
 
-header("location: administrador.php");
+
 
 }
 

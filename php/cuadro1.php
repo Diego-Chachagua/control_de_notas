@@ -52,7 +52,7 @@ if(isset($_COOKIE['dato'])) {
       $cod_materia = 6;
   }
   ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
