@@ -14,7 +14,7 @@
     <body>
         <h2 class="inst">Escriba los datos del alumno a registrar</h2><br>
         <h3 class="materia2">Elija las materias que llevara el alumno</h3><br>
-        <form action="info_admin.php" method="post">
+        <form action="p1_admid.php" method="post">
         <div class="materias1">
     <input type="checkbox" name="materias[]" id="materias" class="check1" value="1"> Lenguaje
     <input type="checkbox" name="materias[]" id="materias" class="check1" value="4"> Sociales
@@ -87,7 +87,7 @@
 </form>
     <h2 class="inst">Escriba los datos del profesor a registrar</h2><br>
     <h3 class="materia2">Elija las materias que llevara el Profesor</h3><br>
-    <form action="info_admin.php" method="post">
+    <form action="p2_admin.php" method="post">
         <div class="materias1" >
     <input type="checkbox" name="materias_prof[]" id="materias" class="check1" value="1"> Lenguaje
     <input type="checkbox" name="materias_prof[]" id="materias" class="check1" value="4"> Sociales
