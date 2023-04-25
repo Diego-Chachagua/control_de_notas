@@ -1,4 +1,5 @@
 <?php
+
 include 'conexion.php';
 $con=conexion();
 //entrada de datos para el registro de estudiantes
@@ -12,10 +13,30 @@ $nombre_padre=$_POST['nombre_padre'];
 $apellidos_padre=$_POST['apellidos_padre'];
 $dui_padre=$_POST['dui'];
 $nie_estudiante=$_POST['nie'];
+//ingreso de datos para maestros
+$materias_prof=$_POST['materias_prof'];//contiene en array los codigos de las materias seleccionadas del profesor
+$grado_prof=$_POST['grado_prof'];
+$seccion_prof=$_POST['secciones_prof'];
+$genero_prof=$_POST['genero_prof'];
+$nombre_prof=$_POST['nombre_profesor'];
+$apellidos_prof=$_POST['apellidos_profesor'];
+//inicio de definicion para espacio de eliminar;
+$eliminar=$_POST['eliminar'];
+$codigo=$_POST['cod_user'];
 //si algun campo esta vacio
-if($nombre_estudiante=="" || $grado=="" || $seccion=="" || $genero=="" || $apellido_estudiante=="" || $nombre_padre=="" || $apellidos_padre=="" || $dui_padre=="" ||  $nie_estudiante=="" ){
+if($nombre_estudiante=="" || $grado=="" || $seccion=="" || $genero=="" || $apellido_estudiante=="" || $nombre_padre=="" || $apellidos_padre=="" || $dui_padre=="" ||  $nie_estudiante=="" || $materias==""){
     //si cualquiera de los padres esta vacio
-  
+    echo "<script type='text/javascript'>
+    var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
+    w.document.open();
+    w.document.write('<center><br><h1>FALTO LLENAR UN CAMPO</h1><h2>Por favor complete todos los campos solicitados </h2></center>'); 
+    w.document.close();
+   </script> ";
+    sleep(2);
+    echo "<script>
+    window.location.href = 'administrador.php';
+    </script>";
+
 }else{
     //insercion de datos en tabla padre
 $consulta5="INSERT INTO tbl_padres(dui,nombre_padre,apellido_padre) VALUES ('$dui_padre','$nombre_padre','$apellidos_padre')";
@@ -86,21 +107,26 @@ $max=6;
 $insert="INSERT INTO tbl_usuario(dui,usuario_padres,contrasena_padres) VALUES ('$dui_padre','$usuario_P','$key_p')";
 $dato_U=pg_query($con,$insert);
 
-
-
+echo "<script type='text/javascript'>
+var w=window.open('','','height=200, width=400, menubar=n0, toolbar=no');
+w.document.open();
+w.document.write('<center><br><h1>DATOS DEL PROFESOR INGRESADOS CORRECTAMENTE</h1><h2>Todo salio correctamente </h2></center>'); 
+w.document.close();
+</script> ";
+sleep(2);
+echo "<script>
+window.location.href = 'administrador.php';
+</script>";
 }
 
-//ingreso de datos para maestros
-$materias_prof=$_POST['materias_prof'];//contiene en array los codigos de las materias seleccionadas del profesor
-$grado_prof=$_POST['grado_prof'];
-$seccion_prof=$_POST['secciones_prof'];
-$genero_prof=$_POST['genero_prof'];
-$nombre_prof=$_POST['nombre_profesor'];
-$apellidos_prof=$_POST['apellidos_profesor'];
-if($grado_prof=="" || $seccion_prof=="" || $genero_prof=="" || $nombre_prof=="" || $apellidos_prof="" ){
-    //si cualquiera de los campos esta vacio
+
+
+
+if($grado_prof=="" || $seccion_prof=="" || $genero_prof=="" || $nombre_prof=="" || $apellidos_prof=="" || $materias_prof==""){
+   
     
 }else{
+
 //comprobacion de genero
 if($genero_prof=="Masculino"){
     $genero_prof="M";
@@ -143,6 +169,7 @@ $codigo_p=$cod_profe+1;
 $consulta6="INSERT INTO tbl_profesor(nombre_profesor,apellido_profesor,genero) VALUES ('$nombre_prof','$apellidos_prof','$genero_prof')";
 $query6=pg_query($con,$consulta6);
 
+
 $contar_profe=count($materias_prof)-1;//contar la cantidad de elementos del array -1
 for($i=0;$i<=$contar_profe;$i++){
     $consulta10="INSERT INTO tbl_profe_materia(cod_profe,cod_materia) VALUES ('$codigo_p','$materias_prof[$i]')";
@@ -170,12 +197,10 @@ if($grado_prof=="1"){
     $query12=pg_query($con,$consulta12);
     }
 }
-header("location: administrador.php");
+
 
 }//fin de funcionalidad de bloque para el ingreso de datos del profesor
-//inicio de definicion para espacio de eliminar;
-$eliminar=$_POST['eliminar'];
-$codigo=$_POST['cod_user'];
+
 if($eliminar=="Maestro"){
     $consulta0="SELECT cod_profe FROM tbl_profesor WHERE cod_profe='$codigo'";
     $query0=pg_query($con,$consulta0);
