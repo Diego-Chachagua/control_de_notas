@@ -64,7 +64,7 @@ while($col1=pg_fetch_Array($query9)){
 }
 $codigo_p=$cod_profe+1;
 //envio de datos a tabla profesor
-$consulta6="INSERT INTO tbl_profesor(nombre_profesor,apellido_profesor,genero) VALUES ('$nombre_prof','$apellidos_prof','$genero_prof')";
+$consulta6="INSERT INTO tbl_profesor(cod_profe,nombre_profesor,apellido_profesor,genero) VALUES ('$codigo_p','$nombre_prof','$apellidos_prof','$genero_prof')";
 $query6=pg_query($con,$consulta6);
 
 
