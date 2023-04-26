@@ -246,7 +246,9 @@ if($mostrar28=pg_fetch_assoc($result28)){
              ?></th>
              <?php
             }else{ 
-                echo 0
+                echo "<th>";
+                echo 1;
+               echo "</th>";
             ?>
             <?php
             }
@@ -450,7 +452,7 @@ if($mostrar28=pg_fetch_assoc($result28)){
             ?>
             </th>
             <th class="barras1">
-            <?php 
+           <?php 
             if($mostrar1['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
             echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
@@ -831,8 +833,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar4['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar4['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar4['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar4['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1207,8 +1213,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar7['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar7['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar7['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar7['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1333,8 +1343,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar8['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar8['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1457,8 +1471,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar9['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar9['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar9['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar9['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1583,8 +1601,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar10['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar10['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar10['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar10['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1709,8 +1731,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar11['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar11['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar11['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1835,8 +1861,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar12['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar12['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar12['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar12['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1961,8 +1991,12 @@ if($mostrar28=pg_fetch_assoc($result28)){
 
             <th class="barras1">
             <?php 
-            if($mostrar13['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar13['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar13['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar13['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -2189,8 +2223,6 @@ if($mostrar28=pg_fetch_assoc($result28)){
 <?php 
 }
 ?>
-<a download="Boleta de notas" href="/control_de_notas/php/bolet_notas.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
+<a download="Boleta de notas.pdf" href="/control_de_notas/php/bolet_notas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
-
-
