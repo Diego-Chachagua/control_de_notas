@@ -2179,6 +2179,5 @@ if($mostrar28=pg_fetch_assoc($result28)){
 <?php 
 }
 ?>
-<a download="Boleta de notas.pdf" href="/control_de_notas/php/bolet_notas2.php"><input id="Imprimir" type="submit" name="Imprimir" value="Descargar">
 </body>
 </html>
