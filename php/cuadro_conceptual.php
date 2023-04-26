@@ -67,7 +67,7 @@ if($nombre_materia == "INGLES"){
 <div class="buttons">
   <a href="cuadro_conceptual.php"><input class="save " type="button" value="Actualizar" ></a><br>
   <input class="save " type="submit" value="Guardar" name="submit"><br>
-  <input class="save " type="submit" value="Imprimir" name="submit"><br>
+  <a href = "./materia.php" ><input class="save " type="submit" value="Regresar" name="submit"></a><br>
 </div>
 <!--div de la caja principal-->
     <div id="table_principal">
@@ -210,27 +210,27 @@ if($nombre_materia == "INGLES"){
            $promedio_p2=round(($col['act1_p2']+$col['act2_p2']+$col['po_p2'])/3);//calculo de promedio de segundo periodo
            echo "<td>$promedio_p2</td>";
           
-           if($promedio_p1==10){
+           if($promedio_p2==10){
             $PC_2="E";
-            }elseif($promedio_p1==9){
+            }elseif($promedio_p2==9){
             
             $PC_2="E";
-            }elseif($promedio_p1==8){
+            }elseif($promedio_p2==8){
             
             $PC_2="MB";
-            }elseif($promedio_p1==7){
+            }elseif($promedio_p2==7){
             
             $PC_2="MB";
-            }elseif($promedio_p1==6){
+            }elseif($promedio_p2==6){
             
             $PC_2="B";
-            }elseif($promedio_p1==5){
+            }elseif($promedio_p2==5){
             
             $PC_2="B";
-            }elseif($promedio_p1==4){
+            }elseif($promedio_p2==4){
             
             $PC_2="D";
-            }elseif($promedio_p1<=3){
+            }elseif($promedio_p2<=3){
             
             $PC_2="D";
             }      
@@ -248,27 +248,27 @@ if($nombre_materia == "INGLES"){
            $promedio_p3=round(($col['act1_p3']+$col['act2_p3']+$col['po_p3'])/3);//calculo de promedio de tercer periodo
            echo "<td>$promedio_p3</td>";
            
-           if($promedio_p1==10){
+           if($promedio_p3==10){
             $PC_3="E";
-            }elseif($promedio_p1==9){
+            }elseif($promedio_p3==9){
             
             $PC_3="E";
-            }elseif($promedio_p1==8){
+            }elseif($promedio_p3==8){
             
             $PC_3="MB";
-            }elseif($promedio_p1==7){
+            }elseif($promedio_p3==7){
             
             $PC_3="MB";
-            }elseif($promedio_p1==6){
+            }elseif($promedio_p3==6){
             
             $PC_3="B";
-            }elseif($promedio_p1==5){
+            }elseif($promedio_p3==5){
             
             $PC_3="B";
-            }elseif($promedio_p1==4){
+            }elseif($promedio_p3==4){
             
             $PC_3="D";
-            }elseif($promedio_p1<=3){
+            }elseif($promedio_p3<=3){
             
             $PC_3="D";
             }      
@@ -286,27 +286,27 @@ if($nombre_materia == "INGLES"){
            $promedio_p4=round(($col['act1_p4']+$col['act2_p4']+$col['po_p4'])/3);//calculo de prpomedio de cuarto periodo
            echo "<td>$promedio_p4</td>";
            
-           if($promedio_p1==10){
+           if($promedio_p4==10){
             $PC_4="E";
-            }elseif($promedio_p1==9){
+            }elseif($promedio_p4==9){
             
             $PC_4="E";
-            }elseif($promedio_p1==8){
+            }elseif($promedio_p4==8){
             
             $PC_4="MB";
-            }elseif($promedio_p1==7){
+            }elseif($promedio_p4==7){
             
             $PC_4="MB";
-            }elseif($promedio_p1==6){
+            }elseif($promedio_p4==6){
             
             $PC_4="B";
-            }elseif($promedio_p1==5){
+            }elseif($promedio_p4==5){
             
             $PC_4="B";
-            }elseif($promedio_p1==4){
+            }elseif($promedio_p4==4){
             
             $PC_4="D";
-            }elseif($promedio_p1<=3){
+            }elseif($promedio_p4<=3){
             
             $PC_4="D";
             }      
@@ -339,27 +339,27 @@ if($nombre_materia == "INGLES"){
            }elseif($promedio_inicial>=6){
                $promedio_total=$promedio_inicial;
            }
-           if($promedio_p1==10){
+           if($promedio_total==10){
             $PC="E";
-            }elseif($promedio_p1==9){
+            }elseif($promedio_total==9){
             
             $PC="E";
-            }elseif($promedio_p1==8){
+            }elseif($promedio_total==8){
             
             $PC="MB";
-            }elseif($promedio_p1==7){
+            }elseif($promedio_total==7){
             
             $PC="MB";
-            }elseif($promedio_p1==6){
+            }elseif($promedio_total==6){
             
             $PC="B";
-            }elseif($promedio_p1==5){
+            }elseif($promedio_total==5){
             
             $PC="B";
-            }elseif($promedio_p1==4){
+            }elseif($promedio_total==4){
             
             $PC="D";
-            }elseif($promedio_p1<=3){
+            }elseif($promedio_total<=3){
             
             $PC="D";
             }      

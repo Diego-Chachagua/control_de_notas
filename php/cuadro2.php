@@ -227,6 +227,8 @@ if($nombre_materia == "INGLES"){
                     $promedio_final=round(($promedio_final+$col['re2'])/2);
                 }
             }
+             }else{
+                $promedio_final=$promedio_institucional;
              }
             }
             echo "<td>$promedio_final</td>";
