@@ -427,7 +427,7 @@ table{
 
 .inst{
     margin-left: 20px;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
 }
 
@@ -618,4 +618,24 @@ table{
 .reprobado{
     font-size: 20px;
     color: #dd0909;
+}
+
+#grado2{
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 20PX;
+}
+
+#seccion2{
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 20PX;
+    width: 220px;
+}
+
+.furm{
+    font-size: 30px;
+    color: rgb(0, 0, 0);
 }
