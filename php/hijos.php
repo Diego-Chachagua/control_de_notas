@@ -9,7 +9,7 @@
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/extra2.css" media="screen"/>
     </head>
 <?php
 $host = "localhost";

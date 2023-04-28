@@ -9,7 +9,7 @@
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/extra.css" media="screen"/>
     </head>
 <?php
 $host = "localhost";
@@ -32,7 +32,7 @@ $query = "SELECT tbl_usuario.usuario_padres, tbl_estudiantes.nie, tbl_estudiante
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 ?>
 
-<table class="tablae" border="3">
+<table class="tablao" border="3">
   <tr>
     <th class="usuario">Nie</th>
     <th class="contrasena">Estudiantes</th>

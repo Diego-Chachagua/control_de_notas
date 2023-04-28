@@ -9,7 +9,7 @@
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/principal.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/control_de_notas/css/extra.css" media="screen"/>
     </head>
 <?php
 $host = "localhost";
@@ -23,12 +23,14 @@ $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pa
 
 <?php
 //solicitud de datos a la base
-$query = "SELECT nombre_profesor, apellido_profesor FROM tbl_profesor";
+$query = "SELECT nombre_profesor, apellido_profesor, usuario_profe, contrasena_profe FROM tbl_profesor INNER JOIN tbl_usuario ON tbl_profesor.cod_profe=tbl_usuario.cod_profe";
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 ?>
 
 <table class="tablae" border="3">
   <tr>
+  <th class="usuario">Usuario profesor</th>
+  <th class="usuario">Contrase&ntilde;a profesor</th>
     <th class="usuario">Nombre profesor</th>
     <th class="contrasena">Apellido profesor</th>
   </tr>
@@ -36,6 +38,8 @@ $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_erro
   //condicion para que imprima una tabla con informacion automaticamente
   while ($row = pg_fetch_assoc($result)) {
     echo "<tr>";
+    echo "<td>" . $row['usuario_profe'] . "</td>";
+    echo "<td>" . $row['contrasena_profe'] . "</td>";
     echo "<td>" . $row['nombre_profesor'] . "</td>";
     echo "<td>" . $row['apellido_profesor'] . "</td>";
     echo "</tr>";

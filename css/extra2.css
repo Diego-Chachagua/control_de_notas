@@ -1,0 +1,49 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+	background:url(/control_de_notas/images/imagen1.jpeg);
+	font-family: 'Anton', sans-serif;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+table{
+    background-color: white;
+    border-color: #000000;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 440px;
+}
+
+.usuario{
+    width: 250px;
+}
+
+.usuario{
+    background-color: #7c7e7c;
+    width: 180px;
+    text-align: center;
+}
+
+.inputn{
+    margin-left: 452px;
+    width: 350px;
+    height: 30px;
+}
+
+#nio{
+    width: 100px;
+    height: 35px;
+    border: 1px solid;
+    background: #1069ce;
+    border-radius: 0px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin-left: 575px;
+}
