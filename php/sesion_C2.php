@@ -22,7 +22,7 @@ if($_POST['anio']==2 ){//si lo que se ingresa es año 1 redirigir al cuadro de p
     }
 
     if($_POST['anio']==1  ){//si lo que se ingresa es año 1 redirigir al cuadro de primer añ0
-        if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'LENGUAJE' or $materia == 'SOCIALES'){
+        if($materia == 'MATEMATICA' or $materia == 'CIENCIAS' or $materia == 'LENGUAJE' or $materia == 'SOCIALES' or $materia == 'INFORMATICA' or $materia== 'INGLES'){
             $_SESSION['grado']=1;
             
             header('location: cuadro1.php');
@@ -38,7 +38,7 @@ if($_POST['anio']==2 ){//si lo que se ingresa es año 1 redirigir al cuadro de p
             }
     }elseif($_POST['anio']==2 ){//de lo contrario redirigir al cuadro de segundo año
         if($materia == 'SEMINARIO' or $materia == 'HPP' or $materia == 'OPLV' or $materia == 'MUCI'){
-            $_SESSION['grado']=1;
+            $_SESSION['grado']=2;
             
             header('location: cuadro_conceptual.php');
             }
