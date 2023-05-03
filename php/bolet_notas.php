@@ -169,25 +169,21 @@ if($mostrar28=pg_fetch_assoc($result28)){
         <!--Vinculaación de ficheros externos-->
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
-   <style> 
+    <style> 
    .escudo{
     width: 150px;
     height: 150px;
-    margin-left: 59px;
+    margin-left: 79px;
 }
 
-P{
+p.ti{
     color: black;
-    margin-right: 250px;
-    margin-top: 20px;
+    margin-right: -50px;
+    margin-top: -130px;
     font-size: 30px;
+    
 }
 
-.grid-layout4{
-    display: grid;
-    grid-template-columns: 30% 70%;
-   
-}
 
 .tablag{
     width: 0px;
@@ -268,12 +264,20 @@ table{
     color: white;
 }
 
+.aprobado{
+    font-size: 20px;
+}
+
+.reprobado{
+    font-size: 20px;
+}
+
 </style>
 </head>
 <body>
-    <div class="grid-layout4">
-    <img class="escudo" src="/control_de_notas/images/escudo.png">
-    <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
+    <img class="escudo" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/control_de_notas/images/escudo.png">
+    <center><p class="ti">MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N</p></center>
+    <br><br><center><p class="ti">INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
     </div><br>
     <table border="3">
         <tr>
@@ -346,7 +350,9 @@ table{
              ?></th>
              <?php
             }else{ 
-                echo 0
+                echo "<th>";
+                echo 1;
+               echo "</th>";
             ?>
             <?php
             }
@@ -550,7 +556,7 @@ table{
             ?>
             </th>
             <th class="barras1">
-            <?php 
+           <?php 
             if($mostrar1['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
             echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
@@ -931,8 +937,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar4['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar4['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar4['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar4['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1307,8 +1317,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar7['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar7['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar7['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar7['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1433,8 +1447,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar8['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar8['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1557,8 +1575,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar9['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar9['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar9['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar9['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1683,8 +1705,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar10['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar10['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar10['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar10['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1809,8 +1835,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar11['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar11['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar11['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar8['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -1935,8 +1965,12 @@ table{
             </th>
             <th class="barras1">
             <?php 
-            if($mostrar12['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar12['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar12['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar12['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>
@@ -2061,8 +2095,12 @@ table{
 
             <th class="barras1">
             <?php 
-            if($mostrar13['promedio_t']>=6){//si el promedio final es mayor a 6 mostrara en pantalla aprovado
+            if($mostrar13['promedio_t']=="E"){
             echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar13['promedio_t']=="MB"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
+            }else if($mostrar13['promedio_t']=="B"){
+                echo " <h1 class='aprobado'>APROBADO</h1>";
             }else{
             echo "<h1 class='reprobado'>REPROBADO</h1>";
             }?>

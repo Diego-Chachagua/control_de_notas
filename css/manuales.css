@@ -186,10 +186,28 @@ summary{
 
 p.info{
     padding: 15px;
-    background: #e4e4e4;
-    color: #040404;
+    background: rgb(4, 10, 39);
+    color: #e4e4e4;
 }
 
 .imagen{
     margin: -320px -100px 20px 450px;
+}
+
+.pantalla_admin{
+    width: 660px;
+    height: 345px;
+}
+.pantalla_admins{
+    width: 670px;
+}
+
+.pantalla_usuario{
+    width: 680px;
+    height: 350px;
+}
+
+.pantalla_cuadro{
+    width: 700px;
+    height: 380px;
 }

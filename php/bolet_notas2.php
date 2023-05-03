@@ -166,24 +166,20 @@ if($mostrar28=pg_fetch_assoc($result28)){
     <title>Consulta de notas INCAS</title>
     <link rel="shourt icon" href="/control_de_notas/images/incas.png">
     <style>
-        .escudo{
+          .escudo{
     width: 150px;
     height: 150px;
-    margin-left: 59px;
+    margin-left: 79px;
 }
 
-P{
+p.ti{
     color: black;
-    margin-right: 250px;
-    margin-top: 20px;
+    margin-right: -50px;
+    margin-top: -130px;
     font-size: 30px;
+    
 }
 
-.grid-layout4{
-    display: grid;
-    grid-template-columns: 30% 70%;
-   
-}
 
 .tablag{
     width: 0px;
@@ -263,12 +259,20 @@ table{
     font-size: 40px;
     color: white;
 }
+
+.aprobado{
+    font-size: 20px;
+}
+
+.reprobado{
+    font-size: 20px;
+}
     </style>
 </head>
 <body>
-    <div class="grid-layout4">
-    <img class="escudo" src="/control_de_notas/images/escudo.png">
-    <center><p>MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
+    <img class="escudo" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/control_de_notas/images/escudo.png">
+    <center><p class="ti">MINISTERIO DE EDUCACI&Oacute;N, CIENCIA Y TECNOLOGIA DE ACREDITACI&Oacute;N</p></center>
+    <br><br><center><p class="ti">INSTITUCIONAL DEPARTAMENTO DE REGISTRO ACADEMICO DE C.E</p></center>
     </div><br>
     <table border="3">
         <tr>
