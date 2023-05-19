@@ -23,7 +23,7 @@ if($nombre_estudiante=="" || $grado=="" || $seccion=="" || $genero=="" || $apell
     w.document.write('<center><br><h1>FALTO LLENAR UN CAMPO</h1><h2>Por favor complete todos los campos solicitados </h2></center>'); 
     w.document.close();
    </script> ";
-    sleep(2);
+    
     echo "<script>
     window.location.href = 'administrador.php';
     </script>";
@@ -104,7 +104,7 @@ w.document.open();
 w.document.write('<center><br><h1>DATOS DEL ALUMNO INGRESADOS CORRECTAMENTE</h1><h2>Se completo correctamente </h2></center>'); 
 w.document.close();
 </script> ";
-sleep(2);
+
 echo "<script>
 window.location.href = 'administrador.php';
 </script>";

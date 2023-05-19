@@ -18,7 +18,7 @@ if($grado_prof=="" || $seccion_prof=="" || $genero_prof=="" || $nombre_prof=="" 
     w.document.write('<center><br><h1>FALTO LLENAR CAMPOS</h1><h2>Todo salio correctamente </h2></center>'); 
     w.document.close();
     </script> ";
-    sleep(2);
+    
     echo "<script>
     window.location.href = 'administrador.php';
     </script>";
@@ -101,7 +101,7 @@ w.document.open();
 w.document.write('<center><br><h1>DATOS DEL PROFESOR INGRESADOS CORRECTAMENTE</h1><h2>Se completo correctamente </h2></center>'); 
 w.document.close();
 </script> ";
-sleep(2);
+
 echo "<script>
 window.location.href = 'administrador.php';
 </script>";

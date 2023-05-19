@@ -18,7 +18,7 @@ if($eliminar=="Maestro"){
         w.document.write('<center><br><h1>¡Maestro no encontrado!</h1><h2>Ingrese el codigo del maestro correctamente</h2></center>'); 
         w.document.close();
        </script> ";
-        sleep(2);
+        
         echo "<script>
         window.location.href = 'administrador.php';
         </script>";
@@ -39,7 +39,7 @@ if($eliminar=="Maestro"){
     w.document.write('<center><br><h1>¡BORRADO EXITOSAMENTE!</h1><h2>Se completo la accion</h2></center>'); 
     w.document.close();
    </script> ";
-    sleep(2);
+    
     echo "<script>
     window.location.href = 'administrador.php';
     </script>";
@@ -58,7 +58,7 @@ if($nie!=$codigo){
    w.document.write('<center><br><h1>¡NIE no encontrado!</h1><h2>Ingrese el NIE del estudiante correctamente</h2></center>'); 
    w.document.close();
   </script> ";
-   sleep(2);
+   
    echo "<script>
    window.location.href = 'administrador.php';
    </script>";
@@ -77,7 +77,7 @@ if($nie!=$codigo){
     w.document.write('<center><br><h1>¡BORRADO EXITOSAMENTE!</h1><h2>Se completo la accion</h2></center>'); 
     w.document.close();
    </script> ";
-    sleep(2);
+    
     echo "<script>
     window.location.href = 'administrador.php';
     </script>";
@@ -96,7 +96,7 @@ if($nie!=$codigo){
    w.document.write('<center><br><h1>¡DUI no encontrado!</h1><h2>Ingrese el Dui del padre correctamente</h2></center>'); 
    w.document.close();
   </script> ";
-   sleep(2);
+   
    echo "<script>
    window.location.href = 'administrador.php';
    </script>";
