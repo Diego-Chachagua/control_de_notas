@@ -30,12 +30,13 @@ $nie = $mostrar100['nie']
 $query = "SELECT tbl_estudiantes.dui, tbl_estudiantes.nie, tbl_estudiantes.nombre_estudiante, tbl_estudiantes.apellido_estudiante, tbl_estudiantes.cod_grado, tbl_secciones.seccion, tbl_materias.cod_materia, tbl_promedio.promedio_p1, tbl_promedio.promedio_p2, tbl_promedio.promedio_p3, tbl_promedio.promedio_p4, tbl_promedio.promedio_f, tbl_promedio.promedio_r, tbl_promedio.promedio_t FROM tbl_estudiantes INNER JOIN tbl_secciones ON tbl_secciones.cod_seccion=tbl_estudiantes.cod_seccion INNER JOIN tbl_promedio ON tbl_estudiantes.nie=tbl_promedio.nie INNER JOIN tbl_materias ON tbl_promedio.cod_materia=tbl_materias.cod_materia where tbl_estudiantes.nie='$nie' and tbl_estudiantes.dui='$dui'";
 $result = pg_query($conn, $query) or die("Error en la consulta: " . pg_last_error());
 if($mostrar=pg_fetch_assoc($result)){
-
+;
 //solicitud de datos a la base materia matematica
 $query1 = "SELECT  cod_materia, promedio_p1, promedio_p2, promedio_p3, promedio_p4, promedio_f, promedio_r, promedio_t FROM tbl_promedio where nie='$nie' and cod_materia=2";
 $result1 = pg_query($conn, $query1) or die("Error en la consulta: " . pg_last_error());
 if($mostrar1=pg_fetch_assoc($result1)) {
 
+    
 //solicitud de datos a la base materia ciencia
 $query2 = "SELECT  cod_materia, promedio_p1, promedio_p2, promedio_p3, promedio_p4, promedio_f, promedio_r, promedio_t FROM tbl_promedio where nie='$nie' and cod_materia=3";
 $result2 = pg_query($conn, $query2) or die("Error en la consulta: " . pg_last_error());
